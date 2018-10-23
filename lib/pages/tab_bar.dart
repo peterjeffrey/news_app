@@ -12,6 +12,8 @@ import 'package:news_app/pages/PageCreator.dart';
 import 'package:news_app/pages/NewsView.dart';
 import 'package:news_app/pages/TakesView.dart';
 import 'package:news_app/pages/news_page.dart';
+import 'package:news_app/pages/news_stream/PostGetter.dart';
+import 'package:news_app/pages/news_stream/social_feed.dart';
 import 'package:news_app/pages/settings.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:news_app/pages/social_page.dart';
@@ -36,7 +38,8 @@ class NavBarState extends State<NavBar> {
   int currentTab = 0;
 //  NewsView news;
   FireNewsView fireNewsView;
-  SocialPage socialPage;
+  SocialFeed socialFeed;
+//  SocialPage socialPage;
   List<Widget> views;
   Widget currentView;
   String _userEmail = "User email";
@@ -48,8 +51,10 @@ class NavBarState extends State<NavBar> {
   void initState() {
 //    news = NewsView();
     fireNewsView = FireNewsView();
-    socialPage = SocialPage();
-    views = [fireNewsView, socialPage];
+    socialFeed = SocialFeed();
+//    postGetter = PostGetter();
+//    socialPage = SocialPage();
+    views = [fireNewsView, socialFeed];
     currentView = fireNewsView;
     super.initState();
   }
