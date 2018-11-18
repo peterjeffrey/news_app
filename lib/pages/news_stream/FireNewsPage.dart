@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:news_app/pages/news_stream/CommentCollector.dart';
 import 'package:news_app/pages/news_stream/PostGetter.dart';
+import 'package:news_app/pages/news_stream/UserPostGetter.dart';
 import 'package:news_app/pages/news_stream/left_page.dart';
 import 'package:news_app/pages/news_stream/right_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -31,26 +32,29 @@ class FireNewsPage extends StatelessWidget {
         child: new ListView(
           children: <Widget>[
             new Padding(
-              padding: EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 10.0),
+              padding: EdgeInsets.fromLTRB(5.0, 15.0, 10.0, 5.0),
               child: new Column(
                 children: <Widget>[
                   new Row(
                     children: <Widget>[
-                      new Container(
-                        child: new Center(
-                          child: new Text(
-                            (rank).toString(),
-                            style: new TextStyle(
-                              color: Colors.white,
-                              fontSize: 40.0,
+                      new Padding(
+                        padding: EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 0.0),
+                        child: new Container(
+                          child: new Center(
+                            child: new Text(
+                              (rank).toString(),
+                              style: new TextStyle(
+                                color: Colors.white,
+                                fontSize: 40.0,
+                              ),
                             ),
                           ),
-                        ),
-                        width: 100.0,
-                        height: 100.0,
-                        decoration: new BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color.fromRGBO(144, 19, 254, 1.0),
+                          width: 100.0,
+                          height: 100.0,
+                          decoration: new BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color.fromRGBO(144, 19, 254, 1.0),
+                          ),
                         ),
                       ),
                       new Flexible(
@@ -163,7 +167,8 @@ class FireNewsPage extends StatelessWidget {
                                         title: header,
                                         right_content: right_content,
                                       ),
-                                  fullscreenDialog: true)),
+                                  fullscreenDialog: true),
+                          ),
                           child: new Container(
                             child: new Center(
                               child: new Column(
@@ -189,16 +194,12 @@ class FireNewsPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  new CommentCollector(),
-                  new Row(
-                    children: <Widget>[
+
                       new Container(
-                        height: 500.0,
-                        width: 300.0,
-                        child: new PostGetter(articleId: article_id,),
+                        height: 400.0,
+                        width: 800.0,
+                        child: new UserPostGetter(articleId: article_id, articleHeader: header),
                       ),
-                    ],
-                  ),
 
                 ],
               ),

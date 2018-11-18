@@ -8,8 +8,9 @@ import 'package:news_app/pages/news_stream/socialfeed_widget.dart';
 
 class PostGetter extends StatelessWidget {
   final String articleId;
+  final String posterID;
 
-  PostGetter({this.articleId});
+  PostGetter({this.articleId, this.posterID});
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +31,17 @@ class PostGetter extends StatelessWidget {
                         child: new ListView(
                           children: snapshot.data.documents
                               .map<Widget>((DocumentSnapshot document) {
-                            return new ArticleFeedWidget(
+                            return new SocialFeedWidget(
+                              filter: true,
                               article_header: document['article_title'],
                               userName: document['author'],
                               spectrumValue:
                               document['spectrum_value'].toDouble(),
+                              fullName: document['firstName'] + " " + document['lastName'],
                               comment: document['comment'],
+                              user_id: document['user_id'],
+                              postID: document.documentID,
+                              posterID: posterID,
                             );
                           }).toList(),
                         ),
@@ -51,3 +57,5 @@ class PostGetter extends StatelessWidget {
     );
   }
 }
+
+

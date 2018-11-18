@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:news_app/auth.dart';
 import 'package:news_app/components/logo.dart';
 
-
 class LoginPage extends StatefulWidget {
   LoginPage({this.auth, this.onSignedIn});
   final BaseAuth auth;
@@ -22,109 +21,18 @@ class _LoginPageState extends State<LoginPage> {
   String _email;
   String _password;
   String _username;
+  String _firstName;
+  String _lastName;
   FormType _formType = FormType.login;
-  bool _userExist = true;
+  bool _usernameValidator = false;
+  TextEditingController _usernameController = new TextEditingController();
 
-  checkUserValue<bool>(String user) {
-    _doesNameAlreadyExist(user).then((val){
-      if(val){
-        print ("UserName Already Exits");
-        _userExist = val;
-        print (_userExist);
-      }
-      else{
-        print ("UserName is Available");
-        _userExist = val;
-      }
-
-    });
-
-    return _userExist;
-
-  }
-
-
-  Future<bool> _doesNameAlreadyExist(String name) async {
-    final QuerySnapshot result = await Firestore.instance
-        .collection('user')
-        .where('username', isEqualTo: name)
-        .limit(1)
-        .getDocuments();
-    final List<DocumentSnapshot> documents = result.documents;
-    return documents.length == 1;
-  }
-
-
-
-
-
-  bool validateAndSave() {
-    final form = _formKey.currentState;
-    if (_formKey.currentState.validate()) {
-      form.save();
-      return true;
-    }
-    return false;
-  }
-
-  void validateAndSubmit() async {
-    if (validateAndSave()) {
-      try {
-        if (_formType == FormType.login) {
-          String userId =
-              await widget.auth.signInWithEmailAndPassword(_email, _password);
-          print('Signed in: ${userId}');
-        } else {
-
-
-          String userId = await widget.auth
-              .createUserWithEmailAndPassword(_email, _password);
-          print('Registered on Firebase: ${userId}');
-          String stringDocumentName = userId;
-          Firestore.instance.collection('user').document(stringDocumentName).setData(
-            {
-              'user_id': '$userId',
-              'username': '$_username',
-              'email': '$_email',
-            }
-          );
-        }
-        widget.onSignedIn();
-      } catch (e) {
-        print('Error: $e');
-      }
-    }
-  }
-
-  void moveToRegister() {
-    _formKey.currentState.reset();
-    setState(() {
-      _formType = FormType.register;
-    });
-  }
-
-  void moveToLogin() {
-    _formKey.currentState.reset();
-    setState(() {
-      _formType = FormType.login;
-    });
-  }
-
-
-  Color getColorLogin(FormType formtype) {
-    if (formtype == FormType.login) {
-      return Color.fromRGBO(144, 19, 254, 1.0);
-    } else {
-      return Colors.grey;
-    }
-  }
-
-  Color getColorRegister(FormType formtype) {
-    if (formtype == FormType.register) {
-      return Color.fromRGBO(144, 19, 254, 1.0);
-    } else {
-      return Colors.grey;
-    }
+  Future checkUser() async {
+    var user = await Firestore.instance
+        .collection('usernames')
+        .document(_usernameController.text)
+        .get();
+    return user.exists;
   }
 
   @override
@@ -133,10 +41,13 @@ class _LoginPageState extends State<LoginPage> {
       body: new Center(
         child: new Column(
           children: <Widget>[
-            new Image(
-              image: new AssetImage('assets/dogood_logo.png'),
-              width: 350.0,
-              height: 400.0,
+            new Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 80.0, 0.0, 0.0),
+              child: new Image(
+                image: new AssetImage('assets/dogood_logo.png'),
+                width: 350.0,
+                height: 200.0,
+              ),
             ),
             new Center(
               child: new Row(
@@ -145,11 +56,17 @@ class _LoginPageState extends State<LoginPage> {
                   new RaisedButton(
                       onPressed: moveToLogin,
                       color: getColorLogin(_formType),
-                      child: new Text("Login", style: new TextStyle(color: Colors.white),)),
+                      child: new Text(
+                        "Login",
+                        style: new TextStyle(color: Colors.white),
+                      )),
                   new RaisedButton(
                       color: getColorRegister(_formType),
                       onPressed: moveToRegister,
-                      child: new Text("Register", style: new TextStyle(color: Colors.white),)),
+                      child: new Text(
+                        "Register",
+                        style: new TextStyle(color: Colors.white),
+                      )),
                 ],
               ),
             ),
@@ -159,7 +76,9 @@ class _LoginPageState extends State<LoginPage> {
                 key: _formKey,
                 child: new Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: buildUsernameField() + buildInputs() + buildSubmitButtons(),
+                  children: buildUsernameField() +
+                      buildInputs() +
+                      buildSubmitButtons(),
                 ),
               ),
             ),
@@ -189,8 +108,22 @@ class _LoginPageState extends State<LoginPage> {
     if (_formType == FormType.register) {
       return [
         new TextFormField(
+          decoration: new InputDecoration(labelText: 'First Name'),
+          validator: (value) =>
+              value.isEmpty ? "Please submit your first name." : null,
+          onSaved: (value) => _firstName = value,
+        ),
+        new TextFormField(
+          decoration: new InputDecoration(labelText: 'Last Name'),
+          validator: (value) =>
+              value.isEmpty ? "Please submit your last name." : null,
+          onSaved: (value) => _lastName = value,
+        ),
+        new TextFormField(
+          controller: _usernameController,
           decoration: new InputDecoration(labelText: 'Username'),
-          validator: (value) => checkUserValue(value) ? "Username already taken" : null,
+          validator: (value) =>
+              _usernameValidator ? "Username already taken" : null,
           onSaved: (value) => _username = value,
         ),
       ];
@@ -199,17 +132,27 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-
   List<Widget> buildSubmitButtons() {
     if (_formType == FormType.login) {
       return [
         new RaisedButton(
-          child: new Text(
-            'Login',
-            style: new TextStyle(fontSize: 15.0),
-          ),
-          onPressed: validateAndSubmit,
-        ),
+            child: new Text(
+              'Login',
+              style: new TextStyle(fontSize: 15.0),
+            ),
+            onPressed: () async {
+              if (_formKey.currentState.validate()) {
+                _formKey.currentState.save();
+                try {
+                  String userId = await widget.auth
+                      .signInWithEmailAndPassword(_email, _password);
+                  print('Signed in: ${userId}');
+                  widget.onSignedIn();
+                } catch (e) {
+                  print(e);
+                }
+              }
+            }),
       ];
     } else {
       return [
@@ -218,10 +161,76 @@ class _LoginPageState extends State<LoginPage> {
             'Create Account',
             style: new TextStyle(fontSize: 15.0),
           ),
-          onPressed: validateAndSubmit,
-        ),
+          onPressed: () async {
+            var response = await checkUser();
+            setState(() {
+              this._usernameValidator = response;
+            });
+            String name = _usernameController.text;
+            print('This is the $name');
 
+            if (_formKey.currentState.validate()) {
+              _formKey.currentState.save();
+              try {
+                String userId = await widget.auth
+                    .createUserWithEmailAndPassword(_email, _password);
+                print('Registered on Firebase: ${userId}');
+                String stringDocumentName = userId;
+                Firestore.instance
+                    .collection('user')
+                    .document(stringDocumentName)
+                    .setData({
+                  'user_id': '$userId',
+                  'username': '$_username',
+                  'email': '$_email',
+                  'first_name': '$_firstName',
+                  'last_name': '$_lastName',
+                  'time': new DateTime.now(),
+                });
+                Firestore.instance
+                    .collection('usernames')
+                    .document('$_username')
+                    .setData({
+                  'user_id': '$userId',
+                });
+                widget.onSignedIn();
+              } catch (e) {
+                print(e);
+              }
+            }
+          },
+        ),
       ];
+    }
+  }
+
+  void moveToRegister() {
+    _formKey.currentState.reset();
+    setState(() {
+      _formType = FormType.register;
+    });
+  }
+
+  void moveToLogin() {
+    _formKey.currentState.reset();
+    setState(() {
+      _formType = FormType.login;
+    });
+  }
+
+  Color getColorLogin(FormType formtype) {
+    if (formtype == FormType.login) {
+      return Color.fromRGBO(144, 19, 254, 1.0);
+    } else {
+      return Colors.grey;
+    }
+  }
+
+  Color getColorRegister(FormType formtype) {
+    if (formtype == FormType.register) {
+      return Color.fromRGBO(144, 19, 254, 1.0);
+    } else {
+      return Colors.grey;
     }
   }
 }

@@ -11,8 +11,11 @@ class FirePageCreator extends StatelessWidget {
   FirePageCreator({
     Key key,
     this.nameOfNewsday,
+    this.indexPosition,
   }) : super(key: key);
+
   final String nameOfNewsday;
+  final int indexPosition;
 
   Widget _buildPage({String nameOfNewsday, int position}) {
     return new FireNewsGetter(arrayValue: position, nameOfDoc: nameOfNewsday,);
@@ -22,8 +25,11 @@ class FirePageCreator extends StatelessWidget {
     List<Widget> list = new List<Widget>();
     for (var i = 0; i < 2; i++) {
       list.add(_buildPage(position: i, nameOfNewsday: nameOfNewsday));
+      print("Position is $i");
     }
-    return PageView(children: list);
+    final controller = PageController(initialPage: indexPosition,);
+    return PageView(controller: controller ,children: list);
+
   }
 
   @override
@@ -34,45 +40,3 @@ class FirePageCreator extends StatelessWidget {
   }
 }
 
-//Future<Newsday> getNewsday(String name) {
-//  print('get Newsday $name');
-//  return Firestore.instance
-//      .collection('newsdays')
-//      .document('$name')
-//      .get()
-//      .then((snapshot) {
-//    try {
-//      return Newsday.fromSnapshot(snapshot);
-//    } catch (e) {
-//      print(e);
-//      return null;
-//    }
-//  });
-//}
-
-//class Newsday {
-//  String date;
-//  List<Article> articles = new List<Article>();
-//
-//  Newsday.fromSnapshot(DocumentSnapshot snapshot)
-//      : date = snapshot['date'],
-//        articles = List.from(snapshot['articles'].map<Article>((item) {
-//          return Article.fromMap(item);
-//        }).toList());
-//
-//}
-//
-//class Article {
-//  String header;
-//  int rank;
-//  String content;
-//  String left_content;
-//  String right_content;
-//
-//  Article.fromMap(Map<dynamic, dynamic> data)
-//      : header = data["header"],
-//        rank = data["rank"],
-//        content = data["content"],
-//        left_content = data["left_content"],
-//        right_content = data["right_content"];
-//}

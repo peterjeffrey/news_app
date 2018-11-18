@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/pages/news_stream/FireNewsView.dart';
 
 class LeftPage extends StatelessWidget {
 
@@ -12,7 +13,16 @@ class LeftPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(elevation: 0.0,),
+      appBar: new AppBar(elevation: 0.0,
+        leading: IconButton(
+          icon: Icon(Icons.close),
+          onPressed: () {
+            Navigator.pop(
+              context
+            );
+          },
+        ),
+      ),
       body: new ListView(
         children: <Widget>[
           new Padding(

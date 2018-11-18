@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/pages/respect/RespectWidget.dart';
 
 class ArticleFeedWidget extends StatelessWidget {
   final String article_header;
@@ -46,6 +47,7 @@ class ArticleFeedWidget extends StatelessWidget {
               ),
             ),
           ),
+//          new RespectWidget(respecterID: 'userID', postID: 'userpostId',),
           new Padding(
             child: new Divider(
               color: Color.fromRGBO(74, 74, 74, 1.0),

@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:news_app/pages/news_stream/socialfeed_widget.dart';
 
 class SocialFeed extends StatelessWidget {
+  final String userID;
+
+  SocialFeed({this.userID});
+
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -21,10 +26,15 @@ class SocialFeed extends StatelessWidget {
                           children: snapshot.data.documents
                               .map<Widget>((DocumentSnapshot document) {
                             return new SocialFeedWidget(
+                              filter: false,
                               article_header: document['article_title'],
                               userName: document['author'],
                               spectrumValue: document['spectrum_value'].toDouble(),
                               comment: document['comment'],
+                              fullName: document['firstName'] + " " + document['lastName'],
+                              user_id: document['user_id'],
+                              postID: document.documentID,
+                              posterID: userID,
                             );
                           }).toList(),
                         ),
