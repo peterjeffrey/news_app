@@ -88,7 +88,7 @@ class RespectWidgetState extends State<RespectWidget> {
           children: <Widget>[
 
             new Icon(
-              Icons.person,
+              Icons.star,
               color: Colors.purple,
             ),
             new Text(_totalRespects.toString()),
@@ -114,7 +114,7 @@ class RespectWidgetState extends State<RespectWidget> {
         child: new Row(
           children: <Widget>[
             new Icon(
-              Icons.person,
+              Icons.star,
               color: Colors.grey,
             ),
             new Text(_totalRespects.toString()),

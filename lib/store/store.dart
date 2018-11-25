@@ -3,5 +3,5 @@ import 'package:redux/redux.dart';
 
 class AppState{
   int currentTabIndex = 0;
-  int PageViewIndex = 0;
+  int currentPageViewIndex = 0;
 }

@@ -5,6 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/pages/news_stream/articlefeed_widget.dart';
 import 'package:news_app/pages/news_stream/socialfeed_widget.dart';
+import 'package:news_app/pages/profile/track_followers.dart';
+import 'package:news_app/pages/profile/track_following.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -27,10 +29,12 @@ class ProfilePage extends StatelessWidget {
                   );
                 String username = snapshot.data.username.toString();
                 String firstName = snapshot.data.firstName.toString();
-                String firstInitial = new String.fromCharCode(firstName.runes.first);
+                String firstInitial =
+                    new String.fromCharCode(firstName.runes.first);
                 String lastName = snapshot.data.lastName.toString();
                 String userID = snapshot.data.user_id.toString();
-                String lastInitial = new String.fromCharCode(lastName.runes.first);
+                String lastInitial =
+                    new String.fromCharCode(lastName.runes.first);
                 return new ListView(
                   children: <Widget>[
                     new Container(
@@ -45,7 +49,7 @@ class ProfilePage extends StatelessWidget {
                                 height: 100.0,
                                 child: new Center(
                                   child: new Text(
-                                    "$firstInitial"+"$lastInitial",
+                                    "$firstInitial" + "$lastInitial",
                                     style: new TextStyle(fontSize: 40.0),
                                   ),
                                 ),
@@ -59,30 +63,96 @@ class ProfilePage extends StatelessWidget {
                                 children: <Widget>[
                                   new Row(
                                     children: <Widget>[
-                                      new Padding(
-                                        padding: EdgeInsets.all(10.0),
-                                        child: new Column(
-                                          children: <Widget>[
-                                            new Text(
-                                              '100',
-                                              style: new TextStyle(fontSize: 20.0),
-                                            ),
-                                            new Text('Followers'),
-                                          ],
+                                      new FlatButton(
+                                        onPressed: () {
+                                          Navigator.of(context).push(
+                                            new MaterialPageRoute(
+                                                builder: (context) =>
+                                                    new TrackFollowers(
+                                                        userID: userID),
+                                                fullscreenDialog: true),
+                                          );
+                                        },
+                                        child: new Padding(
+                                          padding: EdgeInsets.all(10.0),
+                                          child: new Column(
+                                            children: <Widget>[
+                                              new StreamBuilder(
+                                                  stream: Firestore.instance
+                                                      .collection(
+                                                          'relationships')
+                                                      .document(userID)
+                                                      .collection('followers')
+                                                      .where("follower",
+                                                          isEqualTo: true)
+                                                      .snapshots(),
+                                                  builder: (BuildContext
+                                                          context,
+                                                      AsyncSnapshot snapshot) {
+                                                    if (snapshot.hasError) {
+                                                      return new Text("Error!");
+                                                    } else if (snapshot.data ==
+                                                        null) {
+                                                      return new Text("Null");
+                                                    } else {
+                                                      return Text(
+                                                        snapshot.data.documents
+                                                            .length
+                                                            .toString(),
+                                                        style: new TextStyle(
+                                                            fontSize: 20.0),
+                                                      );
+                                                    }
+                                                  }),
+                                              new Text('Followers'),
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                      new Padding(
-                                        padding: EdgeInsets.all(10.0),
-                                        child: new Column(
-                                          children: <Widget>[
-                                            new Text(
-                                              '100',
-                                              style: new TextStyle(fontSize: 20.0),
+                                      new FlatButton(
+                                        onPressed: () {
+                                          Navigator.of(context).push(
+                                            new MaterialPageRoute(
+                                                builder: (context) =>
+                                                new TrackFollowing(
+                                                    userID: userID),
+                                                fullscreenDialog: true),
+                                          );
+                                        },
+                                          child: new Padding(
+                                            padding: EdgeInsets.all(10.0),
+                                            child: new Column(
+                                              children: <Widget>[
+                                                new StreamBuilder(
+                                                    stream: Firestore.instance
+                                                        .collection('relationships')
+                                                        .document(userID)
+                                                        .collection('following')
+                                                        .where("following",
+                                                        isEqualTo: true)
+                                                        .snapshots(),
+                                                    builder: (BuildContext context,
+                                                        AsyncSnapshot snapshot) {
+                                                      if (snapshot.hasError) {
+                                                        return new Text("Error!");
+                                                      } else if (snapshot.data ==
+                                                          null) {
+                                                        return new Text("Null");
+                                                      } else {
+                                                        return Text(
+                                                          snapshot
+                                                              .data.documents.length
+                                                              .toString(),
+                                                          style: new TextStyle(
+                                                              fontSize: 20.0),
+                                                        );
+                                                      }
+                                                    }),
+                                                new Text('Following'),
+                                              ],
                                             ),
-                                            new Text('Following'),
-                                          ],
-                                        ),
-                                      ),
+                                          ),)
+
                                     ],
                                   ),
                                   new Row(
@@ -105,7 +175,8 @@ class ProfilePage extends StatelessWidget {
                                         style: new TextStyle(
                                           fontSize: 18.0,
                                           fontStyle: FontStyle.italic,
-                                          color: Color.fromRGBO(155, 155, 155, 1.0),
+                                          color: Color.fromRGBO(
+                                              155, 155, 155, 1.0),
                                         ),
                                       ),
                                     ],
@@ -125,31 +196,39 @@ class ProfilePage extends StatelessWidget {
                                         .collection('post')
                                         .where('author', isEqualTo: username)
                                         .getDocuments(),
-                                    builder:
-                                        (BuildContext context, AsyncSnapshot snapshot) {
-                                          if (snapshot.hasData) {
+                                    builder: (BuildContext context,
+                                        AsyncSnapshot snapshot) {
+                                      if (snapshot.hasData) {
                                         if (snapshot.data != null) {
                                           return new Column(
                                             children: <Widget>[
                                               new Expanded(
                                                 child: new ListView(
-                                                  children: snapshot.data.documents
+                                                  children: snapshot
+                                                      .data.documents
                                                       .map<Widget>(
-                                                          (DocumentSnapshot document) {
-                                                        return new SocialFeedWidget(
-                                                          article_header:
-                                                          document['article_title'],
-                                                          userName: document['author'],
-                                                          spectrumValue:
-                                                          document['spectrum_value']
-                                                              .toDouble(),
-                                                          comment: document['comment'],
-                                                          fullName: document['firstName'] + " " + document['lastName'],
-                                                          filter: false,
-                                                          postID: document.documentID,
-                                                          posterID: userID,
-                                                        );
-                                                      }).toList(),
+                                                          (DocumentSnapshot
+                                                              document) {
+                                                    return new SocialFeedWidget(
+                                                      article_header: document[
+                                                          'article_title'],
+                                                      userName:
+                                                          document['author'],
+                                                      spectrumValue: document[
+                                                              'spectrum_value']
+                                                          .toDouble(),
+                                                      comment:
+                                                          document['comment'],
+                                                      fullName: document[
+                                                              'firstName'] +
+                                                          " " +
+                                                          document['lastName'],
+                                                      filter: false,
+                                                      postID:
+                                                          document.documentID,
+                                                      posterID: userID,
+                                                    );
+                                                  }).toList(),
                                                 ),
                                               ),
                                             ],
@@ -162,7 +241,6 @@ class ProfilePage extends StatelessWidget {
                               ),
                             ),
                           ),
-
                         ],
                       ),
                     ),
@@ -175,8 +253,6 @@ class ProfilePage extends StatelessWidget {
           }
         },
       ),
-
-
     );
   }
 }
@@ -209,4 +285,3 @@ class User {
         user_id = snapshot['user_id'],
         username = snapshot['username'];
 }
-

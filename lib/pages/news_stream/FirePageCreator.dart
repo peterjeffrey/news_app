@@ -1,24 +1,28 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/pages/news_stream/FireNewsGetter.dart';
 import 'package:news_app/pages/news_page.dart';
+import 'package:news_app/reducers/main_reducer.dart';
+import 'package:news_app/store/store.dart';
 
 class FirePageCreator extends StatelessWidget {
   FirePageCreator({
     Key key,
     this.nameOfNewsday,
-    this.indexPosition,
   }) : super(key: key);
 
   final String nameOfNewsday;
-  final int indexPosition;
 
   Widget _buildPage({String nameOfNewsday, int position}) {
-    return new FireNewsGetter(arrayValue: position, nameOfDoc: nameOfNewsday,);
+    return new FireNewsGetter(
+      arrayValue: position,
+      nameOfDoc: nameOfNewsday,
+    );
   }
 
   Widget _buildPageView() {
@@ -27,16 +31,27 @@ class FirePageCreator extends StatelessWidget {
       list.add(_buildPage(position: i, nameOfNewsday: nameOfNewsday));
       print("Position is $i");
     }
-    final controller = PageController(initialPage: indexPosition,);
-    return PageView(controller: controller ,children: list);
-
+    return new StoreConnector<AppState, int>(
+      converter: (store) => store.state.currentPageViewIndex,
+      builder: (context, int pageViewIndex) {
+        return StoreConnector<AppState, Function>(
+          converter: (store) => (int input) => store.dispatch(ActionContainer(
+              type: Action.TogglePageViewIndex, payload: input)),
+          builder: (context, callback) {
+            return PageView(
+                controller: PageController(initialPage: pageViewIndex),
+                onPageChanged: callback,
+                children: list);
+          },
+        );
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        body: _buildPageView(),
+      body: _buildPageView(),
     );
   }
 }
-

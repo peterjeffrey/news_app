@@ -32,7 +32,7 @@ class FireNewsPage extends StatelessWidget {
         child: new ListView(
           children: <Widget>[
             new Padding(
-              padding: EdgeInsets.fromLTRB(5.0, 15.0, 10.0, 5.0),
+              padding: EdgeInsets.fromLTRB(0.0, 15.0, 10.0, 0.0),
               child: new Column(
                 children: <Widget>[
                   new Row(
@@ -107,8 +107,9 @@ class FireNewsPage extends StatelessWidget {
                       style: new TextStyle(
                         wordSpacing: 0.0,
                         letterSpacing: 0.1,
-                        fontSize: 15.0,
+                        fontSize: 13.0,
                       ),
+                      textAlign: TextAlign.justify,
                     ),
                   ),
                   new Row(

@@ -6,10 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:news_app/pages/news_stream/articlefeed_widget.dart';
 import 'package:news_app/pages/news_stream/socialfeed_widget.dart';
 import 'package:news_app/pages/profile/find_followers_widget.dart';
+import 'package:news_app/pages/profile/track_followers_widget.dart';
 
-class AddFollowers extends StatelessWidget {
+class TrackFollowers extends StatelessWidget {
 
-  AddFollowers({this.userID});
+  TrackFollowers({this.userID});
   final String userID;
 //  final String userId = '5lCAtUmFEybRqWE0czBYqq6St1s2';
   List<String> followingList = [];
@@ -32,15 +33,15 @@ class AddFollowers extends StatelessWidget {
           icon: Icon(Icons.close),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: new Text("Find Your Following"),
+        title: new Text("Your Followers"),
       ),
       body: new Container(
         child: new StreamBuilder<QuerySnapshot>(
             stream: Firestore.instance
                 .collection('relationships')
                 .document(userID)
-                .collection('following')
-                .where("following", isEqualTo: true)
+                .collection('followers')
+                .where("follower", isEqualTo: false)
                 .snapshots(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               if (snapshot.hasError) {
@@ -50,7 +51,7 @@ class AddFollowers extends StatelessWidget {
               } else {
                 for (var i = 0; i < snapshot.data.documents.length; i++) {
                   followingList
-                      .add(snapshot.data.documents[i]['followingID'].toString());
+                      .add(snapshot.data.documents[i]['followerID'].toString());
                 }
 //                return new Text(followersList[0].toString());
                 return new FutureBuilder(
@@ -66,12 +67,12 @@ class AddFollowers extends StatelessWidget {
                                 child: new ListView(
                                   children: snapshot2.data.documents.where((document)=> !followingList.contains(document["user_id"]))
                                       .map<Widget>((DocumentSnapshot document) {
-                                          return new FindFollowerWidget(
-                                            name: document['first_name'] + " " + document['last_name'],
-                                            username: document['username'],
-                                            otherUserID: document['user_id'],
-                                            userID: userID,
-                                          );
+                                    return new TrackFollowerWidget(
+                                      name: document['first_name'] + " " + document['last_name'],
+                                      username: document['username'],
+                                      otherUserID: document['user_id'],
+                                      userID: userID,
+                                    );
 
                                   }).toList(),
                                 ),

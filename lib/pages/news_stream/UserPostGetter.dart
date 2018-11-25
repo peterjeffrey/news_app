@@ -71,7 +71,7 @@ Stream<bool> doesNameAlreadyExist(String article, String name, String firstName,
   final QuerySnapshot result = await Firestore.instance
       .collection('post')
       .where('article', isEqualTo: article)
-      .where('author', isEqualTo: name)
+      .where('user_id', isEqualTo: user_id)
       .getDocuments();
   final List<DocumentSnapshot> documents = result.documents;
   yield documents.length == 1;

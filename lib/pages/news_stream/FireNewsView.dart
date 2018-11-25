@@ -9,12 +9,6 @@ import 'package:news_app/pages/PageCreator.dart';
 
 
 class FireNewsView extends StatelessWidget {
-  FireNewsView({
-    Key key,
-    this.indexPosition,
-  });
-
-  final int indexPosition;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +20,7 @@ class FireNewsView extends StatelessWidget {
           if (!snapshot.hasData) return new Center(child: new CircularProgressIndicator(),);
           final int newsdayCount = snapshot.data.documents.length;
           final String name = newsdayCount.toString();
-          return new FirePageCreator(nameOfNewsday: name, indexPosition: indexPosition,);
+          return new FirePageCreator(nameOfNewsday: name);
         },
       ),
     );

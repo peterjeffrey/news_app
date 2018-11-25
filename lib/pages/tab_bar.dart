@@ -50,6 +50,7 @@ class NavBarState extends State<NavBar> {
   final BaseAuth auth;
   final VoidCallback onSignedOut;
   int currentTab;
+  List<String> listOfFollowers;
 
 //  NewsView news;
   FireNewsView fireNewsView;
@@ -66,9 +67,7 @@ class NavBarState extends State<NavBar> {
     }
     debugPrint("cslling init state");
     debugPrint("previous index is ${currentTab}");
-    fireNewsView = FireNewsView(
-      indexPosition: 0,
-    );
+    fireNewsView = FireNewsView();
     socialFeed = SocialFeed(
       userID: widget.userID,
     );
@@ -77,6 +76,8 @@ class NavBarState extends State<NavBar> {
     views = [fireNewsView, socialFeed];
     super.initState();
   }
+
+
 
   void signOut() async {
     try {
@@ -95,11 +96,13 @@ class NavBarState extends State<NavBar> {
           actions: <Widget>[
             new IconButton(
               icon: new Icon(Icons.person_add),
-              onPressed: () => Navigator.of(context).push(
+              onPressed: () {
+                Navigator.of(context).push(
                     new MaterialPageRoute(
-                        builder: (context) => new AddFollowers(),
+                        builder: (context) => new AddFollowers(userID: widget.userID,),
                         fullscreenDialog: true),
-                  ),
+                  );
+              }
             ),
           ],
         ),
@@ -208,6 +211,7 @@ class NavBarState extends State<NavBar> {
     );
   }
 }
+
 
 Future<User> getUser(idNumber) {
   return Firestore.instance

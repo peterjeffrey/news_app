@@ -19,10 +19,10 @@ AppState handleUpdate(AppState input, dynamic action ){
     var container = action as ActionContainer;
     if (container.type == Action.ToggleTabIndex) {
       debugPrint("inside here");
-
       input.currentTabIndex = container.payload as int;
-    }else{
-      debugPrint(container.type.toString());
+    }
+    if (container.type == Action.TogglePageViewIndex){
+      input.currentPageViewIndex = container.payload as int;
     }
   }else{
     debugPrint("ignore");
