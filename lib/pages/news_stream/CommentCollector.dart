@@ -8,13 +8,14 @@ import 'package:news_app/pages/news_stream/UserPostGetter.dart';
 
 class CommentCollector extends StatefulWidget {
   final String articleID;
+  final String articleDate;
   final String articleTitle;
   final String userName;
   final String firstName;
   final String lastName;
   final String user_id;
   const CommentCollector(
-      {Key key, this.articleID, this.articleTitle, this.userName, this.firstName, this.lastName, this.user_id})
+      {Key key, this.articleID, this.articleTitle, this.userName, this.firstName, this.lastName, this.user_id, this.articleDate})
       : super(key: key);
 
   @override
@@ -45,7 +46,6 @@ class _CommentCollectorState extends State<CommentCollector> {
         'lastName': widget.lastName,
         'user_id': widget.user_id,
         'spectrum_value': val,
-
         'respect_count': 0,
       });
       setState(() {
@@ -66,8 +66,9 @@ class _CommentCollectorState extends State<CommentCollector> {
         return new Container(
           child: new Center(
             child: new Container(
-              padding: EdgeInsets.all(2.0),
+              padding: EdgeInsets.all(8.0),
               child: new Card(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                 elevation: 5.0,
                 child: new Form(
                   key: this._formKey,
@@ -86,20 +87,20 @@ class _CommentCollectorState extends State<CommentCollector> {
                         children: <Widget>[
                           new Text(
                             "Very\nLeft",
-                            style: new TextStyle(color: Colors.blue),
+                            style: new TextStyle(color: Color.fromRGBO(80,100, 250, 1.0),),
                           ),
                           new Slider(
                             value: val,
                             onChanged: changed,
-                            activeColor: Colors.red,
-                            inactiveColor: Colors.blue,
+                            activeColor: Color.fromRGBO(208, 35, 75, 1.0),
+                            inactiveColor: Color.fromRGBO(80,100, 250, 1.0),
                             divisions: 100,
                             max: 10.0,
                             min: 0.0,
                           ),
                           new Text(
                             "Very\nRight",
-                            style: new TextStyle(color: Colors.red),
+                            style: new TextStyle(color: Color.fromRGBO(208, 35, 75, 1.0),),
                           ),
                         ],
                       ),
@@ -134,7 +135,7 @@ class _CommentCollectorState extends State<CommentCollector> {
                           "SUBMIT",
                           style: new TextStyle(color: Colors.white),
                         ),
-                        color: Color.fromRGBO(144, 19, 254, 1.0),
+                        color: Color.fromRGBO(100, 45, 200, 1.0),
                       )
                     ],
                   ),

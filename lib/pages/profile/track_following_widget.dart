@@ -71,10 +71,10 @@ class TrackFollowingWidgetState extends State<TrackFollowingWidget> {
           child: new Text(
             "Unfollow",
             style: new TextStyle(
-              color: Colors.white,
+              color: Color.fromRGBO(100, 45, 200, 1.0),
             ),
           ),
-          color: Color.fromRGBO(144, 19, 254, 1.0),
+          color: Colors.white,
           onPressed: () {
             toggleFollower();
             Firestore.instance
@@ -95,7 +95,32 @@ class TrackFollowingWidgetState extends State<TrackFollowingWidget> {
       );
     }
     else {
-      new Text("");
+      return new RaisedButton(
+          child: new Text(
+            "Follow",
+            style: new TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          color: Color.fromRGBO(100, 45, 200, 1.0),
+          onPressed: () {
+            toggleFollower();
+            Firestore.instance
+                .collection('relationships')
+                .document(widget.userID).collection('following').document(widget.otherUserID)
+                .setData({
+              'following': true,
+              'followingID': widget.otherUserID,
+            });
+            Firestore.instance
+                .collection('relationships')
+                .document(widget.otherUserID).collection('followers').document(widget.userID)
+                .setData({
+              'follower': true,
+              'followerID': widget.userID,
+            });
+          }
+      );
     }
 
   }

@@ -89,7 +89,7 @@ class RespectWidgetState extends State<RespectWidget> {
 
             new Icon(
               Icons.star,
-              color: Colors.purple,
+              color: Color.fromRGBO(100, 45, 200, 1.0),
             ),
             new Text(_totalRespects.toString()),
           ],

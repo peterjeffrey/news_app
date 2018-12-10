@@ -9,8 +9,7 @@ import 'package:news_app/pages/news_stream/left_page.dart';
 import 'package:news_app/pages/news_stream/right_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class FireNewsPage extends StatelessWidget {
-
+class UnrankedPage extends StatelessWidget {
   final int rank;
   final String header;
   final String content;
@@ -19,24 +18,24 @@ class FireNewsPage extends StatelessWidget {
   final String article_id;
   final String article_date;
 
-  FireNewsPage(
+  UnrankedPage(
       {this.rank,
-      this.header,
-      this.content,
-      this.left_content,
-      this.right_content,
-      this.article_id,
-      this.article_date});
+        this.header,
+        this.content,
+        this.left_content,
+        this.right_content,
+        this.article_id,
+        this.article_date,
+      });
 
   @override
   Widget build(BuildContext context) {
-    double width100  = MediaQuery.of(context).size.width;
     return new Scaffold(
       body: Center(
         child: new ListView(
           children: <Widget>[
             new Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
+              padding: EdgeInsets.fromLTRB(0.0, 15.0, 10.0, 0.0),
               child: new Column(
                 children: <Widget>[
                   new Row(
@@ -46,10 +45,10 @@ class FireNewsPage extends StatelessWidget {
                         child: new Container(
                           child: new Center(
                             child: new Text(
-                              (rank).toString(),
+                              article_date,
                               style: new TextStyle(
                                 color: Colors.white,
-                                fontSize: 40.0,
+                                fontSize: 8.0,
                               ),
                             ),
                           ),
@@ -57,7 +56,7 @@ class FireNewsPage extends StatelessWidget {
                           height: 100.0,
                           decoration: new BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Color.fromRGBO(100, 45, 200, 1.0),
+                            color: Color.fromRGBO(144, 19, 254, 1.0),
                           ),
                         ),
                       ),
@@ -75,35 +74,32 @@ class FireNewsPage extends StatelessWidget {
                                   ),
                                 ),
                                 padding:
-                                    EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 10.0)),
+                                EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 10.0)),
                           ],
                         ),
                       ),
                     ],
                   ),
                   new Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: new Text(article_date,
-                      style: new TextStyle(
-                          color: Color.fromRGBO(74,74,74,1.0),
-                        fontSize: 16.0
-                      ),),
-                  ),
-                  new Padding(
                     child: new Container(
-                      width: width100,
-                      height: 50.0,
-                      color: Color.fromRGBO(100, 45, 200, 1.0),
                       child: new Center(
                         child: new Text(
                           "Just the Facts",
                           style: new TextStyle(
-                            color: Colors.white,
+                            color: Color.fromRGBO(144, 19, 254, 1.0),
                             fontSize: 16.0,
                           ),
                         ),
                       ),
-
+                      width: 300.0,
+                      height: 45.0,
+                      decoration: new BoxDecoration(
+                        border: Border.all(
+                            color: Color.fromRGBO(144, 19, 254, 1.0)),
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(15.0),
+                        color: Colors.white,
+                      ),
                     ),
                     padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 10.0),
                   ),
@@ -123,18 +119,19 @@ class FireNewsPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       new Padding(
-                        padding: EdgeInsets.fromLTRB(8.0, 8.0,25.0,8.0),
-                        child: new RaisedButton(
-                          elevation: 8,
-                          color: Color.fromRGBO(80,100, 250, 1.0),
+                        padding: EdgeInsets.all(8.0),
+                        child: new OutlineButton(
+                          borderSide: new BorderSide(
+                              color: Color.fromRGBO(74, 144, 226, 1.0)),
+                          color: Color.fromRGBO(74, 144, 226, 1.0),
                           onPressed: () => Navigator.of(context).push(
                               new MaterialPageRoute(
                                   builder: (BuildContext context) =>
-                                      new LeftPage(
-                                        rank: rank,
-                                        title: header,
-                                        left_content: left_content,
-                                      ),
+                                  new LeftPage(
+                                    rank: rank,
+                                    title: header,
+                                    left_content: left_content,
+                                  ),
                                   fullscreenDialog: true)),
                           child: new Container(
                             child: new Center(
@@ -145,9 +142,13 @@ class FireNewsPage extends StatelessWidget {
                                     "Left Opinion",
                                     style: new TextStyle(
                                         color:
-                                            Colors.white),
+                                        Color.fromRGBO(74, 144, 226, 1.0)),
                                     textAlign: TextAlign.center,
                                   ),
+                                  new Icon(
+                                    Icons.launch,
+                                    color: Color.fromRGBO(74, 144, 226, 1.0),
+                                  )
                                 ],
                               ),
                             ),
@@ -157,19 +158,20 @@ class FireNewsPage extends StatelessWidget {
                         ),
                       ),
                       new Padding(
-                        padding: EdgeInsets.fromLTRB(25.0, 8.0,8.0,8.0),
-                        child: new RaisedButton(
-                          elevation: 8,
-                          color: Color.fromRGBO(208, 35, 75, 1.0),
+                        padding: EdgeInsets.all(8.0),
+                        child: new OutlineButton(
+                          borderSide: new BorderSide(
+                              color: Color.fromRGBO(208, 2, 27, 1.0)),
+                          color: Color.fromRGBO(208, 2, 27, 1.0),
                           onPressed: () => Navigator.of(context).push(
-                              new MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      new RightPage(
-                                        rank: rank,
-                                        title: header,
-                                        right_content: right_content,
-                                      ),
-                                  fullscreenDialog: true),
+                            new MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                new RightPage(
+                                  rank: rank,
+                                  title: header,
+                                  right_content: right_content,
+                                ),
+                                fullscreenDialog: true),
                           ),
                           child: new Container(
                             child: new Center(
@@ -180,8 +182,12 @@ class FireNewsPage extends StatelessWidget {
                                     "Right Opinion",
                                     textAlign: TextAlign.center,
                                     style: new TextStyle(
-                                        color: Colors.white),
+                                        color: Color.fromRGBO(208, 2, 27, 1.0)),
                                   ),
+                                  new Icon(
+                                    Icons.launch,
+                                    color: Color.fromRGBO(208, 2, 27, 1.0),
+                                  )
                                 ],
                               ),
                             ),
@@ -193,11 +199,11 @@ class FireNewsPage extends StatelessWidget {
                     ],
                   ),
 
-                      new Container(
-                        height: 400.0,
-                        width: 800.0,
-                        child: new UserPostGetter(articleId: article_id, articleHeader: header),
-                      ),
+                  new Container(
+                    height: 400.0,
+                    width: 800.0,
+                    child: new UserPostGetter(articleId: article_id, articleHeader: header),
+                  ),
 
                 ],
               ),

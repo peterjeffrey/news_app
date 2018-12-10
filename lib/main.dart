@@ -38,8 +38,8 @@ class PublickState extends State<PublickApp> {
         child: new MaterialApp(
           theme: ThemeData(
             primaryColor: Color.fromRGBO(250, 250, 250, 1.0),
-            hintColor: Color.fromRGBO(144, 19, 254, 1.0),
-            cursorColor: Color.fromRGBO(144, 19, 254, 1.0),
+            hintColor: Color.fromRGBO(100, 45, 200, 1.0),
+            cursorColor: Color.fromRGBO(100, 45, 200, 1.0),
           ),
           home: new RootPage(auth: new Auth()),
           routes: <String, WidgetBuilder>{

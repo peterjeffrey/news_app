@@ -74,7 +74,7 @@ class TrackFollowerWidgetState extends State<TrackFollowerWidget> {
               color: Colors.white,
             ),
           ),
-          color: Color.fromRGBO(144, 19, 254, 1.0),
+          color: Color.fromRGBO(208, 2, 27, 1.0),
           onPressed: () {
             toggleFollower();
             Firestore.instance
@@ -95,7 +95,32 @@ class TrackFollowerWidgetState extends State<TrackFollowerWidget> {
       );
     }
     else {
-      new Text("");
+      return new RaisedButton(
+          child: new Text(
+            "Unblock",
+            style: new TextStyle(
+              color: Color.fromRGBO(208, 2, 27, 1.0),
+            ),
+          ),
+          color: Colors.white,
+          onPressed: () {
+            toggleFollower();
+            Firestore.instance
+                .collection('relationships')
+                .document(widget.userID).collection('followers').document(widget.otherUserID)
+                .setData({
+              'follower': true,
+              'followerID': widget.otherUserID,
+            });
+            Firestore.instance
+                .collection('relationships')
+                .document(widget.otherUserID).collection('following').document(widget.userID)
+                .setData({
+              'following': true,
+              'followingID': widget.userID,
+            });
+          }
+      );
     }
 
   }

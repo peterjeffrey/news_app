@@ -13,7 +13,7 @@ class TrackFollowers extends StatelessWidget {
   TrackFollowers({this.userID});
   final String userID;
 //  final String userId = '5lCAtUmFEybRqWE0czBYqq6St1s2';
-  List<String> followingList = [];
+  List<String> followerList = [];
 
 //  Stream<List<String>> getFollowers(userId) async {
 //    Firestore.instance
@@ -41,7 +41,7 @@ class TrackFollowers extends StatelessWidget {
                 .collection('relationships')
                 .document(userID)
                 .collection('followers')
-                .where("follower", isEqualTo: false)
+                .where("follower", isEqualTo: true)
                 .snapshots(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               if (snapshot.hasError) {
@@ -50,7 +50,7 @@ class TrackFollowers extends StatelessWidget {
                 return new Text("Null");
               } else {
                 for (var i = 0; i < snapshot.data.documents.length; i++) {
-                  followingList
+                  followerList
                       .add(snapshot.data.documents[i]['followerID'].toString());
                 }
 //                return new Text(followersList[0].toString());
@@ -65,7 +65,7 @@ class TrackFollowers extends StatelessWidget {
                             children: <Widget>[
                               new Expanded(
                                 child: new ListView(
-                                  children: snapshot2.data.documents.where((document)=> !followingList.contains(document["user_id"]))
+                                  children: snapshot2.data.documents.where((document)=> followerList.contains(document["user_id"]))
                                       .map<Widget>((DocumentSnapshot document) {
                                     return new TrackFollowerWidget(
                                       name: document['first_name'] + " " + document['last_name'],

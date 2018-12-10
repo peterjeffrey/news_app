@@ -193,6 +193,20 @@ class _LoginPageState extends State<LoginPage> {
                     .setData({
                   'user_id': '$userId',
                 });
+                Firestore.instance
+                    .collection('relationships')
+                    .document('$userId').collection('followers').document('$userId')
+                    .setData({
+                  'followerID': '$userId',
+                  'follower': true,
+                });
+                Firestore.instance
+                    .collection('relationships')
+                    .document('$userId').collection('following').document('$userId')
+                    .setData({
+                  'followingID': '$userId',
+                  'following': true,
+                });
                 widget.onSignedIn();
               } catch (e) {
                 print(e);

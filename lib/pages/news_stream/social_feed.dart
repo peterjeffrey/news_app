@@ -7,45 +7,70 @@ class SocialFeed extends StatelessWidget {
 
   SocialFeed({this.userID});
 
+  List<String> followingList = [];
+
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Container(
-        child: new FutureBuilder(
-            future: Firestore.instance
-                .collection('post')
-                .getDocuments(),
+        child: new StreamBuilder<QuerySnapshot>(
+            stream: Firestore.instance
+                .collection('relationships')
+                .document(userID)
+                .collection('following')
+                .where("following", isEqualTo: true)
+                .snapshots(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
-              if (snapshot.hasData) {
-                if (snapshot.data != null) {
-                  return new Column(
-                    children: <Widget>[
-                      new Expanded(
-                        child: new ListView(
-                          children: snapshot.data.documents
-                              .map<Widget>((DocumentSnapshot document) {
-                            return new SocialFeedWidget(
-                              filter: false,
-                              article_header: document['article_title'],
-                              userName: document['author'],
-                              spectrumValue: document['spectrum_value'].toDouble(),
-                              comment: document['comment'],
-                              fullName: document['firstName'] + " " + document['lastName'],
-                              user_id: document['user_id'],
-                              postID: document.documentID,
-                              posterID: userID,
-                            );
-                          }).toList(),
-                        ),
-                      ),
-                    ],
-                  );
+              if (snapshot.hasError) {
+                return new Text("Error!");
+              } else if (snapshot.data == null) {
+                return new Text("Null");
+              } else {
+                for (var i = 0; i < snapshot.data.documents.length; i++) {
+                  followingList
+                      .add(snapshot.data.documents[i]['followingID'].toString());
                 }
-              }else {
-                return new CircularProgressIndicator();
+//                return new Text(followersList[0].toString());
+                return new FutureBuilder(
+                    future: Firestore.instance
+                        .collection('post')
+                        .getDocuments(),
+                    builder: (BuildContext context, AsyncSnapshot snapshot2) {
+                      if (snapshot2.hasData) {
+                        if (snapshot2.data != null) {
+                          return new Column(
+                            children: <Widget>[
+                              new Expanded(
+                                child: new ListView(
+                                  children: snapshot2.data.documents.where((document)=> followingList.contains(document["user_id"]))
+                                      .map<Widget>((DocumentSnapshot document) {
+                                    return new SocialFeedWidget(
+                                      filter: false,
+                                      articleID: document['article'],
+                                      article_header: document['article_title'],
+                                      userName: document['author'],
+                                      spectrumValue: document['spectrum_value'].toDouble(),
+                                      comment: document['comment'],
+                                      fullName: document['firstName'] + " " + document['lastName'],
+                                      user_id: document['user_id'],
+                                      postID: document.documentID,
+                                      posterID: userID,
+                                    );
+                                  }).toList(),
+                                ),
+                              ),
+                            ],
+                          );
+                        }
+                      }else {
+                        return new CircularProgressIndicator();
+                      }
+                    });
               }
-            }),),
+            }),
+
+),
     );
 
   }

@@ -14,14 +14,7 @@ class AddFollowers extends StatelessWidget {
 //  final String userId = '5lCAtUmFEybRqWE0czBYqq6St1s2';
   List<String> followingList = [];
 
-//  Stream<List<String>> getFollowers(userId) async {
-//    Firestore.instance
-//        .collection('relationships')
-//        .document(userId)
-//        .collection('followers')
-//        .where("follower", isEqualTo: true)
-//        .snapshots();
-//  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +45,6 @@ class AddFollowers extends StatelessWidget {
                   followingList
                       .add(snapshot.data.documents[i]['followingID'].toString());
                 }
-//                return new Text(followersList[0].toString());
                 return new FutureBuilder(
                     future: Firestore.instance
                         .collection('user')

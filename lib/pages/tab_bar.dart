@@ -195,7 +195,7 @@ class NavBarState extends State<NavBar> {
                     return new CupertinoTabBar(
                         currentIndex: currentIndex ,
                         onTap: callback,
-                        activeColor: Color.fromRGBO(144, 19, 254, 1.0),
+                        activeColor: Color.fromRGBO(100, 45, 200, 1.0),
                         items: const <BottomNavigationBarItem>[
                           const BottomNavigationBarItem(
                             icon: const Icon(Icons.subject),

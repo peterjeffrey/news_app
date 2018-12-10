@@ -9,10 +9,11 @@ import 'package:news_app/pages/profile/find_followers_widget.dart';
 import 'package:news_app/pages/profile/track_followers_widget.dart';
 import 'package:news_app/pages/profile/track_following_widget.dart';
 
-class TrackFollowing extends StatelessWidget {
+class OtherUserFollowing extends StatelessWidget {
 
-  TrackFollowing({this.userID});
+  OtherUserFollowing({this.userID, this.userName});
   final String userID;
+  final String userName;
 //  final String userId = '5lCAtUmFEybRqWE0czBYqq6St1s2';
   List<String> followingList = [];
 
@@ -34,7 +35,7 @@ class TrackFollowing extends StatelessWidget {
           icon: Icon(Icons.close),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: new Text("Who You Follow"),
+        title: new Text(userName + " Follows"),
       ),
       body: new Container(
         child: new StreamBuilder<QuerySnapshot>(
@@ -70,12 +71,42 @@ class TrackFollowing extends StatelessWidget {
                                 child: new ListView(
                                   children: snapshot2.data.documents.where((document)=> followingList.contains(document["user_id"]))
                                       .map<Widget>((DocumentSnapshot document) {
-                                    return new TrackFollowingWidget(
-                                      name: document['first_name'] + " " + document['last_name'],
-                                      username: document['username'],
-                                      otherUserID: document['user_id'],
-                                      userID: userID,
+                                    return new Padding(
+                                      padding: EdgeInsets.fromLTRB(20.0, 5.0, 40.0, 5.0),
+                                      child: new Column(
+                                        children: <Widget>[
+                                          new Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: <Widget>[
+                                              new Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: <Widget>[
+                                                  new Text(
+                                                    document['first_name'] + " " + document['last_name'],
+                                                    style: new TextStyle(
+                                                      fontSize: 18.0,
+                                                    ),
+                                                  ),
+                                                  new Text(
+                                                    "@" + document['username'],
+                                                    style: new TextStyle(
+                                                      color: Colors.grey,
+                                                    ),
+                                                  )],
+                                              ),
+
+                                            ],
+                                          ),
+                                          new Divider(height: 40.0,color: Colors.grey,),
+                                        ],
+                                      ),
                                     );
+//                                    return new TrackFollowingWidget(
+//                                      name: document['first_name'] + " " + document['last_name'],
+//                                      username: document['username'],
+//                                      otherUserID: document['user_id'],
+//                                      userID: userID,
+//                                    );
 
                                   }).toList(),
                                 ),

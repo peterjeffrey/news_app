@@ -30,6 +30,7 @@ class FireNewsGetter extends StatelessWidget {
               left_content: r.articles[arrayValue].left_content,
               right_content: r.articles[arrayValue].right_content,
               article_id: r.articles[arrayValue].article_id,
+              article_date: r.articles[arrayValue].article_date,
             );
           }),
     );
@@ -69,6 +70,8 @@ class Article {
   String left_content;
   String right_content;
   String article_id;
+  String article_date;
+
 
   Article.fromMap(Map<dynamic, dynamic> data)
       : header = data["header"],
@@ -76,5 +79,6 @@ class Article {
         content = data["content"],
         left_content = data["left_content"],
         right_content = data["right_content"],
+        article_date = data["date"],
         article_id = data["article_id"];
 }
