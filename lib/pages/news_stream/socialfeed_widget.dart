@@ -82,7 +82,7 @@ class SocialFeedWidget extends StatelessWidget {
               children: <Widget>[
                 new Container(
                   margin: EdgeInsets.only(left: 0.0),
-                  child: new FlatButton(
+                  child: new InkWell(
 //                  child: new Expanded(
                     child: new Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,11 +97,11 @@ class SocialFeedWidget extends StatelessWidget {
                           "@$userName",
                           textAlign: TextAlign.left,
                           style: new TextStyle(
-                              fontStyle: FontStyle.italic, fontSize: 13.0),
+                               fontSize: 13.0),
                         ),
                       ],
                     ),
-                    onPressed: () => Navigator.of(context).push(
+                    onTap: () => Navigator.of(context).push(
                       new MaterialPageRoute(
                           builder: (BuildContext context) =>
                           new GetOtherProfilePage(posterID: user_id,),

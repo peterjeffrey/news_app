@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/auth.dart';
 import 'package:news_app/components/logo.dart';
+import 'package:news_app/pages/ResetPassword.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({this.auth, this.onSignedIn});
@@ -78,7 +80,8 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: buildUsernameField() +
                       buildInputs() +
-                      buildSubmitButtons(),
+                      buildSubmitButtons() +
+                  buildPasswordReset(),
                 ),
               ),
             ),
@@ -86,6 +89,27 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  List<Widget> buildPasswordReset() {
+    return [
+      new Padding(
+        padding: EdgeInsets.only(top: 20.0),
+        child: new InkWell(
+          onTap: () => Navigator.of(context).push(
+            new MaterialPageRoute(
+                builder: (BuildContext context) =>
+                new ResetPassword(auth: widget.auth,),
+                ),
+          ),
+          child: new Text(
+            "Reset Password? Click here.",
+            style: new TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
+
+    ];
   }
 
   List<Widget> buildInputs() {
@@ -190,6 +214,12 @@ class _LoginPageState extends State<LoginPage> {
                 Firestore.instance
                     .collection('usernames')
                     .document('$_username')
+                    .setData({
+                  'user_id': '$userId',
+                });
+                Firestore.instance
+                    .collection('emails')
+                    .document('$_email')
                     .setData({
                   'user_id': '$userId',
                 });
