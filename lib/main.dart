@@ -37,7 +37,7 @@ class PublickState extends State<PublickApp> {
         store: widget.store,
         child: new MaterialApp(
           theme: ThemeData(
-            fontFamily: 'Quicksand',
+            fontFamily: 'NotoSans',
             primaryColor: Color.fromRGBO(250, 250, 250, 1.0),
             hintColor: Color.fromRGBO(100, 45, 200, 1.0),
             cursorColor: Color.fromRGBO(100, 45, 200, 1.0),
