@@ -12,6 +12,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:news_app/reducers/main_reducer.dart';
 
 void main() {
+  print("App starting");
   // Create your store as a final variable in a base Widget. This works better
   // with Hot Reload than creating it directly in the `build` function.
   final store = new Store<AppState>(handleUpdate, initialState: AppState());

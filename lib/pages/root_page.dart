@@ -22,6 +22,7 @@ class _RootPageState extends State<RootPage> {
   AuthStatus authStatus = AuthStatus.notSignedIn;
 
   void initState() {
+    print("authStatus is $authStatus");
     super.initState();
     widget.auth.currentUser().then((userId) {
       setState(() {
@@ -47,6 +48,7 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
     switch (authStatus) {
       case AuthStatus.notSignedIn:
+        print("made it to return login");
         return new LoginPage(
           auth: widget.auth,
           onSignedIn: _signedIn,

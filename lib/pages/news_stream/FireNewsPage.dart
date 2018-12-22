@@ -110,7 +110,7 @@ class FireNewsPage extends StatelessWidget {
                   new Padding(
                     padding: EdgeInsets.all(10.0),
                     child: new Text(
-                      content,
+                      content.replaceAll("\\n", "\n\n"),
                       style: new TextStyle(
                         wordSpacing: 0.0,
                         letterSpacing: 0.1,

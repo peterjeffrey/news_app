@@ -22,10 +22,11 @@ class FindFollowerWidgetState extends State<FindFollowerWidget> {
   FindFollowerWidgetState();
   bool _followMe;
 
+
   @override
-//  void initState() {
-//    _followMe = false;
-//  }
+  void initState() {
+    _followMe = false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,34 +57,7 @@ class FindFollowerWidgetState extends State<FindFollowerWidget> {
               ),
               new Column(
                 children: <Widget>[
-                  new RaisedButton(
-                      child: new Text(
-                        "Follow",
-                        style: new TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                      color: Color.fromRGBO(100, 45, 200, 1.0),
-                      onPressed: () {
-                        Firestore.instance
-                            .collection('relationships')
-                            .document(widget.userID)
-                            .collection('following')
-                            .document(widget.otherUserID)
-                            .setData({
-                          'following': true,
-                          'followingID': widget.otherUserID,
-                        });
-                        Firestore.instance
-                            .collection('relationships')
-                            .document(widget.otherUserID)
-                            .collection('followers')
-                            .document(widget.userID)
-                            .setData({
-                          'follower': true,
-                          'followerID': widget.userID,
-                        });
-                      }),
+                  buildFollowButtons(),
                 ],
               )
             ],
@@ -97,77 +71,56 @@ class FindFollowerWidgetState extends State<FindFollowerWidget> {
     );
   }
 
-//  Widget buildFollowButtons() {
-//    if (_followMe == false) {
-//      return new RaisedButton(
-//          child: new Text(
-//            "Follow",
-//            style: new TextStyle(
-//              color: Colors.white,
-//            ),
-//          ),
-//          color: Color.fromRGBO(144, 19, 254, 1.0),
-//          onPressed: () {
-//            Firestore.instance
-//                .collection('relationships')
-//                .document(widget.userID)
-//                .collection('following')
-//                .document(widget.otherUserID)
-//                .setData({
-//              'following': true,
-//              'followingID': widget.otherUserID,
-//            });
-//            Firestore.instance
-//                .collection('relationships')
-//                .document(widget.otherUserID)
-//                .collection('followers')
-//                .document(widget.userID)
-//                .setData({
-//              'follower': true,
-//              'followerID': widget.userID,
-//            });
-//          });
-//    }
-//    else {
-//      return new RaisedButton(
-//        child: new Text(
-//          "Unfollow",
-//          style: new TextStyle(
-//            color: Color.fromRGBO(144, 19, 254, 1.0),
-//          ),
-//        ),
-//        color: Colors.white,
-//          onPressed: () {
-//            toggleFollower();
-//            Firestore.instance
-//                .collection('relationships')
-//                .document(widget.userID).collection('following').document(widget.otherUserID)
-//                .setData({
-//              'following': false,
-//              'followingID': widget.otherUserID,
-//            });
-//            Firestore.instance
-//                .collection('relationships')
-//                .document(widget.otherUserID).collection('followers').document(widget.userID)
-//                .setData({
-//              'follower': false,
-//              'followerID': widget.userID,
-//            });
-//          }
-//
-//      );
-//    }
+  Widget buildFollowButtons() {
+    if (_followMe == false) {
+      return new RaisedButton(
+          child: new Text(
+            "Follow",
+            style: new TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          color: Color.fromRGBO(100, 45, 200, 1.0),
+          onPressed: () {
+            toggleFollower();
+            Firestore.instance
+                .collection('relationships')
+                .document(widget.userID)
+                .collection('following')
+                .document(widget.otherUserID)
+                .setData({
+              'following': true,
+              'followingID': widget.otherUserID,
+            });
+            Firestore.instance
+                .collection('relationships')
+                .document(widget.otherUserID)
+                .collection('followers')
+                .document(widget.userID)
+                .setData({
+              'follower': true,
+              'followerID': widget.userID,
+            });
+          });
+    }
+    else {
+      return new Text(
+          "Following",
+        style: TextStyle(color: Color.fromRGBO(100, 45, 200, 1.0),),
+      );
+    }
+  }
 
 
-//  void toggleFollower() {
-//    if (_followMe == false) {
-//      setState(() {
-//        _followMe = true;
-//      });
-//    } else {
-//      setState(() {
-//        _followMe = false;
-//      });
-//    }
-//  }
+  void toggleFollower() {
+    if (_followMe == false) {
+      setState(() {
+        _followMe = true;
+      });
+    } else {
+      setState(() {
+        _followMe = false;
+      });
+    }
+  }
 }

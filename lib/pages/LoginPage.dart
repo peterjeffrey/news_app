@@ -41,49 +41,53 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Center(
-        child: new Column(
+        child: new ListView(
           children: <Widget>[
-            new Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 80.0, 0.0, 0.0),
-              child: new Image(
-                image: new AssetImage('assets/dogood_logo.png'),
-                width: 350.0,
-                height: 200.0,
-              ),
-            ),
-            new Center(
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  new RaisedButton(
-                      onPressed: moveToLogin,
-                      color: getColorLogin(_formType),
-                      child: new Text(
-                        "Login",
-                        style: new TextStyle(color: Colors.white),
-                      )),
-                  new RaisedButton(
-                      color: getColorRegister(_formType),
-                      onPressed: moveToRegister,
-                      child: new Text(
-                        "Register",
-                        style: new TextStyle(color: Colors.white),
-                      )),
-                ],
-              ),
-            ),
-            new Container(
-              padding: EdgeInsets.all(16.0),
-              child: new Form(
-                key: _formKey,
-                child: new Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: buildUsernameField() +
-                      buildInputs() +
-                      buildSubmitButtons() +
-                  buildPasswordReset(),
+            new Column(
+              children: <Widget>[
+                new Padding(
+                  padding: EdgeInsets.fromLTRB(0.0, 80.0, 0.0, 0.0),
+                  child: new Image(
+                    image: new AssetImage('assets/dogood_logo.png'),
+                    width: 350.0,
+                    height: 200.0,
+                  ),
                 ),
-              ),
+                new Center(
+                  child: new Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      new RaisedButton(
+                          onPressed: moveToLogin,
+                          color: getColorLogin(_formType),
+                          child: new Text(
+                            "Login",
+                            style: new TextStyle(color: Colors.white),
+                          )),
+                      new RaisedButton(
+                          color: getColorRegister(_formType),
+                          onPressed: moveToRegister,
+                          child: new Text(
+                            "Register",
+                            style: new TextStyle(color: Colors.white),
+                          )),
+                    ],
+                  ),
+                ),
+                new Container(
+                  padding: EdgeInsets.all(16.0),
+                  child: new Form(
+                    key: _formKey,
+                    child: new Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: buildUsernameField() +
+                          buildInputs() +
+                          buildSubmitButtons() +
+                          buildPasswordReset(),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

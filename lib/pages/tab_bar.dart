@@ -17,6 +17,7 @@ import 'package:news_app/pages/news_stream/PostGetter.dart';
 import 'package:news_app/pages/news_stream/social_feed.dart';
 import 'package:news_app/pages/profile/ProfilePage.dart';
 import 'package:news_app/pages/profile/find_followers.dart';
+import 'package:news_app/pages/profile/find_followers_search.dart';
 import 'package:news_app/pages/settings.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:news_app/pages/social_page.dart';
@@ -51,6 +52,7 @@ class NavBarState extends State<NavBar> {
   final VoidCallback onSignedOut;
   int currentTab;
   List<String> listOfFollowers;
+  List<String> followingUIDList = [];
 
 //  NewsView news;
   FireNewsView fireNewsView;
@@ -89,11 +91,19 @@ class NavBarState extends State<NavBar> {
   }
 
   @override
-  Widget build(BuildContext) {
+  Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
           elevation: 0.0,
           actions: <Widget>[
+//            new IconButton(
+//                icon: new Icon(Icons.person_add),
+//                onPressed: () {
+//
+//                  var listToPass = [UserFollower("Peter", "PJ"), UserFollower("Jonathan", "JJ")];
+//                  showSearch(context: context, delegate: FindFollowersSearch(friendsList: listToPass));
+//                }
+//            ),
             new IconButton(
               icon: new Icon(Icons.person_add),
               onPressed: () {
@@ -211,6 +221,13 @@ class NavBarState extends State<NavBar> {
     );
   }
 }
+//  return new StreamBuilder<QuerySnapshot>(
+//      stream: Firestore.instance
+//      .collection('relationships')
+//      .document(userID)
+//      .collection('following')
+//      .where("following", isEqualTo: true)
+//      .snapshots(),
 
 
 Future<User> getUser(idNumber) {
