@@ -67,8 +67,7 @@ class NavBarState extends State<NavBar> {
     if (this.currentTab == null) {
       this.currentTab = 0;
     }
-    debugPrint("cslling init state");
-    debugPrint("previous index is ${currentTab}");
+
     fireNewsView = FireNewsView();
     socialFeed = SocialFeed(
       userID: widget.userID,
@@ -96,14 +95,6 @@ class NavBarState extends State<NavBar> {
         appBar: new AppBar(
           elevation: 0.0,
           actions: <Widget>[
-//            new IconButton(
-//                icon: new Icon(Icons.person_add),
-//                onPressed: () {
-//
-//                  var listToPass = [UserFollower("Peter", "PJ"), UserFollower("Jonathan", "JJ")];
-//                  showSearch(context: context, delegate: FindFollowersSearch(friendsList: listToPass));
-//                }
-//            ),
             new IconButton(
               icon: new Icon(Icons.person_add),
               onPressed: () {
@@ -171,8 +162,14 @@ class NavBarState extends State<NavBar> {
                     Navigator.of(context).pop();
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ProfilePage()),
+                      MaterialPageRoute(builder: (context) => ProfilePage(userID: widget.userID,)),
                     );
+                  }),
+              new ListTile(
+                  title: new Text('NOTIFICATIONS'),
+//                  trailing: new Icon(Icons.person),
+                  onTap: () {
+                    print("notifications");
                   }),
               new ListTile(
                 title: new Text('LOGOUT'),

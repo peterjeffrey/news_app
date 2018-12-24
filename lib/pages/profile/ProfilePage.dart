@@ -5,15 +5,33 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/pages/news_stream/articlefeed_widget.dart';
 import 'package:news_app/pages/news_stream/socialfeed_widget.dart';
+import 'package:news_app/pages/profile/find_followers.dart';
 import 'package:news_app/pages/profile/track_followers.dart';
 import 'package:news_app/pages/profile/track_following.dart';
 
 class ProfilePage extends StatelessWidget {
+
+  final String userID;
+  ProfilePage({this.userID});
+
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
         elevation: 0.0,
+        actions: <Widget>[
+          new IconButton(
+              icon: new Icon(Icons.person_add),
+              onPressed: () {
+                Navigator.of(context).push(
+                  new MaterialPageRoute(
+                      builder: (context) => new AddFollowers(userID: userID,),
+                      fullscreenDialog: true),
+                );
+              }
+          ),
+        ],
       ),
       body: new FutureBuilder<FirebaseUser>(
         future: FirebaseAuth.instance.currentUser(),

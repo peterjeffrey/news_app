@@ -29,7 +29,6 @@ class FirePageCreator extends StatelessWidget {
     List<Widget> list = new List<Widget>();
     for (var i = 0; i < 2; i++) {
       list.add(_buildPage(position: i, nameOfNewsday: nameOfNewsday));
-      print("Position is $i");
     }
     return new StoreConnector<AppState, int>(
       converter: (store) => store.state.currentPageViewIndex,
