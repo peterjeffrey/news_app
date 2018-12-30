@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/auth.dart';
+import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/pages/LoginPage.dart';
 import 'package:news_app/pages/news_stream/FireNewsView.dart';
 import 'package:news_app/pages/root_page.dart';
@@ -10,6 +11,7 @@ import 'package:news_app/store/store.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:news_app/reducers/main_reducer.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 void main() {
   // Create your store as a final variable in a base Widget. This works better
@@ -31,6 +33,18 @@ class PublickApp extends StatefulWidget {
 }
 
 class PublickState extends State<PublickApp> {
+
+  final FirebaseMessaging _messaging = FirebaseMessaging();
+
+  @override
+  void initState() {
+    super.initState();
+
+    _messaging.getToken().then((token) {
+      print(token);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return new StoreProvider<AppState>(
@@ -38,9 +52,9 @@ class PublickState extends State<PublickApp> {
         child: new MaterialApp(
           theme: ThemeData(
             fontFamily: 'NotoSans',
-            primaryColor: Color.fromRGBO(250, 250, 250, 1.0),
-            hintColor: Color.fromRGBO(100, 45, 200, 1.0),
-            cursorColor: Color.fromRGBO(100, 45, 200, 1.0),
+            primaryColor: whiteColor(),
+            hintColor: purpleColor(),
+            cursorColor: purpleColor(),
           ),
           home: new RootPage(auth: new Auth()),
           routes: <String, WidgetBuilder>{

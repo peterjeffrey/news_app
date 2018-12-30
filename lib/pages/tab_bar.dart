@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:news_app/auth.dart';
+import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/components/logo.dart';
 import 'package:news_app/pages/news_stream/FireNewsGetter.dart';
 import 'package:news_app/pages/news_stream/FireNewsView.dart';
@@ -202,7 +203,7 @@ class NavBarState extends State<NavBar> {
                     return new CupertinoTabBar(
                         currentIndex: currentIndex ,
                         onTap: callback,
-                        activeColor: Color.fromRGBO(100, 45, 200, 1.0),
+                        activeColor: purpleColor(),
                         items: const <BottomNavigationBarItem>[
                           const BottomNavigationBarItem(
                             icon: const Icon(Icons.subject),
@@ -218,14 +219,6 @@ class NavBarState extends State<NavBar> {
     );
   }
 }
-//  return new StreamBuilder<QuerySnapshot>(
-//      stream: Firestore.instance
-//      .collection('relationships')
-//      .document(userID)
-//      .collection('following')
-//      .where("following", isEqualTo: true)
-//      .snapshots(),
-
 
 Future<User> getUser(idNumber) {
   return Firestore.instance

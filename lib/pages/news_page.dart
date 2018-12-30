@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/pages/news_stream/left_page.dart';
 import 'package:news_app/pages/news_stream/right_page.dart';
 
@@ -85,7 +86,7 @@ class NewsPage extends StatelessWidget {
                               height: 100.0,
                               decoration: new BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: Color.fromRGBO(144, 19, 254, 1.0),
+                                color: purpleColor(),
                               ),
                             ),
                             new Flexible(
@@ -114,7 +115,7 @@ class NewsPage extends StatelessWidget {
                               child: new Text(
                                 "Just the Facts",
                                 style: new TextStyle(
-                                  color: Color.fromRGBO(144, 19, 254, 1.0),
+                                  color: purpleColor(),
                                   fontSize: 16.0,
                                 ),
                               ),
@@ -123,7 +124,7 @@ class NewsPage extends StatelessWidget {
                             height: 45.0,
                             decoration: new BoxDecoration(
                               border: Border.all(
-                                  color: Color.fromRGBO(144, 19, 254, 1.0)),
+                                  color: purpleColor()),
                               shape: BoxShape.rectangle,
                               borderRadius: BorderRadius.circular(15.0),
                               color: Colors.white,
@@ -149,8 +150,8 @@ class NewsPage extends StatelessWidget {
                               padding: EdgeInsets.all(8.0),
                               child: new OutlineButton(
                                 borderSide: new BorderSide(
-                                    color: Color.fromRGBO(74, 144, 226, 1.0)),
-                                color: Color.fromRGBO(74, 144, 226, 1.0),
+                                    color: blueColor()),
+                                color: blueColor(),
                                 onPressed: () => Navigator.of(context).push(
                                     new MaterialPageRoute(
                                         builder: (BuildContext context) =>
@@ -170,12 +171,12 @@ class NewsPage extends StatelessWidget {
                                         new Text(
                                           "Left Opinion",
                                           style: new TextStyle(
-                                              color: Color.fromRGBO(74, 144, 226, 1.0)),
+                                              color: blueColor()),
                                           textAlign: TextAlign.center,
                                         ),
                                         new Icon(
                                           Icons.launch,
-                                          color: Color.fromRGBO(74, 144, 226, 1.0),
+                                          color: blueColor(),
                                         )
                                       ],
                                     ),
@@ -189,8 +190,8 @@ class NewsPage extends StatelessWidget {
                               padding: EdgeInsets.all(8.0),
                               child: new OutlineButton(
                                 borderSide: new BorderSide(
-                                    color: Color.fromRGBO(208, 2, 27, 1.0)),
-                                color: Color.fromRGBO(208, 2, 27, 1.0),
+                                    color: redColor()),
+                                color: redColor(),
                                 onPressed: () => Navigator.of(context).push(
                                     new MaterialPageRoute(
                                         builder: (BuildContext context) =>
@@ -211,11 +212,11 @@ class NewsPage extends StatelessWidget {
                                           "Right Opinion",
                                           textAlign: TextAlign.center,
                                           style: new TextStyle(
-                                              color: Color.fromRGBO(208, 2, 27, 1.0)),
+                                              color: redColor()),
                                         ),
                                         new Icon(
                                           Icons.launch,
-                                          color: Color.fromRGBO(208, 2, 27, 1.0),
+                                          color: redColor(),
                                         )
                                       ],
                                     ),

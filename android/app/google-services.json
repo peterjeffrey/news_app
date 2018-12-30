@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "75622302384-t1liqajplbn30crmb5idnp782iisbngo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "publick.newsapp",
+            "certificate_hash": "40b0b8ff25d7c0ead79bf4d8ca844635b85d95b2"
+          }
+        },
+        {
           "client_id": "75622302384-ua456jbnu8h5otlu47pfs0ga43cvki26.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,20 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "75622302384-ua456jbnu8h5otlu47pfs0ga43cvki26.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "75622302384-iadg9m4rmam11jfaobne897dhe4mss3i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "publick.newsApp"
+              }
+            }
+          ]
         },
         "ads_service": {
           "status": 2

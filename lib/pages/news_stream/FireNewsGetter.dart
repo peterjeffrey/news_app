@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:news_app/pages/news_stream/FireNewsPage.dart';
+import 'package:news_app/pages/news_stream/FireNewsPageUpgrade.dart';
 
 class FireNewsGetter extends StatelessWidget {
   final int arrayValue;
@@ -23,15 +24,18 @@ class FireNewsGetter extends StatelessWidget {
                 child: new CircularProgressIndicator(),
               );
             Newsday r = data.data;
-            return FireNewsPage(
-              rank: r.articles[arrayValue].rank,
-              header: r.articles[arrayValue].header,
-              content: r.articles[arrayValue].content,
-              left_content: r.articles[arrayValue].left_content,
-              right_content: r.articles[arrayValue].right_content,
+            return FireNewsPageUpdate(
               article_id: r.articles[arrayValue].article_id,
-              article_date: r.articles[arrayValue].article_date,
             );
+//            return FireNewsPage(
+//              rank: r.articles[arrayValue].rank,
+//              header: r.articles[arrayValue].header,
+//              content: r.articles[arrayValue].content,
+//              left_content: r.articles[arrayValue].left_content,
+//              right_content: r.articles[arrayValue].right_content,
+//              article_id: r.articles[arrayValue].article_id,
+//              article_date: r.articles[arrayValue].article_date,
+//            );
           }),
     );
   }

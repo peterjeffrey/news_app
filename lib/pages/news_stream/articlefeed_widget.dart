@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/pages/respect/RespectWidget.dart';
 
 class ArticleFeedWidget extends StatelessWidget {
@@ -30,8 +31,8 @@ class ArticleFeedWidget extends StatelessWidget {
             child: new Slider(
               value: spectrumValue,
               onChanged: print,
-              activeColor: Colors.blue,
-              inactiveColor: Colors.red,
+              activeColor: blueColor(),
+              inactiveColor: redColor(),
               divisions: 100,
               max: 10.0,
               min: 0.0,

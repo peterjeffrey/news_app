@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/pages/news_stream/articlefeed_widget.dart';
 import 'package:news_app/pages/news_stream/socialfeed_widget.dart';
 import 'package:news_app/pages/profile/track_followers.dart';
@@ -50,7 +51,7 @@ class ConfirmReport extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     new RaisedButton(
-                      color: Color.fromRGBO(100, 45, 200, 1.0),
+                      color: purpleColor(),
                         onPressed: () {
                           Firestore.instance
                               .collection('content_flags')

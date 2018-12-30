@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/auth.dart';
+import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/components/logo.dart';
 import 'package:news_app/pages/ResetPassword.dart';
 
@@ -25,9 +26,12 @@ class _LoginPageState extends State<LoginPage> {
   String _username;
   String _firstName;
   String _lastName;
+  String _errorMessage = "";
   FormType _formType = FormType.login;
   bool _usernameValidator = false;
   TextEditingController _usernameController = new TextEditingController();
+
+
 
   Future checkUser() async {
     var user = await Firestore.instance
@@ -39,6 +43,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    double screen_width = MediaQuery.of(context).size.width;
+
     return new Scaffold(
       body: new Center(
         child: new ListView(
@@ -48,9 +54,9 @@ class _LoginPageState extends State<LoginPage> {
                 new Padding(
                   padding: EdgeInsets.fromLTRB(0.0, 80.0, 0.0, 0.0),
                   child: new Image(
-                    image: new AssetImage('assets/dogood_logo.png'),
-                    width: 350.0,
-                    height: 200.0,
+                    image: new AssetImage('assets/courant_logo.png'),
+                    width: screen_width * .8,
+                    height: 150.0,
                   ),
                 ),
                 new Center(
@@ -83,7 +89,8 @@ class _LoginPageState extends State<LoginPage> {
                       children: buildUsernameField() +
                           buildInputs() +
                           buildSubmitButtons() +
-                          buildPasswordReset(),
+                          buildPasswordReset() +
+                        buildInputViolation(),
                     ),
                   ),
                 ),
@@ -177,6 +184,9 @@ class _LoginPageState extends State<LoginPage> {
                   print('Signed in: ${userId}');
                   widget.onSignedIn();
                 } catch (e) {
+                  setState(() {
+                    _errorMessage = "Username & Password combination invalid";
+                  });
                   print(e);
                 }
               }
@@ -243,6 +253,9 @@ class _LoginPageState extends State<LoginPage> {
                 });
                 widget.onSignedIn();
               } catch (e) {
+                setState(() {
+                  _errorMessage = e;
+                });
                 print(e);
               }
             }
@@ -252,14 +265,25 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  List<Widget> buildInputViolation() {
+    return [
+      new Text(
+          _errorMessage,
+        style: new TextStyle(color: Colors.red),
+      ),
+    ];
+  }
+
   void moveToRegister() {
     _formKey.currentState.reset();
     setState(() {
+      _errorMessage = "";
       _formType = FormType.register;
     });
   }
 
   void moveToLogin() {
+    _errorMessage = "";
     _formKey.currentState.reset();
     setState(() {
       _formType = FormType.login;
@@ -268,7 +292,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Color getColorLogin(FormType formtype) {
     if (formtype == FormType.login) {
-      return Color.fromRGBO(144, 19, 254, 1.0);
+      return purpleColor();
     } else {
       return Colors.grey;
     }
@@ -276,7 +300,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Color getColorRegister(FormType formtype) {
     if (formtype == FormType.register) {
-      return Color.fromRGBO(144, 19, 254, 1.0);
+      return purpleColor();
     } else {
       return Colors.grey;
     }

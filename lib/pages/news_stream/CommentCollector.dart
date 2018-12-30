@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/pages/news_stream/PostGetter.dart';
 import 'package:news_app/pages/news_stream/UserPostGetter.dart';
 
@@ -87,20 +88,20 @@ class _CommentCollectorState extends State<CommentCollector> {
                         children: <Widget>[
                           new Text(
                             "Very\nLeft",
-                            style: new TextStyle(color: Color.fromRGBO(80,100, 250, 1.0),),
+                            style: new TextStyle(color: blueColor(),),
                           ),
                           new Slider(
                             value: val,
                             onChanged: changed,
-                            activeColor: Color.fromRGBO(208, 35, 75, 1.0),
-                            inactiveColor: Color.fromRGBO(80,100, 250, 1.0),
+                            activeColor: redColor(),
+                            inactiveColor: blueColor(),
                             divisions: 100,
                             max: 10.0,
                             min: 0.0,
                           ),
                           new Text(
                             "Very\nRight",
-                            style: new TextStyle(color: Color.fromRGBO(208, 35, 75, 1.0),),
+                            style: new TextStyle(color: redColor(),),
                           ),
                         ],
                       ),
@@ -118,6 +119,7 @@ class _CommentCollectorState extends State<CommentCollector> {
                                 }
                               },
                               decoration: new InputDecoration(
+                                contentPadding: EdgeInsets.all(10.0),
                                 border: InputBorder.none,
                                 hintText: 'Your thoughts?',
                               ),
@@ -135,7 +137,7 @@ class _CommentCollectorState extends State<CommentCollector> {
                           "SUBMIT",
                           style: new TextStyle(color: Colors.white),
                         ),
-                        color: Color.fromRGBO(100, 45, 200, 1.0),
+                        color: purpleColor(),
                       )
                     ],
                   ),

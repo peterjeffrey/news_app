@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/pages/news_stream/CommentCollector.dart';
 import 'package:news_app/pages/news_stream/PostGetter.dart';
 import 'package:news_app/pages/news_stream/UserPostGetter.dart';
@@ -57,7 +58,7 @@ class FireNewsPage extends StatelessWidget {
                           height: 100.0,
                           decoration: new BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Color.fromRGBO(100, 45, 200, 1.0),
+                            color: purpleColor(),
                           ),
                         ),
                       ),
@@ -93,12 +94,12 @@ class FireNewsPage extends StatelessWidget {
                     child: new Container(
                       width: width100,
                       height: 50.0,
-                      color: Color.fromRGBO(100, 45, 200, 1.0),
+                      color: purpleColor(),
                       child: new Center(
                         child: new Text(
                           "Just the Facts",
                           style: new TextStyle(
-                            color: Colors.white,
+                            color: whiteColor(),
                             fontSize: 16.0,
                           ),
                         ),
@@ -114,7 +115,7 @@ class FireNewsPage extends StatelessWidget {
                       style: new TextStyle(
                         wordSpacing: 0.0,
                         letterSpacing: 0.1,
-                        fontSize: 13.0,
+                        fontSize: 16.0,
                       ),
                       textAlign: TextAlign.justify,
                     ),
@@ -126,7 +127,7 @@ class FireNewsPage extends StatelessWidget {
                         padding: EdgeInsets.fromLTRB(8.0, 8.0,25.0,8.0),
                         child: new RaisedButton(
                           elevation: 8,
-                          color: Color.fromRGBO(80,100, 250, 1.0),
+                          color: blueColor(),
                           onPressed: () => Navigator.of(context).push(
                               new MaterialPageRoute(
                                   builder: (BuildContext context) =>
@@ -145,7 +146,7 @@ class FireNewsPage extends StatelessWidget {
                                     "Left Opinion",
                                     style: new TextStyle(
                                         color:
-                                            Colors.white),
+                                            whiteColor()),
                                     textAlign: TextAlign.center,
                                   ),
                                 ],
@@ -160,7 +161,7 @@ class FireNewsPage extends StatelessWidget {
                         padding: EdgeInsets.fromLTRB(25.0, 8.0,8.0,8.0),
                         child: new RaisedButton(
                           elevation: 8,
-                          color: Color.fromRGBO(208, 35, 75, 1.0),
+                          color: redColor(),
                           onPressed: () => Navigator.of(context).push(
                               new MaterialPageRoute(
                                   builder: (BuildContext context) =>
@@ -180,7 +181,7 @@ class FireNewsPage extends StatelessWidget {
                                     "Right Opinion",
                                     textAlign: TextAlign.center,
                                     style: new TextStyle(
-                                        color: Colors.white),
+                                        color: whiteColor()),
                                   ),
                                 ],
                               ),

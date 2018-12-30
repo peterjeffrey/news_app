@@ -19,6 +19,7 @@ dependencies:
 
   flutter:
     sdk: flutter
+  firebase_messaging:
 
   firebase_database: ^0.4.1
   firebase_core: ^0.2.5+1
@@ -51,6 +52,7 @@ flutter:
   #  - images/a_dot_ham.jpeg
   assets:
      - assets/dogood_logo.png
+     - assets/courant_logo.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

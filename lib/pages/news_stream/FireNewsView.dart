@@ -20,6 +20,7 @@ class FireNewsView extends StatelessWidget {
           if (!snapshot.hasData) return new Center(child: new CircularProgressIndicator(),);
           final int newsdayCount = snapshot.data.documents.length;
           final String name = newsdayCount.toString();
+          print("There are $name total newsdays");
           return new FirePageCreator(nameOfNewsday: name);
         },
       ),

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/auth.dart';
+import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/components/logo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -58,7 +59,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     onSaved: (value) => _email = value,
                   ),
                   new RaisedButton(
-                    color: Color.fromRGBO(100, 45, 200, 1.0),
+                    color: purpleColor(),
                     child: new Text(
                       'Reset Password',
                       style: new TextStyle(fontSize: 12.0, color: Colors.white),

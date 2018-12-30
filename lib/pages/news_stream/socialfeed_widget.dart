@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/pages/news_stream/FireNewsPage.dart';
+import 'package:news_app/pages/news_stream/FireNewsPageUpgrade.dart';
 import 'package:news_app/pages/news_stream/unranked_stream.dart';
 import 'package:news_app/pages/profile/GetOtherProfilePage.dart';
 import 'package:news_app/pages/respect/RespectWidget.dart';
@@ -44,6 +46,7 @@ class SocialFeedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double c_width = MediaQuery.of(context).size.width*0.8;
     return new Padding(
       padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
       child: new FlatButton(
@@ -56,14 +59,15 @@ class SocialFeedWidget extends StatelessWidget {
                         appBar: AppBar(
                           elevation: 0.0,
                         ),
-                        body: new UnrankedPage(
-                          right_content: thisArticle.right_content,
-                          left_content: thisArticle.left_content,
-                          content: thisArticle.content,
-                          rank: thisArticle.rank,
-                          header: thisArticle.header,
-                          article_date: thisArticle.article_date,
-                        ),
+body: new FireNewsPageUpdate(article_id: articleID,),
+//                        body: new UnrankedPage(
+//                          right_content: thisArticle.right_content,
+//                          left_content: thisArticle.left_content,
+//                          content: thisArticle.content,
+//                          rank: thisArticle.rank,
+//                          header: thisArticle.header,
+//                          article_date: thisArticle.article_date,
+//                        ),
                       ),
                   fullscreenDialog: true),
             );
@@ -75,7 +79,7 @@ class SocialFeedWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             new Row(
-              children: buildHeader(),
+              children: buildHeader(c_width),
             ),
             new Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -104,7 +108,7 @@ class SocialFeedWidget extends StatelessWidget {
                     onTap: () => Navigator.of(context).push(
                       new MaterialPageRoute(
                           builder: (BuildContext context) =>
-                          new GetOtherProfilePage(posterID: user_id,),
+                          new GetOtherProfilePage(posterID: user_id, myUserID: posterID,),
                           fullscreenDialog: true),
                     ),
                   ),
@@ -116,8 +120,8 @@ class SocialFeedWidget extends StatelessWidget {
                       new Slider(
                         value: spectrumValue,
                         onChanged: print,
-                        activeColor: Color.fromRGBO(208, 35, 75, 1.0),
-                        inactiveColor: Color.fromRGBO(80, 100, 250, 1.0),
+                        activeColor: redColor(),
+                        inactiveColor: blueColor(),
                         divisions: 100,
                         max: 10.0,
                         min: 0.0,
@@ -134,7 +138,7 @@ class SocialFeedWidget extends StatelessWidget {
                 comment,
                 style: new TextStyle(
                   color: Color.fromRGBO(74, 74, 74, 1.0),
-                  fontSize: 13.0,
+                  fontSize: 15.0,
                 ),
               ),
             ),
@@ -169,16 +173,18 @@ class SocialFeedWidget extends StatelessWidget {
     );
   }
 
-  List<Widget> buildHeader() {
+  List<Widget> buildHeader(width) {
+
     if (filter == false) {
       return [
         new Container(
+          width: width,
           padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
           alignment: Alignment.topLeft,
           child: new Text(
             article_header,
             style: new TextStyle(
-                color: Color.fromRGBO(100, 45, 200, 1.0), fontSize: 18.0),
+                color: purpleColor(), fontSize: 18.0),
             textAlign: TextAlign.left,
           ),
         ),
@@ -187,93 +193,6 @@ class SocialFeedWidget extends StatelessWidget {
       return [];
     }
   }
-
-//  List<Widget> buildPosts() {
-//    return [
-//      new Row(
-//        children: <Widget>[
-//          new Container(
-//            margin: EdgeInsets.only(left: 0.0),
-//            child: new FlatButton(
-////                  child: new Expanded(
-//              child: new Column(
-//                crossAxisAlignment: CrossAxisAlignment.start,
-//                children: <Widget>[
-//                  new Text(
-//                    "$fullName",
-//                    textAlign: TextAlign.left,
-//                    style: new TextStyle(
-//                        fontWeight: FontWeight.bold, fontSize: 13.0),
-//                  ),
-//                  new Text(
-//                    "@$userName",
-//                    textAlign: TextAlign.left,
-//                    style: new TextStyle(
-//                        fontStyle: FontStyle.italic, fontSize: 13.0),
-//                  ),
-//                ],
-//              ),
-////                  ),
-//              onPressed: () => print('launch!'),
-//            ),
-//
-//          ),
-//          new Container(
-//            padding: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
-//            child: new Row(
-//              children: <Widget>[
-//                new Slider(
-//                  value: spectrumValue,
-//                  onChanged: print,
-//                  activeColor: Color.fromRGBO(208, 35, 75, 1.0),
-//                  inactiveColor: Color.fromRGBO(80, 100, 250, 1.0),
-//                  divisions: 100,
-//                  max: 10.0,
-//                  min: 0.0,
-//                ),
-//              ],
-//            ),
-//          ),
-//        ],
-//      ),
-//      new Container(
-//        padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
-//        alignment: Alignment.topLeft,
-//        child: new Text(
-//          comment,
-//          style: new TextStyle(
-//            color: Color.fromRGBO(74, 74, 74, 1.0),
-//            fontSize: 13.0,
-//          ),
-//        ),
-//      ),
-//      new Row(
-//        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//        children: <Widget>[
-//          new Container(
-//              padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
-//              alignment: Alignment.bottomRight,
-//              child: new RespectWidget(
-//                  postID: '$postID', respecterID: '$posterID')),
-//          new Container(
-//            padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
-//            alignment: Alignment.bottomRight,
-//            child: new ReportWidget(
-//                content: comment,
-//                reportedUser: userName,
-//                postID: '$postID',
-//                reportingUserID: '$posterID'),
-//          ),
-//        ],
-//      ),
-//      new Padding(
-//        child: new Divider(
-//          color: Color.fromRGBO(74, 74, 74, 1.0),
-//        ),
-//        padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
-//      ),
-//    ];
-//  }
 }
 
 Future<Article> getArticle(idNumber) {

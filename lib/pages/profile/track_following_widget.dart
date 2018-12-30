@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/components/ColorFile.dart';
 
 class TrackFollowingWidget extends StatefulWidget {
 
@@ -71,7 +72,7 @@ class TrackFollowingWidgetState extends State<TrackFollowingWidget> {
           child: new Text(
             "Unfollow",
             style: new TextStyle(
-              color: Color.fromRGBO(100, 45, 200, 1.0),
+              color: purpleColor(),
             ),
           ),
           color: Colors.white,
@@ -102,7 +103,7 @@ class TrackFollowingWidgetState extends State<TrackFollowingWidget> {
               color: Colors.white,
             ),
           ),
-          color: Color.fromRGBO(100, 45, 200, 1.0),
+          color: purpleColor(),
           onPressed: () {
             toggleFollower();
             Firestore.instance

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/components/ColorFile.dart';
 
 //Widget notes: commented out the stateful elements because of issues with building the list with a negative list
 //probably should convert this to stateless widget
@@ -80,7 +81,7 @@ class FindFollowerWidgetState extends State<FindFollowerWidget> {
               color: Colors.white,
             ),
           ),
-          color: Color.fromRGBO(100, 45, 200, 1.0),
+          color: purpleColor(),
           onPressed: () {
             toggleFollower();
             Firestore.instance
@@ -106,7 +107,7 @@ class FindFollowerWidgetState extends State<FindFollowerWidget> {
     else {
       return new Text(
           "Following",
-        style: TextStyle(color: Color.fromRGBO(100, 45, 200, 1.0),),
+        style: TextStyle(color: purpleColor(),),
       );
     }
   }

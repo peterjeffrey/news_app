@@ -79,7 +79,6 @@ class AddFollowers extends StatelessWidget {
                                             userID,
                                           )
                                         );
-                                    print(prospectiveFollowers.length);
                                           return new FindFollowerWidget(
                                             name: document['first_name'] + " " + document['last_name'],
                                             username: document['username'],
@@ -100,19 +99,10 @@ class AddFollowers extends StatelessWidget {
               }
             }),
       ),
-//        new FindFollowerWidget(),
     );
   }
 }
 
-//Stream<List<Follower>> getFollowers(userID){
-//  return Firestore.instance
-//      .collection('relationships')
-//      .document(userId)
-//      .collection('followers')
-//      .where("follower", isEqualTo: true)
-//      .snapshots().then((snapshots){}
-//}
 
 class Following {
   bool following;

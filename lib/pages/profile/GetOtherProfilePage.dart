@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/pages/news_stream/articlefeed_widget.dart';
 import 'package:news_app/pages/news_stream/socialfeed_widget.dart';
 import 'package:news_app/pages/profile/OtherUserFollowers.dart';
@@ -11,13 +12,15 @@ import 'package:news_app/pages/profile/track_followers.dart';
 import 'package:news_app/pages/profile/track_following.dart';
 
 class GetOtherProfilePage extends StatelessWidget {
-
+  final String myUserID;
   final String posterID;
 
-  GetOtherProfilePage({this.posterID});
+  GetOtherProfilePage({this.posterID, this.myUserID});
 
   @override
   Widget build(BuildContext context) {
+    double screen_width = MediaQuery.of(context).size.width;
+
     return new Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -37,11 +40,11 @@ class GetOtherProfilePage extends StatelessWidget {
                 String username = snapshot.data.username.toString();
                 String firstName = snapshot.data.firstName.toString();
                 String firstInitial =
-                new String.fromCharCode(firstName.runes.first);
+                    new String.fromCharCode(firstName.runes.first);
                 String lastName = snapshot.data.lastName.toString();
                 String userID = snapshot.data.user_id.toString();
                 String lastInitial =
-                new String.fromCharCode(lastName.runes.first);
+                    new String.fromCharCode(lastName.runes.first);
                 return new ListView(
                   children: <Widget>[
                     new Container(
@@ -64,7 +67,7 @@ class GetOtherProfilePage extends StatelessWidget {
                                   ),
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Color.fromRGBO(100, 45, 200, 1.0),
+                                  color: purpleColor(),
                                   shape: BoxShape.circle,
                                 ),
                               ),
@@ -78,10 +81,10 @@ class GetOtherProfilePage extends StatelessWidget {
                                           Navigator.of(context).push(
                                             new MaterialPageRoute(
                                                 builder: (context) =>
-                                                new OtherUserFollowers(
-                                                  userName: username,
-                                                    userID: userID,
-                                                ),
+                                                    new OtherUserFollowers(
+                                                      userName: username,
+                                                      userID: userID,
+                                                    ),
                                                 fullscreenDialog: true),
                                           );
                                         },
@@ -92,14 +95,14 @@ class GetOtherProfilePage extends StatelessWidget {
                                               new StreamBuilder(
                                                   stream: Firestore.instance
                                                       .collection(
-                                                      'relationships')
+                                                          'relationships')
                                                       .document(userID)
                                                       .collection('followers')
                                                       .where("follower",
-                                                      isEqualTo: true)
+                                                          isEqualTo: true)
                                                       .snapshots(),
                                                   builder: (BuildContext
-                                                  context,
+                                                          context,
                                                       AsyncSnapshot snapshot) {
                                                     if (snapshot.hasError) {
                                                       return new Text("Error!");
@@ -126,8 +129,10 @@ class GetOtherProfilePage extends StatelessWidget {
                                           Navigator.of(context).push(
                                             new MaterialPageRoute(
                                                 builder: (context) =>
-                                                new OtherUserFollowing(
-                                                    userID: userID, userName: username,),
+                                                    new OtherUserFollowing(
+                                                      userID: userID,
+                                                      userName: username,
+                                                    ),
                                                 fullscreenDialog: true),
                                           );
                                         },
@@ -137,13 +142,15 @@ class GetOtherProfilePage extends StatelessWidget {
                                             children: <Widget>[
                                               new StreamBuilder(
                                                   stream: Firestore.instance
-                                                      .collection('relationships')
+                                                      .collection(
+                                                          'relationships')
                                                       .document(userID)
                                                       .collection('following')
                                                       .where("following",
-                                                      isEqualTo: true)
+                                                          isEqualTo: true)
                                                       .snapshots(),
-                                                  builder: (BuildContext context,
+                                                  builder: (BuildContext
+                                                          context,
                                                       AsyncSnapshot snapshot) {
                                                     if (snapshot.hasError) {
                                                       return new Text("Error!");
@@ -152,8 +159,8 @@ class GetOtherProfilePage extends StatelessWidget {
                                                       return new Text("Null");
                                                     } else {
                                                       return Text(
-                                                        snapshot
-                                                            .data.documents.length
+                                                        snapshot.data.documents
+                                                            .length
                                                             .toString(),
                                                         style: new TextStyle(
                                                             fontSize: 20.0),
@@ -163,8 +170,8 @@ class GetOtherProfilePage extends StatelessWidget {
                                               new Text('Following'),
                                             ],
                                           ),
-                                        ),)
-
+                                        ),
+                                      )
                                     ],
                                   ),
                                   new Row(
@@ -193,6 +200,106 @@ class GetOtherProfilePage extends StatelessWidget {
                                       ),
                                     ],
                                   ),
+                                  new StreamBuilder<QuerySnapshot>(
+                                      stream: Firestore.instance
+                                          .collection('relationships')
+                                          .document(myUserID)
+                                          .collection('following')
+                                          .where("followingID",
+                                              isEqualTo: posterID)
+                                          .where("following", isEqualTo: true)
+                                          .snapshots(),
+                                      builder: (BuildContext context,
+                                          AsyncSnapshot snapshot) {
+                                        if (myUserID == posterID) {
+                                          return new Text("Your Profile");
+                                        } else if (snapshot.hasData) {
+                                          if (snapshot.data != null) {
+                                            if (snapshot.data.documents.length >
+                                                0) {
+                                              return new Column(
+                                                children: <Widget>[
+                                                  new Text(
+                                                    "Following",
+                                                    style: new TextStyle(
+                                                        fontStyle:
+                                                            FontStyle.italic),
+                                                  ),
+                                                  new RaisedButton(
+                                                    onPressed: () {
+                                                      Firestore.instance
+                                                          .collection('relationships')
+                                                          .document(myUserID).collection('following').document(posterID)
+                                                          .setData({
+                                                        'following': false,
+                                                        'followingID': posterID,
+                                                      });
+                                                      Firestore.instance
+                                                          .collection('relationships')
+                                                          .document(posterID).collection('followers').document(myUserID)
+                                                          .setData({
+                                                        'follower': false,
+                                                        'followerID': myUserID,
+                                                      });
+                                                    },
+                                                    child: new Text("Unfollow", style: TextStyle(color: purpleColor()),),
+                                                    color: whiteColor(),
+                                                  ),
+                                                ],
+                                              );
+                                            } else {
+                                              return new RaisedButton(
+                                                color: purpleColor(),
+                                                  child: new Text("Follow", style: TextStyle(color: whiteColor()),),
+                                                  onPressed: () {
+                                                    Firestore.instance
+                                                        .collection(
+                                                            'relationships')
+                                                        .document(myUserID)
+                                                        .collection('following')
+                                                        .document(posterID)
+                                                        .setData({
+                                                      'following': true,
+                                                      'followingID': posterID,
+                                                    });
+                                                    Firestore.instance
+                                                        .collection(
+                                                            'relationships')
+                                                        .document(posterID)
+                                                        .collection('followers')
+                                                        .document(myUserID)
+                                                        .setData({
+                                                      'follower': true,
+                                                      'followerID': myUserID,
+                                                    });
+                                                  });
+                                            }
+                                          }
+                                        } else {
+                                          return new RaisedButton(
+                                              child: new Text("Follow"),
+                                              onPressed: () {
+                                                Firestore.instance
+                                                    .collection('relationships')
+                                                    .document(myUserID)
+                                                    .collection('following')
+                                                    .document(posterID)
+                                                    .setData({
+                                                  'following': true,
+                                                  'followingID': posterID,
+                                                });
+                                                Firestore.instance
+                                                    .collection('relationships')
+                                                    .document(posterID)
+                                                    .collection('followers')
+                                                    .document(myUserID)
+                                                    .setData({
+                                                  'follower': true,
+                                                  'followerID': myUserID,
+                                                });
+                                              });
+                                        }
+                                      }),
                                 ],
                               ),
                             ],
@@ -220,28 +327,29 @@ class GetOtherProfilePage extends StatelessWidget {
                                                       .data.documents
                                                       .map<Widget>(
                                                           (DocumentSnapshot
-                                                      document) {
-                                                        return new SocialFeedWidget(
-                                                          articleID: document['article'],
-                                                          article_header: document[
+                                                              document) {
+                                                    return new SocialFeedWidget(
+                                                      articleID:
+                                                          document['article'],
+                                                      article_header: document[
                                                           'article_title'],
-                                                          userName:
+                                                      userName:
                                                           document['author'],
-                                                          spectrumValue: document[
-                                                          'spectrum_value']
-                                                              .toDouble(),
-                                                          comment:
+                                                      spectrumValue: document[
+                                                              'spectrum_value']
+                                                          .toDouble(),
+                                                      comment:
                                                           document['comment'],
-                                                          fullName: document[
-                                                          'firstName'] +
-                                                              " " +
-                                                              document['lastName'],
-                                                          filter: false,
-                                                          postID:
+                                                      fullName: document[
+                                                              'firstName'] +
+                                                          " " +
+                                                          document['lastName'],
+                                                      filter: false,
+                                                      postID:
                                                           document.documentID,
-                                                          posterID: userID,
-                                                        );
-                                                      }).toList(),
+                                                      posterID: userID,
+                                                    );
+                                                  }).toList(),
                                                 ),
                                               ),
                                             ],

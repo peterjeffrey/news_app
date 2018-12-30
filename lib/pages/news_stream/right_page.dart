@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/components/ColorFile.dart';
 
 class RightPage extends StatelessWidget {
 
@@ -30,7 +31,7 @@ class RightPage extends StatelessWidget {
                           child: new Text(
                             (this.rank).toString(),
                             style: new TextStyle(
-                              color: Color.fromRGBO(208, 35, 75, 1.0),
+                              color: redColor(),
                               fontSize: 40.0,
                             ),
                           ),
@@ -41,7 +42,7 @@ class RightPage extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: Colors.white,
                           border: Border.all(
-                              color: Color.fromRGBO(208, 35, 75, 1.0)),
+                              color: redColor()),
                         ),
                       ),
                       new Flexible(
@@ -69,7 +70,7 @@ class RightPage extends StatelessWidget {
                   child: new Container(
                     width: width100,
                     height: 50.0,
-                    color: Color.fromRGBO(208, 35, 75, 1.0),
+                    color: redColor(),
                     child: new Center(
                       child: new Text(
                         "Right Opinion",

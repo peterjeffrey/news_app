@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/pages/news_stream/FireNewsView.dart';
 
 class LeftPage extends StatelessWidget {
@@ -39,7 +40,7 @@ class LeftPage extends StatelessWidget {
                           child: new Text(
                             (this.rank).toString(),
                             style: new TextStyle(
-                              color: Color.fromRGBO(80, 100, 250, 1.0),
+                              color: blueColor(),
                               fontSize: 40.0,
                             ),
                           ),
@@ -48,9 +49,9 @@ class LeftPage extends StatelessWidget {
                         height: 100.0,
                         decoration: new BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.white,
+                          color: whiteColor(),
                           border: Border.all(
-                              color: Color.fromRGBO(80, 100, 250, 1.0)),
+                              color: blueColor()),
                         ),
                       ),
                       new Flexible(
@@ -78,7 +79,7 @@ class LeftPage extends StatelessWidget {
                   child: new Container(
                     width: width100,
                     height: 50.0,
-                    color: Color.fromRGBO(80, 100, 250, 1.0),
+                    color: blueColor(),
                     child: new Center(
                       child: new Text(
                         "Left Opinion",
