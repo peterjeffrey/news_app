@@ -35,10 +35,13 @@ class PublickApp extends StatefulWidget {
 class PublickState extends State<PublickApp> {
 
   final FirebaseMessaging _messaging = FirebaseMessaging();
+  final String title = "TitleHere";
 
   @override
   void initState() {
+    String articleTitle = "title";
     super.initState();
+
 
     _messaging.getToken().then((token) {
       print(token);
@@ -47,6 +50,7 @@ class PublickState extends State<PublickApp> {
 
   @override
   Widget build(BuildContext context) {
+
     return new StoreProvider<AppState>(
         store: widget.store,
         child: new MaterialApp(

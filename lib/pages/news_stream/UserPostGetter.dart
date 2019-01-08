@@ -14,8 +14,8 @@ class UserPostGetter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 // TODO: implement build
-    return new Scaffold(
-      body: new Container(
+    return new Container(
+
         child: new FutureBuilder<FirebaseUser>(
           future: FirebaseAuth.instance.currentUser(),
           builder: (context, AsyncSnapshot<FirebaseUser> snapshot) {
@@ -62,8 +62,8 @@ class UserPostGetter extends StatelessWidget {
             }
           },
         ),
-      ),
-    );
+      );
+
   }
 }
 

@@ -4,8 +4,11 @@ import 'package:news_app/pages/news_stream/socialfeed_widget.dart';
 
 class SocialFeed extends StatelessWidget {
   final String userID;
+  final String userFirstName;
+  final String userLastName;
+  final String username;
 
-  SocialFeed({this.userID});
+  SocialFeed({this.userID, this.username, this.userFirstName, this.userLastName});
 
   List<String> followingList = [];
 
@@ -54,6 +57,9 @@ class SocialFeed extends StatelessWidget {
                                       comment: document['comment'],
                                       fullName: document['firstName'] + " " + document['lastName'],
                                       user_id: document['user_id'],
+                                      posterFirstName: userFirstName,
+                                      posterLastName: userLastName,
+                                      posterUserName: username,
                                       postID: document.documentID,
                                       posterID: userID,
                                     );

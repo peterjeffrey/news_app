@@ -12,12 +12,15 @@ import 'package:news_app/pages/profile/track_following.dart';
 
 class ProfilePage extends StatelessWidget {
 
+
+
   final String userID;
   ProfilePage({this.userID});
 
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     return new Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -211,7 +214,7 @@ class ProfilePage extends StatelessWidget {
                           new Padding(
                             padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
                             child: new Container(
-                              height: 400.0,
+                              height: height,
                               width: 500.0,
                               child: new Container(
                                 child: new FutureBuilder(

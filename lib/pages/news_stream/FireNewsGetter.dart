@@ -2,14 +2,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:news_app/pages/Troubleshooting/NewsLandingPage.dart';
 import 'package:news_app/pages/news_stream/FireNewsPage.dart';
 import 'package:news_app/pages/news_stream/FireNewsPageUpgrade.dart';
 
 class FireNewsGetter extends StatelessWidget {
   final int arrayValue;
   final String nameOfDoc;
+  final String userID;
+  final String userName;
+  final String firstName;
+  final String lastName;
 
-  FireNewsGetter({Key key, this.arrayValue, this.nameOfDoc});
+  FireNewsGetter({Key key, this.arrayValue, this.nameOfDoc, this.userID, this.userName, this.firstName, this.lastName});
 
   @override
   Widget build(BuildContext context) {
@@ -24,18 +29,15 @@ class FireNewsGetter extends StatelessWidget {
                 child: new CircularProgressIndicator(),
               );
             Newsday r = data.data;
-            return FireNewsPageUpdate(
+            String headerTitle = r.articles[arrayValue].content;
+            print("newsday article is $headerTitle");
+            return NewsLandingPage(
               article_id: r.articles[arrayValue].article_id,
+              userID: userID,
+              userName: userName,
+              firstName: firstName,
+              lastName: lastName,
             );
-//            return FireNewsPage(
-//              rank: r.articles[arrayValue].rank,
-//              header: r.articles[arrayValue].header,
-//              content: r.articles[arrayValue].content,
-//              left_content: r.articles[arrayValue].left_content,
-//              right_content: r.articles[arrayValue].right_content,
-//              article_id: r.articles[arrayValue].article_id,
-//              article_date: r.articles[arrayValue].article_date,
-//            );
           }),
     );
   }

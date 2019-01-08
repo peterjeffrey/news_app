@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/objects/UserFollower.dart';
+import 'package:news_app/pages/profile/find_followers_search_widget.dart';
 import 'package:news_app/pages/profile/find_followers_widget.dart';
 
 class FindFollowersSearch extends SearchDelegate<UserFollower> {
@@ -50,7 +51,7 @@ class FindFollowersSearch extends SearchDelegate<UserFollower> {
         : friendsList.where((p) => p.name.toLowerCase().contains(query.toLowerCase())).toList();
     // return futurebuilder of
     return ListView.builder(
-      itemBuilder: (context, index) => FindFollowerWidget(
+      itemBuilder: (context, index) => FindFollowerSearchWidget(
         name: suggestionList[index].name,
         username: suggestionList[index].username,
         userID: suggestionList[index].userID,

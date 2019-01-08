@@ -5,6 +5,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/pages/Troubleshooting/NewsLandingPage.dart';
 import 'package:news_app/pages/news_stream/FireNewsGetter.dart';
 import 'package:news_app/pages/news_page.dart';
 import 'package:news_app/reducers/main_reducer.dart';
@@ -13,15 +14,27 @@ import 'package:news_app/store/store.dart';
 class FirePageCreator extends StatelessWidget {
   FirePageCreator({
     Key key,
+    this.firstName,
+    this.lastName,
+    this.username,
+    this.userID,
     this.nameOfNewsday,
   }) : super(key: key);
 
   final String nameOfNewsday;
+  final String firstName;
+  final String lastName;
+  final String username;
+  final String userID;
 
   Widget _buildPage({String nameOfNewsday, int position}) {
     return new FireNewsGetter(
       arrayValue: position,
       nameOfDoc: nameOfNewsday,
+      userID: userID,
+      firstName: firstName,
+      lastName: lastName,
+      userName: username,
     );
   }
 

@@ -9,75 +9,29 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b7669bd-1cbb-45b2-93bf-73dc99529247" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/courant_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-1024.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-20@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-20@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-29@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-29@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-40.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-40@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-40@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-60@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-60@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-76.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-76@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-83.5@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/ColorFile.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/news_stream/FireNewsPageUpgrade.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+    <list default="true" id="3b7669bd-1cbb-45b2-93bf-73dc99529247" name="Default" comment="commit on 10.23">
+      <change afterPath="$PROJECT_DIR$/lib/objects/TodaysArticles.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/Troubleshooting/NewsLandingPage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/news_stream/CommentCollectorPopUp.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/news_stream/FireNewsPageTest.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/profile/find_followers_search_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/profile/massive_firenews.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/google-services.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/components/logo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/logo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/LoginPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/LoginPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/ResetPassword.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/ResetPassword.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/news_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/CommentCollector.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/CommentCollector.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/FireNewsGetter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/FireNewsGetter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/FireNewsPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/FireNewsPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/FireNewsPageUpgrade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/FireNewsPageUpgrade.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/FireNewsView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/FireNewsView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/articlefeed_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/articlefeed_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/left_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/left_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/right_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/right_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/FirePageCreator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/FirePageCreator.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/PostGetter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/PostGetter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/UserPostGetter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/UserPostGetter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/social_feed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/social_feed.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/socialfeed_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/socialfeed_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/unranked_stream.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/unranked_stream.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/profile/GetOtherProfilePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/GetOtherProfilePage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/profile/ProfilePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/ProfilePage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/profile/find_followers.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/find_followers.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/profile/find_followers_search.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/find_followers_search.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/profile/find_followers_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/find_followers_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/profile/track_followers_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/track_followers_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/profile/track_following_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/track_following_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/respect/RespectWidget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/respect/RespectWidget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/respect/confirm_report.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/respect/confirm_report.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/tab_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/tab_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/news_app.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -92,29 +46,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="find_followers.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/pages/profile/find_followers.dart">
+      <file leaf-file-name="NewsLandingPage.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/pages/Troubleshooting/NewsLandingPage.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="78" column="51" lean-forward="true" selection-start-line="78" selection-start-column="51" selection-end-line="78" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="find_followers_widget.dart" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/pages/profile/find_followers_widget.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="107" column="6" selection-start-line="107" selection-start-column="6" selection-end-line="110" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="track_following.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/pages/profile/track_following.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="113" />
+            <state relative-caret-position="325">
+              <caret line="40" column="18" selection-start-line="40" selection-end-line="41" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -122,14 +58,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="track_following_widget.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/pages/profile/track_following_widget.dart">
+      <file leaf-file-name="PostGetter.dart" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/PostGetter.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="154">
+              <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FireNewsView.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/FireNewsView.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FirePageCreator.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/FirePageCreator.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-116">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FireNewsGetter.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/FireNewsGetter.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="33" column="27" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -145,36 +108,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cslling</find>
-      <find>cs</find>
-      <find>Position is</find>
-      <find>http</find>
-      <find>com.google.android.gms:play-services-base</find>
-      <find>16.0.1</find>
-      <find>Colorcolor</find>
-      <find>colo</find>
-      <find>color</find>
-      <find>print</find>
-      <find>logo</find>
-      <find>error</find>
-      <find>e</find>
-      <find>e</find>
-      <find>catch</find>
-      <find>blue</find>
-      <find>getUser</find>
-      <find>build</find>
-      <find>buildHe</find>
-      <find>buildHea</find>
-      <find>push</find>
-      <find>text</find>
-      <find>rank</find>
-      <find>follow</find>
-      <find>peter</find>
-      <find>getother</find>
-      <find>wid</find>
-      <find>unfoll</find>
+      <find>changed</find>
+      <find>fire</find>
+      <find>fireNewsView</find>
+      <find>commen</find>
+      <find>userpo</find>
+      <find>user</find>
+      <find>comment</find>
+      <find>checkUser</find>
+      <find>where</find>
       <find>future</find>
-      <find>get</find>
+      <find>futurebuild</find>
+      <find>futurebui</find>
+      <find>\</find>
+      <find>post</find>
+      <find>newsla</find>
+      <find>username</find>
+      <find>he</find>
+      <find>getuser</find>
+      <find>ranked</find>
+      <find>slider</find>
+      <find>myuser</find>
+      <find>push</find>
+      <find>first</find>
+      <find>socialfe</find>
+      <find>strea</find>
+      <find>list</find>
+      <find>userpos</find>
+      <find>newsland</find>
+      <find>con</find>
+      <find>checkuser</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -183,30 +146,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/pages/news_stream/FireNewsContentBody.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/social_page.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/news_stream/PostGetter.dart" />
-        <option value="$PROJECT_DIR$/lib/reducers/main_reducer.dart" />
-        <option value="$PROJECT_DIR$/lib/store/store.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/news_stream/UserPostGetter.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/respect/report_flag.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/profile/track_followers.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/profile/track_following.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/profile/OtherUserFollowersWidget.dart" />
         <option value="$PROJECT_DIR$/lib/pages/profile/OtherUserFollowers.dart" />
         <option value="$PROJECT_DIR$/lib/pages/profile/OtherUserFollowing.dart" />
         <option value="$PROJECT_DIR$/lib/auth.dart" />
         <option value="$PROJECT_DIR$/assets/fonts.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/news_stream/social_feed.dart" />
         <option value="$PROJECT_DIR$/lib/pages/profile/find_followers_0.dart" />
         <option value="$PROJECT_DIR$/lib/objects/UserFollower.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/profile/find_followers_search.dart" />
         <option value="$PROJECT_DIR$/lib/objects/colors.dart" />
         <option value="$PROJECT_DIR$/lib/pages/root_page.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/news_stream/FirePageCreator.dart" />
         <option value="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" />
         <option value="$PROJECT_DIR$/lib/components/ColorFile.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/tab_bar.dart" />
         <option value="$PROJECT_DIR$/lib/pages/news_stream/articlefeed_widget.dart" />
         <option value="$PROJECT_DIR$/lib/pages/news_stream/left_page.dart" />
         <option value="$PROJECT_DIR$/lib/pages/news_stream/right_page.dart" />
@@ -218,30 +167,44 @@
         <option value="$PROJECT_DIR$/lib/pages/news_page.dart" />
         <option value="$PROJECT_DIR$/lib/pages/ResetPassword.dart" />
         <option value="$PROJECT_DIR$/lib/components/logo.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/LoginPage.dart" />
         <option value="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" />
         <option value="$PROJECT_DIR$/android/build.gradle" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/lib/main.dart" />
         <option value="$PROJECT_DIR$/android/app/build.gradle" />
         <option value="$PROJECT_DIR$/lib/pages/news_stream/FireNewsPage.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/news_stream/FireNewsView.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/news_stream/FireNewsGetter.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/news_stream/FireNewsPageUpgrade.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/news_stream/CommentCollector.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/profile/ProfilePage.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/news_stream/socialfeed_widget.dart" />
         <option value="$PROJECT_DIR$/lib/pages/profile/GetOtherProfilePage.dart" />
         <option value="$PROJECT_DIR$/lib/pages/profile/find_followers.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/news_stream/UserPostGetterUpdate.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/news_stream/FireNewsPageUpgrade.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/LoginPage.dart" />
+        <option value="$PROJECT_DIR$/lib/objects/TodaysArticles.dart" />
+        <option value="$PROJECT_DIR$/lib/main.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/profile/massive_firenews.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/news_stream/FireNewsPageTest.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/news_stream/UserPostGetter.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/news_stream/FireNewsGetter.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/news_stream/FirePageCreator.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/news_stream/CommentCollector.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/news_stream/FireNewsView.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/news_stream/CommentCollectorPopUp.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/tab_bar.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/news_stream/social_feed.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/news_stream/socialfeed_widget.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/profile/ProfilePage.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/profile/track_following.dart" />
         <option value="$PROJECT_DIR$/lib/pages/profile/find_followers_widget.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/profile/find_followers_search_widget.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/profile/find_followers_search.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/Troubleshooting/NewsLandingPage.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/news_stream/PostGetter.dart" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="322" />
-    <option name="y" value="23" />
-    <option name="width" value="1336" />
-    <option name="height" value="811" />
+    <option name="x" value="190" />
+    <option name="y" value="102" />
+    <option name="width" value="1379" />
+    <option name="height" value="816" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -250,6 +213,7 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -277,6 +241,18 @@
               <item name="news_app" type="b2602c69:ProjectViewProjectNode" />
               <item name="news_app" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="objects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -293,12 +269,31 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="profile" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="news_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="respect" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="Troubleshooting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-excluded-files" value="false" />
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -428,74 +423,76 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-53" y="89" width="1336" height="811" extended-state="0" />
+    <frame x="190" y="102" width="1379" height="816" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
-      <window_info id="Build Variants" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.19319938" side_tool="true" visible="true" weight="0.3226257" />
-      <window_info anchor="bottom" id="Dart Analysis" order="7" sideWeight="0.48424068" weight="0.3267974" />
-      <window_info anchor="right" id="Flutter Outline" order="3" sideWeight="0.49134198" weight="0.32932934" />
-      <window_info anchor="bottom" id="Logcat" order="7" sideWeight="0.4842615" weight="0.32899022" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.2495637" />
-      <window_info anchor="right" id="Device File Explorer" order="3" sideWeight="0.508658" side_tool="true" weight="0.15133779" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49743214" weight="0.22758621" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.48328558" weight="0.2908497" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49101308" weight="0.32038835" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
+      <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.19469027" side_tool="true" weight="0.34632683" />
       <window_info anchor="bottom" id="Flutter Performance" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8068006" visible="true" weight="0.3226257" />
+      <window_info anchor="bottom" id="Dart Analysis" order="7" sideWeight="0.48424068" weight="0.3267974" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8053097" visible="true" weight="0.27323163" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4869281" weight="0.32871014" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.76120555" weight="0.3226257" />
-      <window_info id="Captures" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24652241" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.76120555" weight="0.32161686" />
+      <window_info anchor="right" id="Flutter Outline" order="3" sideWeight="0.49134198" weight="0.32932934" />
+      <window_info anchor="bottom" id="Logcat" order="7" sideWeight="0.4842615" weight="0.32899022" />
+      <window_info id="Captures" order="2" weight="0.32949308" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23859386" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.2495637" />
+      <window_info anchor="right" id="Device File Explorer" order="3" sideWeight="0.508658" side_tool="true" weight="0.15133779" />
       <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49743214" weight="0.22758621" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" id="Flutter Inspector" order="3" sideWeight="0.49134198" visible="true" weight="0.032457497" />
+      <window_info anchor="right" id="Flutter Inspector" order="3" sideWeight="0.49134198" weight="0.030973451" />
       <window_info anchor="right" id="Assistant" order="4" weight="0.32687652" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49101308" weight="0.32038835" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.20679012" />
     </layout>
     <layout-to-restore>
-      <window_info id="Designer" order="4" />
-      <window_info anchor="bottom" id="Dart Analysis" order="9" sideWeight="0.49678457" weight="0.3289689" />
-      <window_info id="Build Variants" order="2" side_tool="true" />
-      <window_info id="Image Layers" order="5" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48154226" visible="true" weight="0.31837308" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="Dart Analysis" order="7" sideWeight="0.48424068" weight="0.3267974" />
+      <window_info id="Build Variants" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8053097" visible="true" weight="0.34622145" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="Flutter Inspector" order="8" sideWeight="0.49134198" visible="true" weight="0.050861362" />
-      <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info id="Captures" order="6" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Flutter Inspector" order="3" sideWeight="0.49134198" weight="0.030973451" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Captures" order="6" weight="0.32949308" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5184578" side_tool="true" visible="true" weight="0.31837308" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.19469027" side_tool="true" weight="0.34632683" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17391305" />
-      <window_info anchor="right" id="Device File Explorer" order="4" sideWeight="0.508658" side_tool="true" weight="0.15133779" />
-      <window_info anchor="right" id="Flutter Outline" order="3" sideWeight="0.49134198" weight="0.32932934" />
-      <window_info anchor="bottom" id="Logcat" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.49678457" weight="0.32786885" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49427754" weight="0.3237705" />
+      <window_info anchor="right" id="Device File Explorer" order="5" sideWeight="0.508658" side_tool="true" weight="0.15133779" />
+      <window_info anchor="right" id="Flutter Outline" order="6" sideWeight="0.49134198" weight="0.32932934" />
+      <window_info anchor="right" id="Assistant" order="9" weight="0.32687652" />
+      <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.4842615" weight="0.32899022" />
+      <window_info anchor="bottom" id="Flutter Performance" order="14" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4869281" weight="0.32871014" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.76120555" weight="0.3226257" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.20679012" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24500768" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49101308" weight="0.32038835" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3292683" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.48328558" weight="0.2908497" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.2495637" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49743214" weight="0.22758621" />
     </layout-to-restore>
   </component>
@@ -509,122 +506,17 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="27" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/tab_bar.dart</url>
+          <line>101</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="28" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/objects/UserFollower.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/articlefeed_widget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/left_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-274">
-          <caret line="81" column="37" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/PostGetter.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/right_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-244">
-          <caret line="72" column="38" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/unranked_stream.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-184">
-          <caret line="189" column="53" selection-start-line="189" selection-start-column="53" selection-end-line="189" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/UserPostGetter.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/profile/OtherUserFollowers.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="89" column="59" selection-start-line="89" selection-start-column="54" selection-end-line="89" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/profile/OtherUserFollowing.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="99" column="79" selection-start-line="99" selection-start-column="74" selection-end-line="99" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/profile/track_followers.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/respect/confirm_report.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="41" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/respect/report_flag.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/respect/RespectWidget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="118" column="19" selection-start-line="118" selection-start-column="14" selection-end-line="118" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/home_page.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -715,28 +607,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/tab_bar.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" />
+    <entry file="file://$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" />
+    <entry file="file://$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" />
     <entry file="file://$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
@@ -763,16 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -787,16 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/FireNewsPageUpgrade.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-571">
-          <caret line="35" column="62" lean-forward="true" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/FireNewsPage.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
@@ -804,65 +657,6 @@
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/FireNewsGetter.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/FirePageCreator.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/CommentCollector.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1905">
-          <caret line="127" column="45" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/FireNewsView.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="25" column="8" selection-start-line="16" selection-start-column="12" selection-end-line="25" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/LoginPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/profile/find_followers_search.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-443">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/socialfeed_widget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="110" column="87" selection-start-line="110" selection-start-column="87" selection-end-line="110" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/social_feed.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -876,13 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/profile/ProfilePage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="219" column="28" selection-start-line="219" selection-start-column="28" selection-end-line="219" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/profile/track_followers_widget.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1515">
@@ -890,10 +677,180 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/UserPostGetterUpdate.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/objects/TodaysArticles.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/objects/UserFollower.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/store/store.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="34" column="18" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/FireNewsPageTest.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="40" column="27" selection-start-line="35" selection-start-column="9" selection-end-line="40" selection-end-column="27" />
+          <folding>
+            <element signature="e#2#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/UserPostGetter.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="35" column="68" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/LoginPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/respect/confirm_report.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="45" column="127" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="127" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/CommentCollectorPopUp.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="49" column="33" lean-forward="true" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/CommentCollector.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="102" column="38" lean-forward="true" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/respect/report_flag.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="22" column="12" selection-start-line="17" selection-start-column="6" selection-end-line="22" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/profile/massive_firenews.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="406" column="48" lean-forward="true" selection-start-line="406" selection-start-column="48" selection-end-line="406" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/socialfeed_widget.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="73" column="51" lean-forward="true" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/social_feed.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/profile/ProfilePage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3090">
+          <caret line="216" column="44" selection-start-line="216" selection-start-column="44" selection-end-line="216" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/FireNewsPageUpgrade.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3108">
+          <caret line="213" column="26" selection-start-line="213" selection-start-column="26" selection-end-line="213" selection-end-column="26" />
+          <folding>
+            <element signature="e#2#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/profile/find_followers_search.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="46" column="11" lean-forward="true" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/profile/find_followers_search_widget.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/profile/find_followers_widget.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/profile/find_followers.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="73" column="47" selection-start-line="73" selection-end-line="74" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/profile/track_following_widget.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="475">
+          <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
@@ -902,25 +859,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/profile/track_following.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="113" />
+        <state relative-caret-position="72">
+          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/profile/find_followers.dart">
+    <entry file="file://$PROJECT_DIR$/lib/pages/tab_bar.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="78" column="51" lean-forward="true" selection-start-line="78" selection-start-column="51" selection-end-line="78" selection-end-column="51" />
+        <state relative-caret-position="190">
+          <caret line="95" column="36" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <marker date="1546878906086" expanded="true" signature="2365:2389" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/profile/find_followers_widget.dart">
+    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/FireNewsView.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="107" column="6" selection-start-line="107" selection-start-column="6" selection-end-line="110" selection-end-column="8" />
+        <state relative-caret-position="127">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/FirePageCreator.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-116">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/FireNewsGetter.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/Troubleshooting/NewsLandingPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="40" column="18" selection-start-line="40" selection-end-line="41" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/PostGetter.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

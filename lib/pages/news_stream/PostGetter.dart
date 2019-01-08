@@ -15,9 +15,7 @@ class PostGetter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 // TODO: implement build
-    return new Scaffold(
-      body: new Container(
-        child: new FutureBuilder(
+   return new FutureBuilder(
             future: Firestore.instance
                 .collection('post')
                 .where('article', isEqualTo: articleId)
@@ -25,36 +23,40 @@ class PostGetter extends StatelessWidget {
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               if (snapshot.hasData) {
                 if (snapshot.data != null) {
-                  return new Column(
+                  return
+                  new Column(
                     children: <Widget>[
-                      new Expanded(
-                        child: new ListView(
-                          children: snapshot.data.documents
-                              .map<Widget>((DocumentSnapshot document) {
-                            return new SocialFeedWidget(
-                              filter: true,
-                              article_header: document['article_title'],
-                              userName: document['author'],
-                              spectrumValue:
-                              document['spectrum_value'].toDouble(),
-                              fullName: document['firstName'] + " " + document['lastName'],
-                              comment: document['comment'],
-                              user_id: document['user_id'],
-                              postID: document.documentID,
-                              posterID: posterID,
-                            );
-                          }).toList(),
-                        ),
+                      new ListView(
+
+                        shrinkWrap: true,
+                        children: snapshot.data.documents
+                            .map<Widget>((DocumentSnapshot document) {
+                          return new SocialFeedWidget(
+                            filter: true,
+                            article_header: document['article_title'],
+                            userName: document['author'],
+                            spectrumValue:
+                            document['spectrum_value'].toDouble(),
+                            fullName: document['firstName'] + " " + document['lastName'],
+                            comment: document['comment'],
+                            user_id: document['user_id'],
+                            postID: document.documentID,
+                            posterID: posterID,
+                          );
+                        }).toList(),
+
                       ),
                     ],
+
                   );
+
                 }
               } else {
                 return new CircularProgressIndicator();
               }
-            }),
-      ),
-    );
+            });
+
+
   }
 }
 

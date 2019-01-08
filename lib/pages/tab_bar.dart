@@ -8,6 +8,8 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:news_app/auth.dart';
 import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/components/logo.dart';
+import 'package:news_app/pages/Troubleshooting/NewsLandingPage.dart';
+import 'package:news_app/pages/news_stream/CommentCollector.dart';
 import 'package:news_app/pages/news_stream/FireNewsGetter.dart';
 import 'package:news_app/pages/news_stream/FireNewsView.dart';
 import 'package:news_app/pages/PageCreator.dart';
@@ -58,6 +60,8 @@ class NavBarState extends State<NavBar> {
 //  NewsView news;
   FireNewsView fireNewsView;
   SocialFeed socialFeed;
+//  NewsLandingPage newsLangingPage;
+//  CommentCollector commentCollector;
 
 //  SocialPage socialPage;
   List<Widget> views;
@@ -69,9 +73,27 @@ class NavBarState extends State<NavBar> {
       this.currentTab = 0;
     }
 
-    fireNewsView = FireNewsView();
-    socialFeed = SocialFeed(
+//    newsLangingPage = NewsLandingPage(
+//      userID: 'zq0VGKK7vEYYb7N94BD7zgpaIrs2',
+//      article_id: 'lpquVtoRNsu0vBLjNByS',
+//      firstName: widget.firstName,
+//      lastName: widget.lastName,
+//      userName: widget.userName,
+//    );
+
+//    commentCollector = CommentCollector();
+
+    fireNewsView = FireNewsView(
       userID: widget.userID,
+      username: widget.userName,
+      firstName: widget.firstName,
+      lastName: widget.lastName,
+    );
+    socialFeed = SocialFeed(
+      username: widget.userName,
+      userID: widget.userID,
+      userFirstName: widget.firstName,
+      userLastName: widget.lastName,
     );
 //    postGetter = PostGetter();
 //    socialPage = SocialPage();

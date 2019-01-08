@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/components/ColorFile.dart';
+import 'package:news_app/pages/Troubleshooting/NewsLandingPage.dart';
 import 'package:news_app/pages/news_stream/FireNewsPage.dart';
 import 'package:news_app/pages/news_stream/FireNewsPageUpgrade.dart';
 import 'package:news_app/pages/news_stream/unranked_stream.dart';
@@ -22,6 +23,9 @@ class SocialFeedWidget extends StatelessWidget {
   final String postID;
   final String posterID;
   final bool filter;
+  final String posterFirstName;
+  final String posterLastName;
+  final String posterUserName;
 
   SocialFeedWidget(
       {this.articleID,
@@ -33,6 +37,9 @@ class SocialFeedWidget extends StatelessWidget {
       this.user_id,
       this.postID,
       this.posterID,
+      this.posterFirstName,
+      this.posterLastName,
+        this.posterUserName,
       this.filter});
 
   Future totalLikes(postID) async {
@@ -46,7 +53,7 @@ class SocialFeedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double c_width = MediaQuery.of(context).size.width*0.8;
+    double c_width = MediaQuery.of(context).size.width * 0.8;
     return new Padding(
       padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
       child: new FlatButton(
@@ -59,15 +66,13 @@ class SocialFeedWidget extends StatelessWidget {
                         appBar: AppBar(
                           elevation: 0.0,
                         ),
-body: new FireNewsPageUpdate(article_id: articleID,),
-//                        body: new UnrankedPage(
-//                          right_content: thisArticle.right_content,
-//                          left_content: thisArticle.left_content,
-//                          content: thisArticle.content,
-//                          rank: thisArticle.rank,
-//                          header: thisArticle.header,
-//                          article_date: thisArticle.article_date,
-//                        ),
+                        body: new NewsLandingPage(
+                          article_id: articleID,
+                          userName: posterUserName,
+                          userID: posterID,
+                          firstName: posterFirstName,
+                          lastName: posterLastName,
+                        ),
                       ),
                   fullscreenDialog: true),
             );
@@ -100,17 +105,19 @@ body: new FireNewsPageUpdate(article_id: articleID,),
                         new Text(
                           "@$userName",
                           textAlign: TextAlign.left,
-                          style: new TextStyle(
-                               fontSize: 13.0),
+                          style: new TextStyle(fontSize: 13.0),
                         ),
                       ],
                     ),
                     onTap: () => Navigator.of(context).push(
-                      new MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                          new GetOtherProfilePage(posterID: user_id, myUserID: posterID,),
-                          fullscreenDialog: true),
-                    ),
+                          new MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  new GetOtherProfilePage(
+                                    posterID: user_id,
+                                    myUserID: posterID,
+                                  ),
+                              fullscreenDialog: true),
+                        ),
                   ),
                 ),
                 new Container(
@@ -174,7 +181,6 @@ body: new FireNewsPageUpdate(article_id: articleID,),
   }
 
   List<Widget> buildHeader(width) {
-
     if (filter == false) {
       return [
         new Container(
@@ -183,8 +189,7 @@ body: new FireNewsPageUpdate(article_id: articleID,),
           alignment: Alignment.topLeft,
           child: new Text(
             article_header,
-            style: new TextStyle(
-                color: purpleColor(), fontSize: 18.0),
+            style: new TextStyle(color: purpleColor(), fontSize: 18.0),
             textAlign: TextAlign.left,
           ),
         ),

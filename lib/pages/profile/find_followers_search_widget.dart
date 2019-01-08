@@ -8,19 +8,19 @@ import 'package:news_app/components/ColorFile.dart';
 //Widget notes: commented out the stateful elements because of issues with building the list with a negative list
 //probably should convert this to stateless widget
 
-class FindFollowerWidget extends StatefulWidget {
-  FindFollowerWidget({this.name, this.username, this.userID, this.otherUserID});
+class FindFollowerSearchWidget extends StatefulWidget {
+  FindFollowerSearchWidget({this.name, this.username, this.userID, this.otherUserID});
   final String name;
   final String username;
   final String userID;
   final String otherUserID;
 
   @override
-  FindFollowerWidgetState createState() => FindFollowerWidgetState();
+  FindFollowerSearchWidgetState createState() => FindFollowerSearchWidgetState();
 }
 
-class FindFollowerWidgetState extends State<FindFollowerWidget> {
-  FindFollowerWidgetState();
+class FindFollowerSearchWidgetState extends State<FindFollowerSearchWidget> {
+  FindFollowerSearchWidgetState();
   bool _followMe;
 
 
@@ -105,35 +105,10 @@ class FindFollowerWidgetState extends State<FindFollowerWidget> {
           });
     }
     else {
-      return new RaisedButton(
-          child: new Text(
-            "Follow",
-            style: new TextStyle(
-              color: Colors.white,
-            ),
-          ),
-          color: purpleColor(),
-          onPressed: () {
-            toggleFollower();
-            Firestore.instance
-                .collection('relationships')
-                .document(widget.userID)
-                .collection('following')
-                .document(widget.otherUserID)
-                .setData({
-              'following': false,
-              'followingID': widget.otherUserID,
-            });
-            Firestore.instance
-                .collection('relationships')
-                .document(widget.otherUserID)
-                .collection('followers')
-                .document(widget.userID)
-                .setData({
-              'follower': false,
-              'followerID': widget.userID,
-            });
-          });
+      return new Text(
+        "Following",
+        style: TextStyle(color: purpleColor(),),
+      );
     }
   }
 

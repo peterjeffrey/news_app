@@ -1,3 +1,5 @@
+
+
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -14,13 +16,17 @@ class FireNewsPageUpdate extends StatelessWidget {
   final String article_id;
   final bool ranked;
 
+
   FireNewsPageUpdate({this.article_id, this.ranked});
 
   @override
   Widget build(BuildContext context) {
     double width100 = MediaQuery.of(context).size.width;
+    print("FireNewsPageUpgrade building");
+
 
     return new Scaffold(
+      key: new GlobalKey(debugLabel: "scaffold"),
         body: new FutureBuilder(
             future: getArticle(article_id),
             builder: (context, AsyncSnapshot<Article> snapshot) {
@@ -40,7 +46,7 @@ class FireNewsPageUpdate extends StatelessWidget {
                             children: <Widget>[
                               new Padding(
                                 padding:
-                                    EdgeInsets.fromLTRB(25.0, 0.0, 0.0, 0.0),
+                                EdgeInsets.fromLTRB(25.0, 0.0, 0.0, 0.0),
                                 child: new Container(
                                   child: new Center(
                                     child: new Text(
@@ -125,25 +131,25 @@ class FireNewsPageUpdate extends StatelessWidget {
                             children: <Widget>[
                               new Padding(
                                 padding:
-                                    EdgeInsets.fromLTRB(8.0, 8.0, 25.0, 8.0),
+                                EdgeInsets.fromLTRB(8.0, 8.0, 25.0, 8.0),
                                 child: new RaisedButton(
                                   elevation: 8,
                                   color: blueColor(),
                                   onPressed: () => Navigator.of(context).push(
                                       new MaterialPageRoute(
                                           builder: (BuildContext context) =>
-                                              new LeftPage(
-                                                rank: snapshot.data.rank,
-                                                title: snapshot.data.header,
-                                                left_content:
-                                                    snapshot.data.leftContent,
-                                              ),
+                                          new LeftPage(
+                                            rank: snapshot.data.rank,
+                                            title: snapshot.data.header,
+                                            left_content:
+                                            snapshot.data.leftContent,
+                                          ),
                                           fullscreenDialog: true)),
                                   child: new Container(
                                     child: new Center(
                                       child: new Column(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         children: <Widget>[
                                           new Text(
                                             "Left Opinion",
@@ -161,26 +167,26 @@ class FireNewsPageUpdate extends StatelessWidget {
                               ),
                               new Padding(
                                 padding:
-                                    EdgeInsets.fromLTRB(25.0, 8.0, 8.0, 8.0),
+                                EdgeInsets.fromLTRB(25.0, 8.0, 8.0, 8.0),
                                 child: new RaisedButton(
                                   elevation: 8,
                                   color: redColor(),
                                   onPressed: () => Navigator.of(context).push(
-                                        new MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                                new RightPage(
-                                                  rank: snapshot.data.rank,
-                                                  title: snapshot.data.header,
-                                                  right_content: snapshot
-                                                      .data.rightContent,
-                                                ),
-                                            fullscreenDialog: true),
-                                      ),
+                                    new MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                        new RightPage(
+                                          rank: snapshot.data.rank,
+                                          title: snapshot.data.header,
+                                          right_content: snapshot
+                                              .data.rightContent,
+                                        ),
+                                        fullscreenDialog: true),
+                                  ),
                                   child: new Container(
                                     child: new Center(
                                       child: new Column(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         children: <Widget>[
                                           new Text(
                                             "Right Opinion",
@@ -237,6 +243,7 @@ class Article {
   String leftContent;
   String rightContent;
   int rank;
+
   Article.fromSnapshot(DocumentSnapshot snapshot)
       : content = snapshot['content'],
         date = snapshot['date'],

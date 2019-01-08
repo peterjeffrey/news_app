@@ -53,6 +53,10 @@ class _CommentCollectorState extends State<CommentCollector> {
         _commentPosted = true;
       });
 
+      Navigator.pop(
+          context
+      );
+
 
     }
   }
@@ -162,9 +166,9 @@ Future<void> addPost(postData) async {
     print(e);
   });
   Firestore.instance.collection('respect_count').add(
-    {
-      'count': 0,
-    }
+      {
+        'count': 0,
+      }
   ).catchError((e) {
     print(e);
   });
