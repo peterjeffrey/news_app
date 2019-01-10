@@ -37,6 +37,7 @@ class PublickState extends State<PublickApp> {
   final FirebaseMessaging _messaging = FirebaseMessaging();
   final String title = "TitleHere";
 
+
   @override
   void initState() {
     String articleTitle = "title";
@@ -69,4 +70,9 @@ class PublickState extends State<PublickApp> {
 //      ),
         ));
   }
+}
+
+class Article{
+  int rank;
+  String title;
 }

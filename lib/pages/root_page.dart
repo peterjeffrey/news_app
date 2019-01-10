@@ -120,3 +120,53 @@ class User {
         lastName = snapshot['last_name'],
         username = snapshot['username'];
 }
+
+
+
+
+
+Stream<Newsday> getNewsday(name) {
+  return Firestore.instance
+      .collection('newsdays')
+      .document('$name')
+      .get()
+      .then((snapshot) {
+    try {
+      return Newsday.fromSnapshot(snapshot);
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }).asStream();
+}
+
+class Newsday {
+  String date;
+  List<Article> articles = new List<Article>();
+
+  Newsday.fromSnapshot(DocumentSnapshot snapshot)
+      : date = snapshot['date'],
+        articles = List.from(snapshot['articles'].map<Article>((item) {
+          return Article.fromMap(item);
+        }).toList());
+}
+
+class Article {
+  String header;
+  int rank;
+  String content;
+  String left_content;
+  String right_content;
+  String article_id;
+  String article_date;
+
+
+  Article.fromMap(Map<dynamic, dynamic> data)
+      : header = data["header"],
+        rank = data["rank"],
+        content = data["content"],
+        left_content = data["left_content"],
+        right_content = data["right_content"],
+        article_date = data["date"],
+        article_id = data["article_id"];
+}

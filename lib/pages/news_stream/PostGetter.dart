@@ -25,11 +25,8 @@ class PostGetter extends StatelessWidget {
                 if (snapshot.data != null) {
                   return
                   new Column(
-                    children: <Widget>[
-                      new ListView(
-
-                        shrinkWrap: true,
-                        children: snapshot.data.documents
+                    children:
+                     snapshot.data.documents
                             .map<Widget>((DocumentSnapshot document) {
                           return new SocialFeedWidget(
                             filter: true,
@@ -45,8 +42,6 @@ class PostGetter extends StatelessWidget {
                           );
                         }).toList(),
 
-                      ),
-                    ],
 
                   );
 
