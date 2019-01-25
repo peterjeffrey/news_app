@@ -11,11 +11,12 @@ import 'package:news_app/pages/profile/find_followers_widget.dart';
 
 class AddFollowers extends StatelessWidget {
 
-  AddFollowers({this.userID});
+  AddFollowers({this.userID, this.sessionUsername});
   final String userID;
 //  final String userId = '5lCAtUmFEybRqWE0czBYqq6St1s2';
   List<String> followingList = [];
   List<UserFollower> prospectiveFollowers = [];
+  final String sessionUsername;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class AddFollowers extends StatelessWidget {
               onPressed: () {
 
 //                var listToPass = [UserFollower("Peter", "PJ"), UserFollower("Jonathan", "JJ")];
-                showSearch(context: context, delegate: FindFollowersSearch(friendsList: prospectiveFollowers));
+                showSearch(context: context, delegate: FindFollowersSearch(friendsList: prospectiveFollowers, sessionUsername: sessionUsername));
               }
           ),
         ],
@@ -84,6 +85,7 @@ class AddFollowers extends StatelessWidget {
                                             username: document['username'],
                                             otherUserID: document['user_id'],
                                             userID: userID,
+                                            sessionUsername: sessionUsername,
                                           );
 
                                   }).toList(),

@@ -13,9 +13,9 @@ import 'package:news_app/pages/profile/track_following.dart';
 class ProfilePage extends StatelessWidget {
 
 
-
+  final String username;
   final String userID;
-  ProfilePage({this.userID});
+  ProfilePage({this.userID, this.username});
 
 
   @override
@@ -30,7 +30,7 @@ class ProfilePage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(
                   new MaterialPageRoute(
-                      builder: (context) => new AddFollowers(userID: userID,),
+                      builder: (context) => new AddFollowers(userID: userID, sessionUsername: username),
                       fullscreenDialog: true),
                 );
               }

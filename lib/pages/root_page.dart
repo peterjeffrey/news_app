@@ -45,6 +45,8 @@ class _RootPageState extends State<RootPage> {
 
   @override
   Widget build(BuildContext context) {
+    List<String> listOfArticleIDs = new List<String>();
+    List<Article> listOfActualArticles = new List<Article>();
     switch (authStatus) {
       case AuthStatus.notSignedIn:
         return new LoginPage(
@@ -66,13 +68,39 @@ class _RootPageState extends State<RootPage> {
                     return new Center(
                       child: new CircularProgressIndicator(),
                     );
-                  return new NavBar(
-                    auth: widget.auth,
-                    onSignedOut: _signedOut,
-                    userName: snapshot.data.username.toString(),
-                    firstName: snapshot.data.firstName.toString(),
-                    lastName: snapshot.data.lastName.toString(),
-                    userID: snapshot.data.user_id.toString(),
+
+                  return new StreamBuilder<QuerySnapshot>(
+                    stream:
+                        Firestore.instance.collection('newsdays').snapshots(),
+                    builder: (BuildContext context,
+                        AsyncSnapshot<QuerySnapshot> snapshotNewsday) {
+                      if (!snapshotNewsday.hasData)
+                        return new Center(
+                          child: new CircularProgressIndicator(),
+                        );
+                      final int newsdayCount =
+                          snapshotNewsday.data.documents.length;
+                      final String name = newsdayCount.toString();
+                      return new StreamBuilder(
+                          stream: getNewsday(name),
+                          builder:
+                              (BuildContext c, AsyncSnapshot<Newsday> data) {
+                            if (data?.data == null)
+                              return new Center(
+                                child: new CircularProgressIndicator(),
+                              );
+                            Newsday r = data.data;
+                            return new NavBar(
+                              auth: widget.auth,
+                              articleList: r.articles,
+                              onSignedOut: _signedOut,
+                              userName: snapshot.data.username.toString(),
+                              firstName: snapshot.data.firstName.toString(),
+                              lastName: snapshot.data.lastName.toString(),
+                              userID: snapshot.data.user_id.toString(),
+                            );
+                          });
+                    },
                   );
                 },
               );
@@ -90,6 +118,21 @@ class _RootPageState extends State<RootPage> {
 //        );
     }
   }
+}
+
+Future<Article> getArticle(idNumber) {
+  return Firestore.instance
+      .collection('articles')
+      .document('$idNumber')
+      .get()
+      .then((snapshot) {
+    try {
+      return Article.fromSnapshot(snapshot);
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  });
 }
 
 Future<User> getUser(idNumber) {
@@ -120,10 +163,6 @@ class User {
         lastName = snapshot['last_name'],
         username = snapshot['username'];
 }
-
-
-
-
 
 Stream<Newsday> getNewsday(name) {
   return Firestore.instance
@@ -160,6 +199,14 @@ class Article {
   String article_id;
   String article_date;
 
+  Article.fromSnapshot(DocumentSnapshot snapshotArticle)
+      : article_date = snapshotArticle['date'],
+        header = snapshotArticle['header'],
+        content = snapshotArticle['content'],
+        rank = snapshotArticle['rank'],
+        left_content = snapshotArticle['left_content'],
+        right_content = snapshotArticle['right_content'],
+        article_id = snapshotArticle.documentID;
 
   Article.fromMap(Map<dynamic, dynamic> data)
       : header = data["header"],

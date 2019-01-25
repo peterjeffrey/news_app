@@ -9,8 +9,9 @@ import 'package:news_app/pages/news_stream/socialfeed_widget.dart';
 class PostGetter extends StatelessWidget {
   final String articleId;
   final String posterID;
+  final String currentUserID;
 
-  PostGetter({this.articleId, this.posterID});
+  PostGetter({this.articleId, this.posterID, this.currentUserID,});
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +40,7 @@ class PostGetter extends StatelessWidget {
                             user_id: document['user_id'],
                             postID: document.documentID,
                             posterID: posterID,
+                            posterUserName: currentUserID,
                           );
                         }).toList(),
 

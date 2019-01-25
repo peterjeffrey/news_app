@@ -17,7 +17,9 @@ import 'package:news_app/pages/NewsView.dart';
 import 'package:news_app/pages/TakesView.dart';
 import 'package:news_app/pages/news_page.dart';
 import 'package:news_app/pages/news_stream/PostGetter.dart';
+import 'package:news_app/pages/news_stream/UpdatedNewsViewCreator.dart';
 import 'package:news_app/pages/news_stream/social_feed.dart';
+import 'package:news_app/pages/notifications/notifications_home.dart';
 import 'package:news_app/pages/profile/ProfilePage.dart';
 import 'package:news_app/pages/profile/find_followers.dart';
 import 'package:news_app/pages/profile/find_followers_search.dart';
@@ -26,6 +28,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:news_app/pages/social_page.dart';
 import 'package:news_app/reducers/main_reducer.dart';
 import 'package:news_app/store/store.dart';
+import 'package:badges/badges.dart';
 
 class NavBar extends StatefulWidget {
   NavBar(
@@ -34,7 +37,8 @@ class NavBar extends StatefulWidget {
       this.firstName,
       this.lastName,
       this.userName,
-      this.userID});
+      this.userID,
+      this.articleList});
 
   final BaseAuth auth;
   final VoidCallback onSignedOut;
@@ -42,6 +46,7 @@ class NavBar extends StatefulWidget {
   final String lastName;
   final String userName;
   final String userID;
+  final List articleList;
 
   @override
   NavBarState createState() =>
@@ -58,7 +63,8 @@ class NavBarState extends State<NavBar> {
   List<String> followingUIDList = [];
 
 //  NewsView news;
-  FireNewsView fireNewsView;
+  UpdatedNewsViewCreator updatedNewsViewCreator;
+//  FireNewsView fireNewsView;
   SocialFeed socialFeed;
 //  NewsLandingPage newsLangingPage;
 //  CommentCollector commentCollector;
@@ -83,11 +89,19 @@ class NavBarState extends State<NavBar> {
 
 //    commentCollector = CommentCollector();
 
-    fireNewsView = FireNewsView(
-      userID: widget.userID,
+//    fireNewsView = FireNewsView(
+//      userID: widget.userID,
+//      username: widget.userName,
+//      firstName: widget.firstName,
+//      lastName: widget.lastName,
+//    );
+
+    updatedNewsViewCreator = UpdatedNewsViewCreator(
       username: widget.userName,
+      userID: widget.userID,
       firstName: widget.firstName,
       lastName: widget.lastName,
+      listOfArticles: widget.articleList,
     );
     socialFeed = SocialFeed(
       username: widget.userName,
@@ -97,11 +111,19 @@ class NavBarState extends State<NavBar> {
     );
 //    postGetter = PostGetter();
 //    socialPage = SocialPage();
-    views = [fireNewsView, socialFeed];
+    views = [updatedNewsViewCreator, socialFeed];
     super.initState();
   }
 
-
+  Future getNotifications() async {
+    Stream<QuerySnapshot> totalNotifications = await Firestore.instance
+        .collection('notifications')
+        .document('notifications')
+        .collection(widget.userID)
+        .where('seen', isEqualTo: 'false')
+        .snapshots();
+    return totalNotifications.length;
+  }
 
   void signOut() async {
     try {
@@ -114,27 +136,50 @@ class NavBarState extends State<NavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
-          elevation: 0.0,
-          actions: <Widget>[
-            new IconButton(
-              icon: new Icon(Icons.person_add),
-              onPressed: () {
-                Navigator.of(context).push(
-                    new MaterialPageRoute(
-                        builder: (context) => new AddFollowers(userID: widget.userID,),
-                        fullscreenDialog: true),
-                  );
-              }
-            ),
-          ],
-        ),
-        drawer: new Drawer(
-          child: new ListView(
-            children: <Widget>[
-              new UserAccountsDrawerHeader(
-                accountName: new Text(widget.firstName + " " + widget.lastName),
+    return new StreamBuilder(
+        stream: Firestore.instance.collection('notifications').document('notifications').collection(widget.userID).where('seen', isEqualTo: false).snapshots(),
+        builder: (BuildContext
+        context,
+            AsyncSnapshot snapshot) {
+          if (snapshot.hasError) {
+            return new CircularProgressIndicator();
+          } else if (snapshot.data ==
+              null) {
+            return new CircularProgressIndicator();
+          } else {
+            return new Scaffold(
+                appBar: new AppBar(
+                  leading: Builder(
+                    builder: (context) => BadgeIconButton(
+                      itemCount: snapshot.data.documents.length,
+                      badgeColor: purpleColor(),
+                      icon: new Icon(Icons.dehaze),
+                      onPressed: () => Scaffold.of(context).openDrawer(),
+                    ),
+                  ),
+                  elevation: 0.0,
+                  actions: <Widget>[
+                    new IconButton(
+                        icon: new Icon(
+                          Icons.person_add,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            new MaterialPageRoute(
+                                builder: (context) => new AddFollowers(
+                                  userID: widget.userID,
+                                  sessionUsername: widget.userName,
+                                ),
+                                fullscreenDialog: true),
+                          );
+                        }),
+                  ],
+                ),
+                drawer: new Drawer(
+                  child: new ListView(
+                    children: <Widget>[
+                      new UserAccountsDrawerHeader(
+                        accountName: new Text(widget.firstName + " " + widget.lastName),
 
 //                new FutureBuilder<FirebaseUser>(
 //                  future: FirebaseAuth.instance.currentUser(),
@@ -155,7 +200,7 @@ class NavBarState extends State<NavBar> {
 //                    }
 //                  },
 //                ),
-                accountEmail: new Text(widget.userName),
+                        accountEmail: new Text(widget.userName),
 
 //                new FutureBuilder<FirebaseUser>(
 //                  future: FirebaseAuth.instance.currentUser(),
@@ -176,69 +221,93 @@ class NavBarState extends State<NavBar> {
 //                    }
 //                  },
 //                ),
-                currentAccountPicture: new Logo(),
-              ),
-              new ListTile(
-                  title: new Text('PROFILE'),
-                  trailing: new Icon(Icons.person),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ProfilePage(userID: widget.userID,)),
-                    );
-                  }),
-              new ListTile(
-                  title: new Text('NOTIFICATIONS'),
-//                  trailing: new Icon(Icons.person),
-                  onTap: () {
-                    print("notifications");
-                  }),
-              new ListTile(
-                title: new Text('LOGOUT'),
-                trailing: new Icon(Icons.power_settings_new),
-                onTap: () => signOut(),
-              ),
-              new Divider(),
-              new ListTile(
-                title: new Icon(Icons.close),
-                onTap: () => Navigator.of(context).pop(),
-              ),
-              new Divider(),
-            ],
-          ),
-        ),
-        body: new StoreConnector<AppState, int>(
-          converter: (store) => store.state.currentTabIndex,
-          builder: (context, int tabIndex){
-            return this.views[tabIndex];
-          },
-        ),
-        bottomNavigationBar:
-        new StoreConnector<AppState, int>(
-            converter: (store) => store.state.currentTabIndex,
-            builder: (context, currentIndex) {
-              return new StoreConnector<AppState, Function>(
-                  converter: (store) =>
-                      (int input) => store.dispatch(ActionContainer(type: Action.ToggleTabIndex, payload:input)),
-                  builder: (context, callback) {
-                    return new CupertinoTabBar(
-                        currentIndex: currentIndex ,
-                        onTap: callback,
-                        activeColor: purpleColor(),
-                        items: const <BottomNavigationBarItem>[
-                          const BottomNavigationBarItem(
-                            icon: const Icon(Icons.subject),
-                            title: const Text('News'),
+                        currentAccountPicture: new Logo(),
+                      ),
+                      new ListTile(
+                          title: new Text('PROFILE'),
+                          trailing: BadgeIconButton(
+                            itemCount: 0,
+                            icon: new Icon(Icons.person),
                           ),
-                          const BottomNavigationBarItem(
-                            icon: const Icon(Icons.forum),
-                            title: const Text('Social'),
+                          onTap: () {
+                            Navigator.of(context).pop();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProfilePage(
+                                      userID: widget.userID,
+                                      username: widget.userName)),
+                            );
+                          }),
+                      new ListTile(
+                          title: new Text('NOTIFICATIONS'),
+                          trailing: BadgeIconButton(
+                            itemCount: snapshot.data.documents.length,
+                            badgeColor: purpleColor(),
+                            icon: new Icon(Icons.notifications),
                           ),
-                        ]);
-                  });
-            })
-    );
+                          onTap: () {
+                            Navigator.of(context).pop();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NotificationsHome(
+                                    thisUserID: widget.userID,
+                                  )),
+                            );
+                          }),
+                      new ListTile(
+                        title: new Text('LOGOUT'),
+                        trailing: BadgeIconButton(
+                          itemCount: 0,
+                          icon: new Icon(Icons.person),
+                        ),
+                        onTap: () => signOut(),
+                      ),
+                      new Divider(),
+                      new ListTile(
+                        title: new Icon(Icons.close),
+                        onTap: () => Navigator.of(context).pop(),
+                      ),
+                      new Divider(),
+                    ],
+                  ),
+                ),
+                body: new StoreConnector<AppState, int>(
+                  converter: (store) => store.state.currentTabIndex,
+                  builder: (context, int tabIndex) {
+                    return this.views[tabIndex];
+                  },
+                ),
+                bottomNavigationBar: new StoreConnector<AppState, int>(
+                    converter: (store) => store.state.currentTabIndex,
+                    builder: (context, currentIndex) {
+                      return new StoreConnector<AppState, Function>(
+                          converter: (store) => (int input) => store.dispatch(
+                              ActionContainer(
+                                  type: Action.ToggleTabIndex, payload: input)),
+                          builder: (context, callback) {
+                            return new CupertinoTabBar(
+                                currentIndex: currentIndex,
+                                onTap: callback,
+                                activeColor: purpleColor(),
+                                items: const <BottomNavigationBarItem>[
+                                  const BottomNavigationBarItem(
+                                    icon: const Icon(Icons.subject),
+                                    title: const Text('News'),
+                                  ),
+                                  const BottomNavigationBarItem(
+                                    icon: const Icon(Icons.forum),
+                                    title: const Text('Social'),
+                                  ),
+                                ]);
+                          });
+                    }));
+          }
+        });
+      
+      
+
   }
 }
 

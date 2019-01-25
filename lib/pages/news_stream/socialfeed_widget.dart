@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/pages/Troubleshooting/NewsLandingPage.dart';
+import 'package:news_app/pages/Troubleshooting/SocialNewsLandingPage.dart';
 import 'package:news_app/pages/news_stream/FireNewsPage.dart';
 import 'package:news_app/pages/news_stream/FireNewsPageUpgrade.dart';
 import 'package:news_app/pages/news_stream/unranked_stream.dart';
@@ -66,7 +67,7 @@ class SocialFeedWidget extends StatelessWidget {
                         appBar: AppBar(
                           elevation: 0.0,
                         ),
-                        body: new NewsLandingPage(
+                        body: new SocialNewsLandingPage(
                           article_id: articleID,
                           userName: posterUserName,
                           userID: posterID,
@@ -156,7 +157,7 @@ class SocialFeedWidget extends StatelessWidget {
                     padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                     alignment: Alignment.bottomRight,
                     child: new RespectWidget(
-                        postID: '$postID', respecterID: '$posterID')),
+                        postID: '$postID', respecterID: '$user_id', posterID: '$posterID', respecterUsername: '$posterUserName', comment: '$comment')),
                 new Container(
                   padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                   alignment: Alignment.bottomRight,

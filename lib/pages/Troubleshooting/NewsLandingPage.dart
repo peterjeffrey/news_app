@@ -18,14 +18,33 @@ class NewsLandingPage extends StatelessWidget {
   final String firstName;
   final String lastName;
   final String userName;
+  final String header;
+  final String content;
+  final int rank;
+  final String rightContent;
+  final String leftContent;
+  final String date;
 
-  NewsLandingPage({this.article_id, this.userID, this.firstName, this.lastName, this.userName, this.ranked});
+
+  NewsLandingPage({
+    this.article_id,
+    this.userID,
+    this.firstName,
+    this.lastName,
+    this.userName,
+    this.ranked,
+    this.header,
+    this.content,
+    this.rank,
+    this.rightContent,
+    this.leftContent,
+    this.date
+  });
 
 
 
   Future<int> checkUser(String articleID, String userID) async {
-    print('article ID is $articleID');
-    print('userID is $userID');
+
     var user = await Firestore.instance
         .collection('post')
         .where('article', isEqualTo: articleID)
@@ -42,16 +61,7 @@ class NewsLandingPage extends StatelessWidget {
 
     return new Scaffold(
       resizeToAvoidBottomPadding: false,
-      body:
-          new FutureBuilder(
-              future: getArticle(article_id),
-    builder: (context, AsyncSnapshot<Article> snapshot) {
-      if (snapshot?.data == null) {
-        return new Center(
-          child: new Text("Loading..."),
-        );
-      }
-      return new ListView(
+      body: new ListView(
         children: <Widget>[
           new Padding(
             padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
@@ -64,7 +74,7 @@ class NewsLandingPage extends StatelessWidget {
                       child: new Container(
                         child: new Center(
                           child: new Text(
-                            (snapshot.data.rank).toString(),
+                            (rank).toString(),
                             style: new TextStyle(
                               color: Colors.white,
                               fontSize: 40.0,
@@ -85,7 +95,7 @@ class NewsLandingPage extends StatelessWidget {
                         children: <Widget>[
                           new Padding(
                               child: new Text(
-                                snapshot.data.header,
+                                header,
                                 style: new TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black,
@@ -102,7 +112,7 @@ class NewsLandingPage extends StatelessWidget {
                 new Padding(
                   padding: EdgeInsets.all(8.0),
                   child: new Text(
-                    snapshot.data.date,
+                    date,
                     style: new TextStyle(
                         color: Color.fromRGBO(74, 74, 74, 1.0), fontSize: 16.0),
                   ),
@@ -127,7 +137,7 @@ class NewsLandingPage extends StatelessWidget {
                 new Padding(
                   padding: EdgeInsets.all(10.0),
                   child: new Text(
-                    snapshot.data.content
+                    content
                         .toString()
                         .replaceAll("\\n", "\n\n"),
                     style: new TextStyle(
@@ -150,9 +160,9 @@ class NewsLandingPage extends StatelessWidget {
                         onPressed: () =>
                             Navigator.of(context).push(new MaterialPageRoute(
                                 builder: (BuildContext context) => new LeftPage(
-                                  rank: snapshot.data.rank,
-                                  title: snapshot.data.header,
-                                  left_content: snapshot.data.leftContent,
+                                  rank: rank,
+                                  title: header,
+                                  left_content: leftContent,
                                 ),
                                 fullscreenDialog: true)),
                         child: new Container(
@@ -182,9 +192,9 @@ class NewsLandingPage extends StatelessWidget {
                           new MaterialPageRoute(
                               builder: (BuildContext context) =>
                               new RightPage(
-                                rank: snapshot.data.rank,
-                                title: snapshot.data.header,
-                                right_content: snapshot.data.rightContent,
+                                rank: rank,
+                                title: header,
+                                right_content: rightContent,
                               ),
                               fullscreenDialog: true),
                         ),
@@ -217,7 +227,7 @@ class NewsLandingPage extends StatelessWidget {
               builder: (context, snapshot2) {
                 if (snapshot2.hasData) {
                   if (snapshot2.data == 1){
-                    return new PostGetter(articleId: article_id, posterID: userID,);
+                    return new PostGetter(articleId: article_id, posterID: userID, currentUserID: userName,);
                   }
                   else {
 
@@ -227,8 +237,8 @@ class NewsLandingPage extends StatelessWidget {
                               new MaterialPageRoute(
                                   builder: (context) => new CommentCollectorPopUp(
                                     articleID: article_id,
-                                    articleTitle: snapshot.data.header,
-                                    articleDate: snapshot.data.date,
+                                    articleTitle: header,
+                                    articleDate: date,
                                     userName: userName,
                                     firstName: firstName,
                                     lastName: lastName,
@@ -317,15 +327,6 @@ class NewsLandingPage extends StatelessWidget {
                         )
                     );
 
-//                    return new CommentCollector(
-//                      articleID: article_id,
-//                      articleTitle: snapshot.data.header,
-//                      articleDate: snapshot.data.date,
-//                      userName: userName,
-//                      firstName: firstName,
-//                      lastName: lastName,
-//                      user_id: userID,
-//                    );
                   }
 
                 } else if (snapshot2.hasError) {
@@ -334,12 +335,10 @@ class NewsLandingPage extends StatelessWidget {
                 return new CircularProgressIndicator();
 
               })
-//          new UserPostGetter(articleId: 'lpquVtoRNsu0vBLjNByS',),
-//          new CommentCollector(),
+
         ],
-      );
-    }
-  ),
+      ),
+
 
 
 

@@ -18,6 +18,8 @@ class FireNewsGetter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    print("FireNewsGetter $nameOfDoc");
     // TODO: implement build
 
     return new Scaffold(

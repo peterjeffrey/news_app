@@ -9,11 +9,17 @@ import 'package:news_app/components/ColorFile.dart';
 //probably should convert this to stateless widget
 
 class FindFollowerWidget extends StatefulWidget {
-  FindFollowerWidget({this.name, this.username, this.userID, this.otherUserID});
+  FindFollowerWidget(
+      {this.name,
+      this.username,
+      this.userID,
+      this.otherUserID,
+      this.sessionUsername});
   final String name;
   final String username;
   final String userID;
   final String otherUserID;
+  final String sessionUsername;
 
   @override
   FindFollowerWidgetState createState() => FindFollowerWidgetState();
@@ -23,7 +29,6 @@ class FindFollowerWidgetState extends State<FindFollowerWidget> {
   FindFollowerWidgetState();
   bool _followMe;
 
-
   @override
   void initState() {
     _followMe = false;
@@ -31,6 +36,7 @@ class FindFollowerWidgetState extends State<FindFollowerWidget> {
 
   @override
   Widget build(BuildContext context) {
+    print("other userID is" + widget.otherUserID);
     // TODO: implement build
     return new Padding(
       padding: EdgeInsets.fromLTRB(20.0, 5.0, 40.0, 5.0),
@@ -84,6 +90,30 @@ class FindFollowerWidgetState extends State<FindFollowerWidget> {
           color: purpleColor(),
           onPressed: () {
             toggleFollower();
+//            Firestore.instance
+//                .collection('notifications')
+//                .document('notifications')
+//                .collection(widget.otherUserID)
+//                .document('test')
+//                .setData({
+//              'date': DateTime.now(),
+//              'other_userID': widget.userID,
+//              'other_username': "@" + widget.sessionUsername,
+//              'seen': false,
+//              'type': 'follow',
+//            });
+            Firestore.instance
+                .collection('notifications')
+                .document('notifications')
+                .collection(widget.otherUserID)
+                .document(DateTime.now().toString() + widget.otherUserID)
+                .setData({
+              'date': new DateTime.now(),
+              'other_userID': widget.userID,
+              'other_username': '@' + widget.sessionUsername,
+              'seen': false,
+              'type': 'follow',
+            });
             Firestore.instance
                 .collection('relationships')
                 .document(widget.userID)
@@ -102,9 +132,9 @@ class FindFollowerWidgetState extends State<FindFollowerWidget> {
               'follower': true,
               'followerID': widget.userID,
             });
+
           });
-    }
-    else {
+    } else {
       return new RaisedButton(
           child: new Text(
             "Follow",
@@ -136,7 +166,6 @@ class FindFollowerWidgetState extends State<FindFollowerWidget> {
           });
     }
   }
-
 
   void toggleFollower() {
     if (_followMe == false) {

@@ -5,11 +5,12 @@ import 'package:news_app/pages/profile/find_followers_widget.dart';
 
 class FindFollowersSearch extends SearchDelegate<UserFollower> {
 
-  FindFollowersSearch({this.friendsList});
+  FindFollowersSearch({this.friendsList, this.sessionUsername});
   final List<UserFollower> friendsList;
 //  final friendsList = [UserFollower("Peter", "PJ"), UserFollower("Jonathan", "JJ")];
 //  final suggestedFriendsList = [UserFollower("Peter", "PJ"),];
   final suggestedFriendsList = [];
+  final String sessionUsername;
 
 
   @override
@@ -52,6 +53,7 @@ class FindFollowersSearch extends SearchDelegate<UserFollower> {
     // return futurebuilder of
     return ListView.builder(
       itemBuilder: (context, index) => FindFollowerSearchWidget(
+        sessionUsername: sessionUsername,
         name: suggestionList[index].name,
         username: suggestionList[index].username,
         userID: suggestionList[index].userID,
