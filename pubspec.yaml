@@ -17,6 +17,7 @@ dependencies:
   cloud_firestore: ^0.7.3
   flutter_redux: ^0.5.2
   badges: ^0.0.6
+  url_launcher: ^4.2.0
 
   flutter:
     sdk: flutter
@@ -68,9 +69,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: NotoSans
+    - family: Nunito
       fonts:
-        - asset: fonts/NotoSans-Regular.ttf
+        - asset: fonts/Nunito-Light.ttf
         - weight: 400
   #         style: italic
   #   - family: Trajan Pro

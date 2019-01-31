@@ -9,6 +9,8 @@ import 'package:news_app/pages/news_stream/UserPostGetter.dart';
 import 'package:news_app/pages/news_stream/left_page.dart';
 import 'package:news_app/pages/news_stream/right_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class FireNewsPage extends StatelessWidget {
 
@@ -207,5 +209,13 @@ class FireNewsPage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+_launchURL() async {
+  const url = 'https://flutter.io';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }

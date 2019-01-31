@@ -198,6 +198,19 @@ class Article {
   String right_content;
   String article_id;
   String article_date;
+  String callToAction;
+  String contentURL;
+  String leftCallToAction;
+  String leftURL;
+  String rightCallToAction;
+  String rightURL;
+  String nPartC1;
+  String nPartL1;
+  String nPartC2;
+  String nPartL2;
+  String nPartC3;
+  String nPartL3;
+  bool partisan;
 
   Article.fromSnapshot(DocumentSnapshot snapshotArticle)
       : article_date = snapshotArticle['date'],
@@ -206,7 +219,21 @@ class Article {
         rank = snapshotArticle['rank'],
         left_content = snapshotArticle['left_content'],
         right_content = snapshotArticle['right_content'],
-        article_id = snapshotArticle.documentID;
+        article_id = snapshotArticle.documentID,
+        callToAction = snapshotArticle['callToAction'],
+        contentURL = snapshotArticle['contentURL'],
+        leftCallToAction = snapshotArticle['leftCallToAction'],
+        leftURL = snapshotArticle['leftURL'],
+        rightCallToAction = snapshotArticle['rightCallToAction'],
+        rightURL = snapshotArticle['rightURL'],
+        nPartC1 = snapshotArticle['nPartC1'],
+        nPartL1 = snapshotArticle['nPartL1'],
+        nPartC2 = snapshotArticle['nPartC2'],
+        nPartL2 = snapshotArticle['nPartL2'],
+        nPartC3 = snapshotArticle['nPartC3'],
+        nPartL3 = snapshotArticle['nPartL3'],
+        partisan = snapshotArticle['partisan'];
+
 
   Article.fromMap(Map<dynamic, dynamic> data)
       : header = data["header"],
@@ -215,5 +242,18 @@ class Article {
         left_content = data["left_content"],
         right_content = data["right_content"],
         article_date = data["date"],
-        article_id = data["article_id"];
+        article_id = data["article_id"],
+        callToAction = data['callToAction'],
+        contentURL = data['contentURL'],
+        leftCallToAction = data['leftCallToAction'],
+        leftURL = data['leftURL'],
+        rightCallToAction = data['rightCallToAction'],
+        rightURL = data['rightURL'],
+        nPartC1 = data['nPartC1'],
+        nPartL1 = data['nPartL1'],
+        nPartC2 = data['nPartC2'],
+        nPartL2 = data['nPartL2'],
+        nPartC3 = data['nPartC3'],
+        nPartL3 = data['nPartL3'],
+        partisan = data['partisan'];
 }

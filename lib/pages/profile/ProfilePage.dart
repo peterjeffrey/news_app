@@ -254,6 +254,7 @@ class ProfilePage extends StatelessWidget {
                                                       postID:
                                                           document.documentID,
                                                       posterID: userID,
+                                                      datePosted: document['date_posted'],
                                                     );
                                                   }).toList(),
                                                 ),

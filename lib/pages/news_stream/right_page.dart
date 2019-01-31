@@ -1,14 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/components/ColorFile.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RightPage extends StatelessWidget {
 
   final int rank;
   final String title;
   final String right_content;
+  final String rightURL;
+  final String rightCallToAction;
 
-  RightPage({Key key, this.rank, this.title, this.right_content});
+  RightPage({Key key, this.rank, this.title, this.right_content, this.rightURL, this.rightCallToAction});
 
 
   @override
@@ -23,7 +26,7 @@ class RightPage extends StatelessWidget {
             child: new Column(
               children: <Widget>[
                 new Padding(
-                  padding: EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(24.0, 0.0, 24.0, 0.0),
                   child: new Row(
                     children: <Widget>[
                       new Container(
@@ -59,7 +62,7 @@ class RightPage extends StatelessWidget {
                                   ),
                                 ),
                                 padding:
-                                EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 10.0)),
+                                EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 0.0)),
                           ],
                         ),
                       ),
@@ -84,14 +87,32 @@ class RightPage extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 10.0),
                 ),
                 new Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(24.0),
                   child: new Text(
-                    this.right_content,
+                    right_content
+                        .toString()
+                        .replaceAll("\\n", "\n\n"),
                     style: new TextStyle(
+                      color: Colors.black,
                       wordSpacing: 0.0,
                       letterSpacing: 0.1,
-                      fontSize: 15.0,
+                      fontSize: 16.0,
                     ),
+                    textAlign: TextAlign.justify,
+                  ),
+                ),
+                new Padding(
+                  padding: EdgeInsets.only(left: 24.0, right: 24.0),
+                  child: new InkWell(
+                    onTap: _launchURL,
+                    child: Text(rightCallToAction,  style: new TextStyle(
+                      decoration: TextDecoration.underline,
+                      color: Colors.blue,
+                      wordSpacing: 0.0,
+                      letterSpacing: 0.1,
+                      fontSize: 16.0,
+                    ),
+                      textAlign: TextAlign.justify,),
                   ),
                 ),
               ],
@@ -100,5 +121,14 @@ class RightPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  _launchURL() async {
+    final url = rightURL;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

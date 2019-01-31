@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/components/ColorFile.dart';
+import 'package:news_app/components/TimeConverter.dart';
 import 'package:news_app/pages/Troubleshooting/NewsLandingPage.dart';
 import 'package:news_app/pages/Troubleshooting/SocialNewsLandingPage.dart';
 import 'package:news_app/pages/news_stream/FireNewsPage.dart';
@@ -27,6 +28,8 @@ class SocialFeedWidget extends StatelessWidget {
   final String posterFirstName;
   final String posterLastName;
   final String posterUserName;
+  final DateTime datePosted;
+  final bool partisan;
 
   SocialFeedWidget(
       {this.articleID,
@@ -41,7 +44,10 @@ class SocialFeedWidget extends StatelessWidget {
       this.posterFirstName,
       this.posterLastName,
         this.posterUserName,
-      this.filter});
+      this.filter,
+        this.datePosted,
+        this.partisan,
+      });
 
   Future totalLikes(postID) async {
     var respectsQuery = Firestore.instance
@@ -54,6 +60,8 @@ class SocialFeedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+    Duration difference = now.difference(datePosted);
     double c_width = MediaQuery.of(context).size.width * 0.8;
     return new Padding(
       padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
@@ -124,17 +132,7 @@ class SocialFeedWidget extends StatelessWidget {
                 new Container(
                   padding: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
                   child: new Row(
-                    children: <Widget>[
-                      new Slider(
-                        value: spectrumValue,
-                        onChanged: print,
-                        activeColor: redColor(),
-                        inactiveColor: blueColor(),
-                        divisions: 100,
-                        max: 10.0,
-                        min: 0.0,
-                      ),
-                    ],
+                    children: buildSpectrum()
                   ),
                 ),
               ],
@@ -170,6 +168,15 @@ class SocialFeedWidget extends StatelessWidget {
               ],
             ),
             new Padding(
+              padding: EdgeInsets.only(top: 15.0),
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  getDate(difference),
+                ],
+              ),
+            ),
+            new Padding(
               child: new Divider(
                 color: Color.fromRGBO(74, 74, 74, 1.0),
               ),
@@ -199,6 +206,54 @@ class SocialFeedWidget extends StatelessWidget {
       return [];
     }
   }
+
+  List<Widget> buildSpectrum() {
+    if (partisan != false) {
+      if (spectrumValue > 5.0) {
+        return [
+          new Slider(
+            value: spectrumValue,
+            onChanged: print,
+            activeColor: redColor(),
+            inactiveColor: redColor(),
+            divisions: 100,
+            max: 10.0,
+            min: 0.0,
+          ),
+        ];
+      } else if(spectrumValue < 5.0){
+        return [new Slider(
+          value: spectrumValue,
+          onChanged: print,
+          activeColor: blueColor(),
+          inactiveColor: blueColor(),
+          divisions: 100,
+          max: 10.0,
+          min: 0.0,
+        ),];
+      }
+      else {
+        return [new Slider(
+          value: spectrumValue,
+          onChanged: print,
+          activeColor: purpleColor(),
+          inactiveColor: purpleColor(),
+          divisions: 100,
+          max: 10.0,
+          min: 0.0,
+        ),];
+
+      }
+    }
+    else {
+      return[
+        new Container(child: new Text('Non-Partisan Article'),)
+      ];
+    }
+
+
+  }
+
 }
 
 Future<Article> getArticle(idNumber) {
@@ -224,6 +279,12 @@ class Article {
   String right_content;
   String article_id;
   String article_date;
+  String callToAction;
+  String contentURL;
+  String leftCallToAction;
+  String leftURL;
+  String rightCallToAction;
+  String rightURL;
 
   Article.fromSnapshot(DocumentSnapshot snapshot)
       : header = snapshot["header"],
@@ -232,5 +293,11 @@ class Article {
         left_content = snapshot["left_content"],
         right_content = snapshot["right_content"],
         article_date = snapshot["date"],
-        article_id = snapshot["article_id"];
+        article_id = snapshot["article_id"],
+        callToAction = snapshot['callToAction'],
+        contentURL = snapshot['contentURL'],
+        leftCallToAction = snapshot['leftCallToAction'],
+        leftURL = snapshot['leftURL'],
+        rightCallToAction = snapshot['rightCallToAction'],
+        rightURL = snapshot['rightURL'];
 }

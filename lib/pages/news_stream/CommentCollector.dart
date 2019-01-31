@@ -15,8 +15,10 @@ class CommentCollector extends StatefulWidget {
   final String firstName;
   final String lastName;
   final String user_id;
+  //ask for left opinion in order to determine if partisan
+  final bool partisan;
   const CommentCollector(
-      {Key key, this.articleID, this.articleTitle, this.userName, this.firstName, this.lastName, this.user_id, this.articleDate})
+      {Key key, this.articleID, this.articleTitle, this.userName, this.firstName, this.lastName, this.user_id, this.articleDate, this.partisan})
       : super(key: key);
 
   @override
@@ -48,6 +50,8 @@ class _CommentCollectorState extends State<CommentCollector> {
         'user_id': widget.user_id,
         'spectrum_value': val,
         'respect_count': 0,
+        'partisan': widget.partisan,
+        'date_posted': DateTime.now(),
       });
       setState(() {
         _commentPosted = true;
@@ -68,88 +72,162 @@ class _CommentCollectorState extends State<CommentCollector> {
         return new UserPostGetter(articleHeader: widget.articleTitle, articleId: widget.articleID,);
 
       case(false):
-        return new Container(
-          child: new Center(
-            child: new Container(
-              padding: EdgeInsets.all(8.0),
-              child: new Card(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-                elevation: 5.0,
-                child: new Form(
-                  key: this._formKey,
-                  child: new Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      new Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: new Text(
-                          "What's your take on the issue?",
-                          style: new TextStyle(fontSize: 18.0),
-                        ),
-                      ),
-                      new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new Text(
-                            "Very\nLeft",
-                            style: new TextStyle(color: blueColor(),),
+        if (widget.partisan != false) {
+          return new Container(
+            child: new Center(
+              child: new Container(
+                padding: EdgeInsets.all(8.0),
+                child: new Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                  elevation: 5.0,
+                  child: new Form(
+                    key: this._formKey,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: new Text(
+                            "How do you lean?",
+                            style: new TextStyle(fontSize: 18.0),
                           ),
-                          new Slider(
-                            value: val,
-                            onChanged: changed,
-                            activeColor: redColor(),
-                            inactiveColor: blueColor(),
-                            divisions: 100,
-                            max: 10.0,
-                            min: 0.0,
-                          ),
-                          new Text(
-                            "Very\nRight",
-                            style: new TextStyle(color: redColor(),),
-                          ),
-                        ],
-                      ),
-                      new Padding(
-                        padding: EdgeInsets.all(20.0),
-                        child: new Card(
-                          elevation: 5.0,
-                          child: new TextFormField(
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'Please enter some text';
-                                }
-                                if (value.length > 250) {
-                                  return 'Please shorten comment';
-                                }
-                              },
-                              decoration: new InputDecoration(
-                                contentPadding: EdgeInsets.all(10.0),
-                                border: InputBorder.none,
-                                hintText: 'Your thoughts?',
-                              ),
-                              keyboardType: TextInputType.multiline,
-                              maxLines: 6,
-                              maxLength: 250,
-                              onSaved: (String value) {
-                                this._data.comment = value;
-                              }),
                         ),
-                      ),
-                      new RaisedButton(
-                        onPressed: this.submit,
-                        child: new Text(
-                          "SUBMIT",
-                          style: new TextStyle(color: Colors.white),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            new Text(
+                              "Very\nLeft",
+                              style: new TextStyle(color: blueColor(),),
+                            ),
+                            new Slider(
+                              value: val,
+                              onChanged: changed,
+                              activeColor: purpleColor(),
+                              inactiveColor: purpleColor(),
+                              divisions: 100,
+                              max: 10.0,
+                              min: 0.0,
+                            ),
+                            new Text(
+                              "Very\nRight",
+                              style: new TextStyle(color: redColor(),),
+                            ),
+                          ],
                         ),
-                        color: purpleColor(),
-                      )
-                    ],
+                        new Padding(
+                          padding: EdgeInsets.all(20.0),
+                          child: new Card(
+                            elevation: 5.0,
+                            child: new TextFormField(
+                                validator: (value) {
+                                  if (value.isEmpty) {
+                                    return 'Please enter some text';
+                                  }
+                                  if (value.length > 250) {
+                                    return 'Please shorten comment';
+                                  }
+                                },
+                                decoration: new InputDecoration(
+                                  contentPadding: EdgeInsets.all(10.0),
+                                  border: InputBorder.none,
+                                  hintText: 'Your thoughts?',
+                                ),
+                                keyboardType: TextInputType.multiline,
+                                maxLines: 6,
+                                maxLength: 250,
+                                onSaved: (String value) {
+                                  this._data.comment = value;
+                                }),
+                          ),
+                        ),
+                        new RaisedButton(
+                          onPressed: this.submit,
+                          child: new Text(
+                            "SUBMIT",
+                            style: new TextStyle(color: Colors.white),
+                          ),
+                          color: purpleColor(),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        );
+          );
+        }
+
+        else {
+          return new Container(
+            child: new Center(
+              child: new Container(
+                padding: EdgeInsets.all(8.0),
+                child: new Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                  elevation: 5.0,
+                  child: new Form(
+                    key: this._formKey,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: new Text(
+                            "How do you lean?",
+                            style: new TextStyle(fontSize: 18.0),
+                          ),
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            new Container(
+                              child: new Text("Non-Partisan Article"),
+                            )
+                          ],
+                        ),
+                        new Padding(
+                          padding: EdgeInsets.all(20.0),
+                          child: new Card(
+                            elevation: 5.0,
+                            child: new TextFormField(
+                                validator: (value) {
+                                  if (value.isEmpty) {
+                                    return 'Please enter some text';
+                                  }
+                                  if (value.length > 250) {
+                                    return 'Please shorten comment';
+                                  }
+                                },
+                                decoration: new InputDecoration(
+                                  contentPadding: EdgeInsets.all(10.0),
+                                  border: InputBorder.none,
+                                  hintText: 'Your thoughts?',
+                                ),
+                                keyboardType: TextInputType.multiline,
+                                maxLines: 6,
+                                maxLength: 250,
+                                onSaved: (String value) {
+                                  this._data.comment = value;
+                                }),
+                          ),
+                        ),
+                        new RaisedButton(
+                          onPressed: this.submit,
+                          child: new Text(
+                            "SUBMIT",
+                            style: new TextStyle(color: Colors.white),
+                          ),
+                          color: purpleColor(),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+        }
+
 
     }
   }

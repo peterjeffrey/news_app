@@ -37,7 +37,7 @@ class SocialFeed extends StatelessWidget {
 //                return new Text(followersList[0].toString());
                 return new FutureBuilder(
                     future: Firestore.instance
-                        .collection('post')
+                        .collection('post').orderBy('date_posted', descending: true)
                         .getDocuments(),
                     builder: (BuildContext context, AsyncSnapshot snapshot2) {
                       if (snapshot2.hasData) {
@@ -62,6 +62,8 @@ class SocialFeed extends StatelessWidget {
                                       posterUserName: username,
                                       postID: document.documentID,
                                       posterID: userID,
+                                      partisan: document['partisan'],
+                                      datePosted: document['date_posted'],
                                     );
                                   }).toList(),
                                 ),

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:news_app/auth.dart';
 import 'package:news_app/components/ColorFile.dart';
+import 'package:news_app/components/TextHandler.dart';
 import 'package:news_app/components/logo.dart';
 import 'package:news_app/pages/Troubleshooting/NewsLandingPage.dart';
 import 'package:news_app/pages/news_stream/CommentCollector.dart';

@@ -23,8 +23,9 @@ class CommentCollectorPopUp extends StatelessWidget {
   final String firstName;
   final String lastName;
   final String user_id;
+  final bool partisan;
   const CommentCollectorPopUp(
-      {Key key, this.articleID, this.articleTitle, this.userName, this.firstName, this.lastName, this.user_id, this.articleDate})
+      {Key key, this.articleID, this.articleTitle, this.userName, this.firstName, this.lastName, this.user_id, this.articleDate, this.partisan})
       : super(key: key);
 
 
@@ -57,6 +58,7 @@ class CommentCollectorPopUp extends StatelessWidget {
                   articleDate: articleDate,
                   articleTitle: articleTitle,
                   articleID: articleID,
+                  partisan: partisan,
             ),
               ],
             ),
