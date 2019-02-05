@@ -55,6 +55,7 @@ flutter:
   assets:
      - assets/dogood_logo.png
      - assets/courant_logo.png
+     - assets/positLetters.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

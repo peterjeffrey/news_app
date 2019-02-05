@@ -145,13 +145,28 @@ class NewsLandingPage extends StatelessWidget {
                     height: 50.0,
                     color: purpleColor(),
                     child: new Center(
-                      child: new Text(
-                        "Just the Facts",
-                        style: new TextStyle(
-                          color: whiteColor(),
-                          fontSize: 16.0,
-                        ),
-                      ),
+                      child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Padding(
+                            child: new Icon(Icons.arrow_back, color: Colors.white,),
+                            padding: EdgeInsets.only(right: 50.0),
+                          ),
+
+                          new Text(
+                            "Just the Facts",
+                            style: new TextStyle(
+                              color: whiteColor(),
+                              fontSize: 16.0,
+                            ),
+
+                          ),
+                          new Padding(
+                            child: new Icon(Icons.arrow_forward, color: Colors.white,),
+                            padding: EdgeInsets.only(left: 50.0),
+                          ),
+                        ],
+                      )
                     ),
                   ),
                   padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 10.0),
@@ -312,7 +327,7 @@ class NewsLandingPage extends StatelessWidget {
                 } else if (snapshot2.hasError) {
                   return new Text("${snapshot2.error}");
                 }
-                return new CircularProgressIndicator();
+                return new Container();
               })
         ],
       ),

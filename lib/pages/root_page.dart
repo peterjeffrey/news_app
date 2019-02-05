@@ -66,7 +66,7 @@ class _RootPageState extends State<RootPage> {
                 builder: (context, AsyncSnapshot<User> snapshot) {
                   if (snapshot?.data == null)
                     return new Center(
-                      child: new CircularProgressIndicator(),
+                      child: new Scaffold(body: Container(),),
                     );
 
                   return new StreamBuilder<QuerySnapshot>(
@@ -76,7 +76,7 @@ class _RootPageState extends State<RootPage> {
                         AsyncSnapshot<QuerySnapshot> snapshotNewsday) {
                       if (!snapshotNewsday.hasData)
                         return new Center(
-                          child: new CircularProgressIndicator(),
+                          child: new Scaffold(body: Container(),),
                         );
                       final int newsdayCount =
                           snapshotNewsday.data.documents.length;
@@ -87,7 +87,7 @@ class _RootPageState extends State<RootPage> {
                               (BuildContext c, AsyncSnapshot<Newsday> data) {
                             if (data?.data == null)
                               return new Center(
-                                child: new CircularProgressIndicator(),
+                                child: new Scaffold(body: Container(),),
                               );
                             Newsday r = data.data;
                             return new NavBar(
@@ -106,7 +106,9 @@ class _RootPageState extends State<RootPage> {
               );
             } else {
               return new Center(
-                child: new CircularProgressIndicator(),
+                child: new Scaffold(
+                  body: new CircularProgressIndicator(),
+                ),
               );
             }
           },

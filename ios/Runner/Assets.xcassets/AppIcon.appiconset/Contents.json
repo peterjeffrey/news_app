@@ -2,110 +2,110 @@
   "images" : [
     {
       "size" : "20x20",
-      "idiom": "iphone",
-      "filename" : "LogoIcon-20@2x.png",
-      "scale": "2x"
+      "idiom" : "iphone",
+      "filename" : "posit_logo_v2-20@2x.png",
+      "scale" : "2x"
     },
     {
       "size" : "20x20",
-      "idiom": "iphone",
-      "filename" : "LogoIcon-20@3x.png",
-      "scale": "3x"
-    },
-    {
-      "size" : "20x20",
-      "idiom": "ipad",
-      "filename" : "LogoIcon-20.png",
-      "scale": "1x"
-    },
-    {
-      "size" : "20x20",
-      "idiom": "ipad",
-      "filename" : "LogoIcon-20@2x.png",
-      "scale": "2x"
+      "idiom" : "iphone",
+      "filename" : "posit_logo_v2-20@3x.png",
+      "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "LogoIcon-29@2x.png",
+      "filename" : "posit_logo_v2-29@2x-1.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "LogoIcon-29@3x.png",
+      "filename" : "posit_logo_v2-29@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "LogoIcon-40@2x.png",
+      "filename" : "posit_logo_v2-40@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "LogoIcon-40@3x.png",
+      "filename" : "posit_logo_v2-40@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "LogoIcon-60@2x.png",
+      "filename" : "posit_logo_v2-60@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "LogoIcon-60@3x.png",
+      "filename" : "posit_logo_v2-60@3x.png",
       "scale" : "3x"
     },
     {
+      "size" : "20x20",
+      "idiom" : "ipad",
+      "filename" : "posit_logo_v2-20.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "20x20",
+      "idiom" : "ipad",
+      "filename" : "posit_logo_v2-20@2x-1.png",
+      "scale" : "2x"
+    },
+    {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "LogoIcon-29.png",
+      "filename" : "posit_logo_v2-29.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "LogoIcon-29@2x.png",
+      "filename" : "posit_logo_v2-29@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "LogoIcon-40.png",
+      "filename" : "posit_logo_v2-40.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "LogoIcon-40@2x.png",
+      "filename" : "posit_logo_v2-40@2x-1.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "LogoIcon-76.png",
+      "filename" : "posit_logo_v2-76.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "LogoIcon-76@2x.png",
+      "filename" : "posit_logo_v2-76@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "LogoIcon-83.5@2x.png",
+      "filename" : "posit_logo_v2-83.5@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "LogoIcon-1024.png",
+      "filename" : "posit_logo_v2-1024.png",
       "scale" : "1x"
     }
   ],

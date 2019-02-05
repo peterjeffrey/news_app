@@ -143,10 +143,10 @@ class NavBarState extends State<NavBar> {
         context,
             AsyncSnapshot snapshot) {
           if (snapshot.hasError) {
-            return new CircularProgressIndicator();
+            return new Scaffold(body: new Container(),);
           } else if (snapshot.data ==
               null) {
-            return new CircularProgressIndicator();
+            return new Scaffold(body: new Container(),);
           } else {
             return new Scaffold(
                 appBar: new AppBar(
@@ -180,7 +180,7 @@ class NavBarState extends State<NavBar> {
                   child: new ListView(
                     children: <Widget>[
                       new UserAccountsDrawerHeader(
-                        accountName: new Text(widget.firstName + " " + widget.lastName),
+                        accountName: new Text(widget.firstName + " " + widget.lastName, style: new TextStyle(fontWeight: FontWeight.bold),),
 
 //                new FutureBuilder<FirebaseUser>(
 //                  future: FirebaseAuth.instance.currentUser(),
@@ -203,25 +203,6 @@ class NavBarState extends State<NavBar> {
 //                ),
                         accountEmail: new Text(widget.userName),
 
-//                new FutureBuilder<FirebaseUser>(
-//                  future: FirebaseAuth.instance.currentUser(),
-//                  builder: (context, AsyncSnapshot<FirebaseUser> snapshot) {
-//                    if (snapshot.connectionState == ConnectionState.done) {
-////                      return new Text(snapshot.data.uid);
-//                      String userNumber = snapshot.data.uid;
-//                      return new FutureBuilder(
-//                        future: getUser(userNumber),
-//                        builder: (context, AsyncSnapshot<User> snapshot) {
-//                          if (snapshot?.data == null) return new Center(child: new Text("Loading..."),);
-//                          return new Text(snapshot.data.email.toString());
-//                        },
-//                      );
-//                    }
-//                    else {
-//                      return new Text('Loading...');
-//                    }
-//                  },
-//                ),
                         currentAccountPicture: new Logo(),
                       ),
                       new ListTile(

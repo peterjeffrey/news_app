@@ -349,6 +349,7 @@ class GetOtherProfilePage extends StatelessWidget {
                                                           document.documentID,
                                                       posterID: userID,
                                                       datePosted: document['date_posted'],
+                                                      partisan: document['partisan'],
                                                     );
                                                   }).toList(),
                                                 ),

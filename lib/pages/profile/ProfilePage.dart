@@ -17,6 +17,8 @@ class ProfilePage extends StatelessWidget {
   final String userID;
   ProfilePage({this.userID, this.username});
 
+  //ensure that poster and
+
 
   @override
   Widget build(BuildContext context) {
@@ -236,6 +238,7 @@ class ProfilePage extends StatelessWidget {
                                                           (DocumentSnapshot
                                                               document) {
                                                     return new SocialFeedWidget(
+                                                      user_id: userID,
                                                       articleID: document['article'],
                                                       article_header: document[
                                                           'article_title'],
@@ -255,6 +258,8 @@ class ProfilePage extends StatelessWidget {
                                                           document.documentID,
                                                       posterID: userID,
                                                       datePosted: document['date_posted'],
+                                                      partisan: document['partisan'],
+                                                      posterUserName: username,
                                                     );
                                                   }).toList(),
                                                 ),

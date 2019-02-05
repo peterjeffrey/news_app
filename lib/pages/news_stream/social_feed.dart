@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/components/ColorFile.dart';
 import 'package:news_app/pages/news_stream/socialfeed_widget.dart';
 
 class SocialFeed extends StatelessWidget {
@@ -72,7 +73,15 @@ class SocialFeed extends StatelessWidget {
                           );
                         }
                       }else {
-                        return new CircularProgressIndicator();
+                        return  new Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            new Center(
+                              child: new CircularProgressIndicator(backgroundColor: purpleColor(),),
+                            ),
+
+                          ],
+                        );
                       }
                     });
               }

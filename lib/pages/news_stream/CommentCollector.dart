@@ -88,7 +88,7 @@ class _CommentCollectorState extends State<CommentCollector> {
                         new Padding(
                           padding: EdgeInsets.all(10.0),
                           child: new Text(
-                            "How do you lean?",
+                            "How do you lean on this article?",
                             style: new TextStyle(fontSize: 18.0),
                           ),
                         ),
