@@ -46,6 +46,7 @@ class _LoginPageState extends State<LoginPage> {
     double screen_width = MediaQuery.of(context).size.width;
 
     return new Scaffold(
+      backgroundColor: Colors.white,
       body: new Center(
         child: new ListView(
           children: <Widget>[
@@ -54,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                 new Padding(
                   padding: EdgeInsets.fromLTRB(0.0, 80.0, 0.0, 0.0),
                   child: new Image(
-                    image: new AssetImage('assets/courant_logo.png'),
+                    image: new AssetImage('assets/purpleLogo.png'),
                     width: screen_width * .8,
                     height: 150.0,
                   ),

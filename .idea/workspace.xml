@@ -10,57 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7669bd-1cbb-45b2-93bf-73dc99529247" name="Default" comment="commit on 10.23">
-      <change afterPath="$PROJECT_DIR$/assets/positLetters.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-1024.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-20@2x-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-20@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-20@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-29@2x-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-29@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-29@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-40.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-40@2x-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-40@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-40@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-60@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-60@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-76.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-76@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-83.5@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/posit_logo.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/posit_logo.imageset/posit_logo_v2-83.5@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/purpleLogo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/AppDelegate.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-1024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-20.png" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/posit_logo_v2-20.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-20@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-20@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-29.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-29@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-29@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-40@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-40@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-60@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-60@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-76.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-76@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/LogoIcon-83.5@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Base.lproj/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/components/logo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/logo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/Troubleshooting/NewsLandingPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/Troubleshooting/NewsLandingPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/CommentCollector.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/CommentCollector.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/news_stream/social_feed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/news_stream/social_feed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/profile/GetOtherProfilePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/GetOtherProfilePage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/profile/ProfilePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/ProfilePage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/root_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/root_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/tab_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/tab_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/LoginPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/LoginPage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
@@ -124,14 +76,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommentCollector.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CommentCollector.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/CommentCollector.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="138" column="61" selection-start-line="138" selection-start-column="61" selection-end-line="138" selection-end-column="61" />
+            <state relative-caret-position="220">
+              <caret line="141" column="26" lean-forward="true" selection-start-line="141" selection-start-column="26" selection-end-line="141" selection-end-column="26" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginPage.dart" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/pages/LoginPage.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="55" column="68" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="55" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pubspec.yaml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -147,7 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>launch</find>
       <find>url</find>
       <find>replace</find>
       <find>leftpage</find>
@@ -168,7 +137,6 @@
       <find>_launchUR</find>
       <find>16</find>
       <find>non-p</find>
-      <find>logo</find>
       <find>commentcoll</find>
       <find>showspe</find>
       <find>progress</find>
@@ -177,6 +145,8 @@
       <find>c</find>
       <find>circ</find>
       <find>circul</find>
+      <find>logo</find>
+      <find>asset</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -211,7 +181,6 @@
         <option value="$PROJECT_DIR$/lib/pages/profile/find_followers_search.dart" />
         <option value="$PROJECT_DIR$/lib/pages/profile/find_followers_search_widget.dart" />
         <option value="$PROJECT_DIR$/lib/pages/profile/find_followers.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/LoginPage.dart" />
         <option value="$PROJECT_DIR$/lib/pages/notifications/notifications_widget.dart" />
         <option value="$PROJECT_DIR$/lib/pages/notifications/notifications_home.dart" />
         <option value="$PROJECT_DIR$/lib/components/TextHandler.dart" />
@@ -227,7 +196,6 @@
         <option value="$PROJECT_DIR$/lib/pages/news_stream/CommentCollectorPopUp.dart" />
         <option value="$PROJECT_DIR$/lib/pages/profile/GetOtherProfilePage.dart" />
         <option value="$PROJECT_DIR$/lib/components/logo.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/pages/profile/ProfilePage.dart" />
         <option value="$PROJECT_DIR$/lib/pages/news_stream/social_feed.dart" />
         <option value="$PROJECT_DIR$/lib/pages/news_stream/FireNewsView.dart" />
@@ -236,12 +204,14 @@
         <option value="$PROJECT_DIR$/lib/pages/Troubleshooting/NewsLandingPage.dart" />
         <option value="$PROJECT_DIR$/lib/pages/news_stream/PostGetter.dart" />
         <option value="$PROJECT_DIR$/lib/pages/news_stream/CommentCollector.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/lib/pages/LoginPage.dart" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="49" />
-    <option name="y" value="135" />
+    <option name="x" value="117" />
+    <option name="y" value="154" />
     <option name="width" value="1379" />
     <option name="height" value="654" />
   </component>
@@ -447,7 +417,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="135" width="1379" height="654" extended-state="0" />
+    <frame x="117" y="154" width="1379" height="654" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
@@ -467,11 +437,11 @@
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Flutter Performance" order="8" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8053097" visible="true" weight="0.33631486" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8053097" visible="true" weight="0.33631486" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4869281" weight="0.32871014" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.76120555" weight="0.32161686" />
       <window_info id="Captures" order="2" weight="0.32949308" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23859386" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23859386" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.20679012" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -664,13 +634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="30" column="142" selection-start-line="30" selection-start-column="142" selection-end-line="30" selection-end-column="142" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/LoginPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-128">
-          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -889,13 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/root_page.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -975,13 +931,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/news_stream/CommentCollector.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="138" column="61" selection-start-line="138" selection-start-column="61" selection-end-line="138" selection-end-column="61" />
+        <state relative-caret-position="220">
+          <caret line="141" column="26" lean-forward="true" selection-start-line="141" selection-start-column="26" selection-end-line="141" selection-end-column="26" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/LoginPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="55" column="68" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="55" selection-end-column="68" />
         </state>
       </provider>
     </entry>
