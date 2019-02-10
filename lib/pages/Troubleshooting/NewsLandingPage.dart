@@ -74,8 +74,6 @@ class NewsLandingPage extends StatelessWidget {
         .where('article', isEqualTo: articleID)
         .where('user_id', isEqualTo: userID)
         .getDocuments();
-    print(user);
-    print(user.documents.length);
     return user.documents.length;
   }
 

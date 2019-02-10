@@ -74,6 +74,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         try {
                           await widget.auth
                               .sendPasswordResetEmail("$_email");
+                          Navigator.of(context).pop();
                           } catch (e) {
                           print(e);
                         }
